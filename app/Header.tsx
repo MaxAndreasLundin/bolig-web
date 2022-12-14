@@ -1,4 +1,5 @@
 import React from 'react'
+import ToggleMenu from './components/ToggleMenu';
 
 const Header = () => {
   return (
@@ -11,7 +12,7 @@ const Header = () => {
 
       {/*right*/}
       <div className='flex items-center justify-end'>
-        
+        <ToggleMenu />
       </div>
     </header>
   )
