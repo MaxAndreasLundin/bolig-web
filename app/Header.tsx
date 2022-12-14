@@ -7,7 +7,7 @@ const Header = () => {
 
       {/*left*/}
       <div className='flex items-center'>
-        <p className='p-5'>Bloig</p>
+        <p className='p-5'>Bolig</p>
       </div>
 
       {/*right*/}

@@ -28,3 +28,7 @@ a {
     background: black;
   }
 }
+
+.toggleMenu {
+  @apply flex flex-col w-[100%] h-[90vh] absolute top-16 transition-all duration-500;
+}
