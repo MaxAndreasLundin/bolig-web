@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
+import Link from "next/link";
 
 const ToggleMenu = () => {
   const [click, setClick] = useState<boolean>(false);
@@ -15,12 +16,26 @@ const ToggleMenu = () => {
 
   return (
     <>
-      <div className="block transform -translate-x-full" onClick={handleClick}>{ click ? <XIcon className="h-6"/> : <MenuIcon className="h-6"/>}</div>
+      <div className="block transform -translate-x-full" onClick={handleClick}>
+        {click ? <XIcon className="h-6" /> : <MenuIcon className="h-6" />}
+      </div>
 
-      <ul className={click ? "toggleMenu bg-blue-900 right-0 z-10" : "toggleMenu -right-full"}>
-        <li className="items-center text-center p-4">Home</li>
-        <li className="items-center text-center p-4">About</li>
-        <li className="items-center text-center p-4">Contact</li>
+      <ul
+        className={
+          click
+            ? "toggleMenu bg-blue-900 right-0 z-10"
+            : "toggleMenu -right-full"
+        }
+      >
+        <li className="items-center text-center p-4" onClick={closeMenu}>
+          <Link href="/">Home</Link>
+        </li>
+        <li className="items-center text-center p-4" onClick={closeMenu}>
+          <Link href="/">About</Link>
+        </li>
+        <li className="items-center text-center p-4" onClick={closeMenu}>
+          <Link href="/contact">Contact</Link>
+        </li>
       </ul>
     </>
   );
