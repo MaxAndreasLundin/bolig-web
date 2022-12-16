@@ -29,6 +29,10 @@ a {
   }
 }
 
-.toggleMenu {
-  @apply flex flex-col w-[100%] h-[90vh] absolute top-16 transition-all duration-500;
+.link-web {
+  @apply p-4 inline-block hover:bg-green-700 hover:rounded-md hover:scale-110;
+}
+
+.link-mobile {
+  @apply p-4 border-b hover:bg-green-700 hover:rounded-md hover:scale-110;
 }
