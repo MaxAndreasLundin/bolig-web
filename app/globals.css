@@ -36,3 +36,7 @@ a {
 .link-mobile {
   @apply p-4 border-b hover:bg-green-700 hover:rounded-md hover:scale-110;
 }
+
+.input-field {
+  @apply border border-black bg-white rounded-full text-sm h-10 pl-2;
+}
