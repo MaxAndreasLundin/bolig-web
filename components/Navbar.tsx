@@ -29,7 +29,11 @@ const Navbar = () => {
           <p className="hidden sm:flex md:text-lg lg:text-xl ">Logga in</p>
           <UserIcon className="h-6" />
           <div className="block sm:hidden cursor-pointer" onClick={handleClick}>
-            {click ? <XIcon className="h-6" /> : <MenuIcon className="h-6 hover:text-gray-200" />}
+            {click ? (
+              <XIcon className="h-6" />
+            ) : (
+              <MenuIcon className="h-6 hover:text-gray-200" />
+            )}
           </div>
         </div>
         {/*mobile */}
