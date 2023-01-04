@@ -2,7 +2,7 @@
 
 import { FormEvent } from "react";
 
-export default function JSbasedForm() {
+export default function SignUpForm() {
   // Handle the submit event on form submit.
   const handleSubmit = async (event: FormEvent) => {
     // Stop the form from submitting and refreshing the page.
