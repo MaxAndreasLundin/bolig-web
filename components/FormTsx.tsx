@@ -28,22 +28,22 @@ const registration = () => {
 
     setFormData(defaultFormData); //Clears the input field
 
-    const JSONdata = JSON.stringify(defaultFormData);
-    const endpoint = "http://localhost:3333/auth/signup";
-
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
+    // Send the form data to our API and get a response.
+    const response = await fetch("http://localhost:3333/auth/signup", {
+      // Body of the request is the JSON data we created above.
+      body: JSON.stringify(formData),
       // Tell the server we're sending JSON.
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSONdata,
-    };
-    const response = await fetch(endpoint, options);
+      // The method is POST because we are sending data.
+      method: "POST",
+    });
+
+    // Get the response data from server as JSON.
+    // If server returns the name submitted, that means the form works.
     const result = await response.json();
-    alert(`Is this your full name: ${result.data}`);
+    alert(`Sign up complete: ${result.formData}`);
   };
   return (
     <>
