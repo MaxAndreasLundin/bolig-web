@@ -2,7 +2,7 @@
 
 import { FormEvent } from "react";
 
-export default function PageWithJSbasedForm() {
+export default function JSbasedForm() {
   // Handle the submit event on form submit.
   const handleSubmit = async (event: FormEvent) => {
     // Stop the form from submitting and refreshing the page.
@@ -13,12 +13,12 @@ export default function PageWithJSbasedForm() {
 
     // Get data from the form.
     const data = {
-      first: form.first.value as string,
-      last: form.last.value as string,
+      email: form.email.value as string,
+      password: form.password.value as string,
     };
 
     // Send the form data to our API and get a response.
-    const response = await fetch("/api/form", {
+    const response = await fetch("http://localhost:3333/auth/signup", {
       // Body of the request is the JSON data we created above.
       body: JSON.stringify(data),
       // Tell the server we're sending JSON.
@@ -37,14 +37,14 @@ export default function PageWithJSbasedForm() {
   return (
     <div className="p-5 content-center justify-center flex">
       <form onSubmit={handleSubmit} className="m-3">
-        <label htmlFor="first" className="m-3">
-          First Name
+        <label htmlFor="email" className="m-3">
+          email:
         </label>
-        <input type="text" id="first" name="first" required />
-        <label htmlFor="last" className="m-3">
-          Last Name
+        <input type="text" id="email" name="email" required />
+        <label htmlFor="password" className="m-3">
+          password:
         </label>
-        <input type="text" id="last" name="last" required />
+        <input type="text" id="password" name="password" required />
         <button type="submit" className="m-3">
           Submit
         </button>
