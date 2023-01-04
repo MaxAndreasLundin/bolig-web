@@ -15,6 +15,8 @@ export default function JSbasedForm() {
     const data = {
       email: form.email.value as string,
       password: form.password.value as string,
+      firstName: form.firstName.value as string,
+      lastName: form.lastName.value as string,
     };
 
     // Send the form data to our API and get a response.
@@ -32,7 +34,7 @@ export default function JSbasedForm() {
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
     const result = await response.json();
-    alert(`Is this your full name: ${result.data}`);
+    alert(`Sign up complete: ${result.data}`);
   };
   return (
     <div className="p-5 content-center justify-center flex">
@@ -45,7 +47,15 @@ export default function JSbasedForm() {
           password:
         </label>
         <input type="text" id="password" name="password" required />
-        <button type="submit" className="m-3">
+        <label htmlFor="firstName" className="m-3">
+          First name:
+        </label>
+        <input type="text" id="firstName" name="firstName" />
+        <label htmlFor="lastName" className="m-3">
+          Last name:
+        </label>
+        <input type="text" id="lastName" name="lastName" />
+        <button type="submit" className="m-3 bg-green-600 rounded-full">
           Submit
         </button>
       </form>
