@@ -55,7 +55,7 @@ export default function SignUpForm() {
           Last name:
         </label>
         <input type="text" id="lastName" name="lastName" />
-        <button type="submit" className="m-3 bg-green-600 rounded-full">
+        <button type="submit" className="m-3 bg-violet-700 rounded-full">
           Submit
         </button>
       </form>
