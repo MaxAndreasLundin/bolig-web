@@ -35,13 +35,19 @@ export default function PageWithJSbasedForm() {
     alert(`Is this your full name: ${result.data}`);
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="first">First Name</label>
+    <div className="p-5 content-center justify-center flex">
+      <form onSubmit={handleSubmit} className="m-3">
+        <label htmlFor="first" className="m-3">
+          First Name
+        </label>
         <input type="text" id="first" name="first" required />
-        <label htmlFor="last">Last Name</label>
+        <label htmlFor="last" className="m-3">
+          Last Name
+        </label>
         <input type="text" id="last" name="last" required />
-        <button type="submit">Submit</button>
+        <button type="submit" className="m-3">
+          Submit
+        </button>
       </form>
     </div>
   );
