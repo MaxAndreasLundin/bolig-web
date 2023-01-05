@@ -1,16 +1,16 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import { FormDataProps } from "./FormData";
 
-const defaultFormData = {
+const defaultFormData: FormDataProps = {
   email: "",
   password: "", 
-  password2: "", 
   firstName: "",
   lastName: "",
 };
 
-const registration = () => {
+const FormRegistration = () => {
   const [formData, setFormData] = useState(defaultFormData);
   const { firstName, lastName, email, password } = formData;
 
@@ -116,4 +116,4 @@ const registration = () => {
   );
 };
 
-export default registration;
+export default FormRegistration;
