@@ -1,11 +1,17 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FormDataProps } from "./FormData";
+
+type FormDataProps = {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+};
 
 const defaultFormData: FormDataProps = {
   email: "",
-  password: "", 
+  password: "",
   firstName: "",
   lastName: "",
 };
@@ -25,29 +31,27 @@ const FormRegistration = () => {
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(formData);
 
-      e.preventDefault();
-      console.log(formData);
-  
-      setFormData(defaultFormData); //Clears the input field
-  
-      // Send the form data to our API and get a response.
-      const response = await fetch("http://localhost:3333/auth/signup", {
-        // Body of the request is the JSON data we created above.
-        body: JSON.stringify(formData),
-        // Tell the server we're sending JSON.
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // The method is POST because we are sending data.
-        method: "POST",
-      });
-  
-      // Get the response data from server as JSON.
-      // If server returns the name submitted, that means the form works.
-      const result = await response.json();
-      alert(`Sign up complete: ${result.formData}`);
+    setFormData(defaultFormData); //Clears the input field
 
+    // Send the form data to our API and get a response.
+    const response = await fetch("http://localhost:3333/auth/signup", {
+      // Body of the request is the JSON data we created above.
+      body: JSON.stringify(formData),
+      // Tell the server we're sending JSON.
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // The method is POST because we are sending data.
+      method: "POST",
+    });
+
+    // Get the response data from server as JSON.
+    // If server returns the name submitted, that means the form works.
+    const result = await response.json();
+    alert(`Sign up complete: ${result.formData}`);
   };
   return (
     <>
@@ -55,7 +59,9 @@ const FormRegistration = () => {
         onSubmit={onSubmit}
         className="bg-neutral-800 text-white flex flex-col p-5 m-5 shadow-2xl rounded-xl"
       >
-        <h1 className="flex item-center justify-center text-4xl font-semibold py-5">Create new Account</h1>
+        <h1 className="flex item-center justify-center text-4xl font-semibold py-5">
+          Create new Account
+        </h1>
         <div className="flex justify-center items-center gap-4">
           <div className="flex flex-col py-4">
             <label htmlFor="firstName" className="pl-2 pb-2">
@@ -85,12 +91,22 @@ const FormRegistration = () => {
         </div>
 
         <div className="flex flex-col py-4">
-          <label htmlFor="email" className="pl-2 pb-2">Email</label>
-          <input type="email" id="email" value={email} onChange={onChange} className="rounded-xl text-gray-800"/>
+          <label htmlFor="email" className="pl-2 pb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={onChange}
+            className="rounded-xl text-gray-800"
+          />
         </div>
 
         <div className="flex flex-col py-4">
-          <label htmlFor="password" className="pl-2 pb-2">Password</label>
+          <label htmlFor="password" className="pl-2 pb-2">
+            Password
+          </label>
           <input
             type="password"
             id="password"
@@ -101,17 +117,23 @@ const FormRegistration = () => {
         </div>
 
         <div className="flex justify-center gap-4">
-          <button className="bg-blue-600 hover:bg-blue-700 h-10 w-32 rounded-xl my-4 shadow-2xl ease-in-out duration-300 hover:scale-105" type="submit">
+          <button
+            className="bg-blue-600 hover:bg-blue-700 h-10 w-32 rounded-xl my-4 shadow-2xl ease-in-out duration-300 hover:scale-105"
+            type="submit"
+          >
             Upload post
           </button>
           <Link href={"/"}>
-          <button className="bg-red-600 hover:bg-red-700 h-10 w-32 rounded-xl my-4 shadow-2xl ease-in-out duration-300 hover:scale-105" type="button">
-            Cancel
-          </button></Link>
+            <button
+              className="bg-red-600 hover:bg-red-700 h-10 w-32 rounded-xl my-4 shadow-2xl ease-in-out duration-300 hover:scale-105"
+              type="button"
+            >
+              Cancel
+            </button>
+          </Link>
         </div>
       </form>
-      <div>
-      </div>
+      <div></div>
     </>
   );
 };
