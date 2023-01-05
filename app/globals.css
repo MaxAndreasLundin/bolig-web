@@ -37,6 +37,7 @@ a {
   @apply p-4 border-b hover:bg-green-700 hover:rounded-md hover:scale-110;
 }
 
+
 .input-field {
   @apply border border-gray-600 bg-white rounded-full text-black text-sm h-10 pl-2;
 }

@@ -2,7 +2,9 @@
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
 import { UserIcon } from "@heroicons/react/outline";
 import React, { useState } from "react";
+
 import Link from "next/link";
+
 
 const Navbar = () => {
   const [click, setClick] = useState<boolean>(false);
@@ -15,7 +17,9 @@ const Navbar = () => {
     <header className="bg-green-600 sticky top-0 h-20 z-50 grid grid-cols-4">
       {/*left*/}
       <div className="flex items-center col-span-1">
+
         <Link href={"/"}><h1 className="w-full text-3xl pl-2">Bolig</h1></Link>
+
       </div>
 
       {/*right*/}
@@ -26,12 +30,14 @@ const Navbar = () => {
           <li className="link-web">Nyheter</li>
           <li className="link-web">Kontakt</li>
         </ul>
+
         <div className="flex items-center gap-2 border-2 p-2 sm:px-3 sm:p-1 rounded-full hover:bg-green-700">
             
               <Link href={"login"}><p className="hidden sm:flex md:text-lg lg:text-xl cursor-pointer">Logga in</p></Link>
               <Link href={"login"}><UserIcon className="h-6" /></Link>
           <div className="block sm:hidden cursor-pointer" onClick={handleClick}>
             {click ? <XIcon className="h-6" /> : <MenuIcon className="h-6 hover:text-gray-200" />}
+
           </div>
         </div>
         {/*mobile */}
