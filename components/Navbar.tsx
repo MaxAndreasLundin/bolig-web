@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-green-600 sticky top-0 h-20 z-50 grid grid-cols-4">
+    <header className="bg-neutral-800 sticky top-0 h-20 z-50 grid grid-cols-4">
       {/*left*/}
       <div className="flex items-center col-span-1">
 
@@ -25,15 +25,15 @@ const Navbar = () => {
       {/*right*/}
       <div className="flex items-center justify-end col-span-3 pr-2 gap-2">
         <ul className="hidden sm:flex md:text-lg lg:text-xl cursor-pointer">
-          <li className="link-web">Sälja bostad</li>
-          <li className="link-web">Sök mäklare</li>
-          <li className="link-web">Nyheter</li>
-          <li className="link-web">Kontakt</li>
+          <li className="link-web">Sell housing</li>
+          <li className="link-web">Search broker</li>
+          <li className="link-web">News</li>
+          <li className="link-web">Contact</li>
         </ul>
 
-        <div className="flex items-center gap-2 border-2 p-2 sm:px-3 sm:p-1 rounded-full hover:bg-green-700">
+        <div className="flex items-center gap-2 border-2 p-2 sm:px-3 sm:p-1 rounded-full hover:bg-neutral-900">
             
-              <Link href={"login"}><p className="hidden sm:flex md:text-lg lg:text-xl cursor-pointer">Logga in</p></Link>
+              <Link href={"login"}><p className="hidden sm:flex md:text-lg lg:text-xl cursor-pointer">Login</p></Link>
               <Link href={"login"}><UserIcon className="h-6" /></Link>
           <div className="block sm:hidden cursor-pointer" onClick={handleClick}>
             {click ? <XIcon className="h-6" /> : <MenuIcon className="h-6 hover:text-gray-200" />}
@@ -44,16 +44,16 @@ const Navbar = () => {
         <div
           className={
             click
-              ? "fixed right-0 top-20 w-[50%] h-full border-l border-l-black bg-green-600 ease-in-out duration-500 sm:hidden"
+              ? "fixed right-0 top-20 w-[50%] h-full border-l border-l-black bg-neutral-800 ease-in-out duration-500 sm:hidden"
               : "fixed right-[-100%] top-20 h-full  w-[50%] transition-all duration-500"
           }
         >
           <h1 className="w-full text-3xl m-4">Bolig</h1>
           <ul className="p-4 cursor-pointer" onClick={() => setClick(false)}>
-            <li className="link-mobile">Sälja bostad</li>
-            <li className="link-mobile">Sök mäklare</li>
-            <li className="link-mobile">Nyheter</li>
-            <li className="link-mobile">Kontakt</li>
+            <li className="link-mobile">Sell housing</li>
+            <li className="link-mobile">Search broker</li>
+            <li className="link-mobile">News</li>
+            <li className="link-mobile">Contact</li>
           </ul>
         </div>
       </div>
