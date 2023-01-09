@@ -30,11 +30,11 @@ a {
 }
 
 .link-web {
-  @apply p-4 inline-block hover:bg-green-700 hover:rounded-md hover:scale-110;
+  @apply p-4 inline-block hover:bg-sky-900 hover:rounded-md hover:scale-110;
 }
 
 .link-mobile {
-  @apply p-4 border-b hover:bg-green-700 hover:rounded-md hover:scale-110;
+  @apply flex items-center justify-center p-4 w-full border-b hover:bg-neutral-700 hover:rounded-md hover:scale-110;
 }
 
 
