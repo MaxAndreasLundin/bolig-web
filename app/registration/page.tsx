@@ -5,7 +5,7 @@ import FormTsx from "../../components/FormRegistration";
 const registration = () => {
   return (
     <div className="bg-neutral-900 h-[90vh]">
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center h-full">
         <FormTsx />
       </div>
     </div>
