@@ -1,14 +1,8 @@
 "use client"
-import React, { useState } from 'react'
-import { IoSendSharp, IoClose } from 'react-icons/io5';
-import { BsChatDots } from 'react-icons/bs';
+import React from 'react'
+import { IoSendSharp} from 'react-icons/io5';
 
 const ChatBox = () => {
-  const [click, setClick] = useState(true);
-
-  const handleClick = () => {
-    setClick(!click)
-  }
 
   return (
     <div className='bg-neutral-900 flex flex-col w-64 h-64 rounded-l-2xl'>
