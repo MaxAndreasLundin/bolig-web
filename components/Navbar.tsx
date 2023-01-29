@@ -28,6 +28,7 @@ const Navbar = () => {
           <li className="link-web">Search Broker</li>
           <li className="link-web">News</li>
           <li className="link-web">Contact</li>
+          <Link href={"chat"}><li className="link-web">Chat</li></Link>
         </ul>
 
         <div className="flex items-center gap-2 border-2 p-2 sm:px-3 sm:p-1 rounded-full hover:bg-sky-700">
@@ -54,6 +55,7 @@ const Navbar = () => {
         <li className="link-mobile">Search Broker</li>
         <li className="link-mobile">News</li>
         <li className="link-mobile">Contact</li>
+        <Link href={"chat"} className="link-mobile"><li>Chat</li></Link>
       </ul>
     </div>
     </>
