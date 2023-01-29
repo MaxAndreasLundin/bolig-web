@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
-import FormChatLogin from '../../components/FormChatLogin'
+import FormChatLogin from '../../components/Chat/FormChatLogin'
+import FormChatRegistration from '../../components/Chat/FormChatRegistration';
 
 const page = () => {
   const [click, setClick] = useState<boolean>(true);
@@ -22,11 +23,12 @@ const page = () => {
           </div>
           
           <div className='flex flex-col justify-center items-center row-span-2'>
-            <div className='flex flex-col'>
+            <FormChatRegistration />
+            {/* <div className='flex flex-col'>
                 <div className='flex'>
-                  {click ? <FormChatLogin /> : <p>Register User</p>}
+                  {click ? <FormChatLogin /> : <FormChatRegistration />}
                 </div>
-            </div>
+            </div> */}
           
           </div>
         </div>
