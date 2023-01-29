@@ -23,13 +23,9 @@ const page = () => {
           </div>
           
           <div className='flex flex-col justify-center items-center row-span-2'>
-            <FormChatRegistration />
-            {/* <div className='flex flex-col'>
-                <div className='flex'>
+            <div className='flex flex-col'>
                   {click ? <FormChatLogin /> : <FormChatRegistration />}
-                </div>
-            </div> */}
-          
+            </div>
           </div>
         </div>
       </div>

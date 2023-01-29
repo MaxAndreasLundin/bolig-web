@@ -31,12 +31,12 @@ const FormChatLogin = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="border rounded-xl w-96 p-10 shadow-2xl">
+    <form onSubmit={onSubmit} className="border-2 rounded-xl w-96 p-10 shadow-2xl">
       <div className="flex justify-center gap-4 mb-4">
         <h2 className="text-2xl font-bold">Login</h2>
         <FaUser className="text-3xl" />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-4">
         <label htmlFor="username">Username</label>
         <input
           type="text"
@@ -47,7 +47,7 @@ const FormChatLogin = () => {
           className="text-black rounded-xl mt-2"
         />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-2">
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -58,9 +58,11 @@ const FormChatLogin = () => {
           className="text-black rounded-xl mt-2"
         />
       </div>
-      <button type="submit" className="border rounded-xl h-10 w-16 mt-4">
-        Login
-      </button>
+      <div className="flex justify-center items-center">
+        <button type="submit" className="border-2 rounded-xl h-10 w-40 sm:w-20 mt-4 shadow-2xl hover:scale-105">
+          Login
+        </button>
+      </div>
     </form>
   );
 };
