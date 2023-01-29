@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-    <header className="sticky top-0 h-20 z-50 grid grid-cols-4">
+    <header className="sticky h-20 top-0 z-50 grid grid-cols-4">
       {/*left*/}
       <div className="flex items-center col-span-1">
         <Link href={"/"}><h1 className="w-full text-3xl pl-2">Bolig</h1></Link>
