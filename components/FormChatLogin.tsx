@@ -31,9 +31,10 @@ const FormChatLogin = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="border rounded-xl h-96 w-96 p-10 shadow-2xl">
-      <div className="flex justify-center">
-        <FaUser className="text-4xl" />
+    <form onSubmit={onSubmit} className="border rounded-xl w-96 p-10 shadow-2xl">
+      <div className="flex justify-center gap-4 mb-4">
+        <h2 className="text-2xl font-bold">Login</h2>
+        <FaUser className="text-3xl" />
       </div>
       <div className="flex flex-col">
         <label htmlFor="username">Username</label>
