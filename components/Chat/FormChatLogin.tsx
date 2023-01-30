@@ -42,7 +42,7 @@ const FormChatLogin = () => {
     const result = await response.json();
     alert(`Login successful: ${result.loginInput}`);
 
-    localStorage.setItem("token", result);
+    localStorage.setItem("token", JSON.stringify(result));
 
     const bearer = localStorage.getItem("token");
 
