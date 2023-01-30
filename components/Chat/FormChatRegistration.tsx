@@ -38,7 +38,7 @@ const FormChatRegistration = () => {
     });
 
     const result = await response.json();
-    alert(`Register complete: ${result.formData}`);
+    alert(`Register complete: ${result.registerInput}`);
   };
 
   return (
