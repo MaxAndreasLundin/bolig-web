@@ -1,5 +1,5 @@
 "use client";
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 type LoginDataProps = {
@@ -34,19 +34,18 @@ const FormChatLogin = () => {
         headers: {
           "Content-Type": "application/json",
         },
-
         method: "POST",
       }
     );
 
-    const result = await response.json();
-    alert(`Login successful: ${result.loginInput}`);
-
-    localStorage.setItem("token", JSON.stringify(result));
-
-    const bearer = localStorage.getItem("token");
-
-    console.log(bearer);
+    if (response.ok) {
+      const result = await response.json();
+      alert(`Login successful: ${result.result}`);
+      localStorage.setItem("token", JSON.stringify(result));
+      window.location.href = "/chatUserAccount";
+    } else {
+      alert("user not found");
+    }
   };
 
   return (
