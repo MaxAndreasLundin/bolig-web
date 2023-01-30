@@ -3,18 +3,18 @@ import React, { FormEvent, useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 type LoginDataProps = {
-  username: string;
+  email: string;
   password: string;
 };
 
 const defaultLogin: LoginDataProps = {
-  username: "",
+  email: "",
   password: "",
 };
 
 const FormChatLogin = () => {
   const [loginInput, setLoginInput] = useState(defaultLogin);
-  const { username, password } = loginInput;
+  const { email, password } = loginInput;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginInput((prevState) => ({
@@ -23,28 +23,50 @@ const FormChatLogin = () => {
     }));
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoginInput(defaultLogin);
 
-    console.log(loginInput);
+    const response = await fetch(
+      "http://localhost:8080/api/v1/auth/authenticate",
+      {
+        body: JSON.stringify(loginInput),
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        method: "POST",
+      }
+    );
+
+    const result = await response.json();
+    alert(`Login successful: ${result.loginInput}`);
+
+    localStorage.setItem("token", result);
+
+    const bearer = localStorage.getItem("token");
+
+    console.log(bearer);
   };
 
   return (
-    <form onSubmit={onSubmit} className="border-2 rounded-xl w-96 p-10 shadow-2xl">
+    <form
+      onSubmit={onSubmit}
+      className="p-10 border-2 shadow-2xl rounded-xl w-96"
+    >
       <div className="flex justify-center gap-4 mb-4">
         <h2 className="text-2xl font-bold">Login</h2>
         <FaUser className="text-3xl" />
       </div>
       <div className="flex flex-col mb-4">
-        <label htmlFor="username">Username</label>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           placeholder="..."
-          id="username"
-          value={username}
+          id="email"
+          value={email}
           onChange={handleChange}
-          className="text-black rounded-xl mt-2"
+          className="mt-2 text-black rounded-xl"
         />
       </div>
       <div className="flex flex-col mb-2">
@@ -55,11 +77,14 @@ const FormChatLogin = () => {
           id="password"
           value={password}
           onChange={handleChange}
-          className="text-black rounded-xl mt-2"
+          className="mt-2 text-black rounded-xl"
         />
       </div>
-      <div className="flex justify-center items-center">
-        <button type="submit" className="border-2 rounded-xl h-10 w-40 sm:w-20 mt-4 shadow-2xl hover:scale-105">
+      <div className="flex items-center justify-center">
+        <button
+          type="submit"
+          className="w-40 h-10 mt-4 border-2 shadow-2xl rounded-xl sm:w-20 hover:scale-105"
+        >
           Login
         </button>
       </div>
