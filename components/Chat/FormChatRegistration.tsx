@@ -5,14 +5,12 @@ type RegisterDataProps = {
   name: string;
   email: string;
   password: string;
-  role: string;
 };
 
 const defaultRegister: RegisterDataProps = {
   name: "",
   email: "",
   password: "",
-  role: "user",
 };
 
 const FormChatRegistration = () => {
@@ -26,17 +24,27 @@ const FormChatRegistration = () => {
     }));
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setRegisterInput(defaultRegister);
 
-    console.log(registerInput);
+    const response = await fetch("http://localhost:8080/api/v1/auth/register", {
+      body: JSON.stringify(registerInput),
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      method: "POST",
+    });
+
+    const result = await response.json();
+    alert(`Register complete: ${result.formData}`);
   };
 
   return (
     <form
       onSubmit={onSubmit}
-      className="border-2 rounded-xl w-96 p-10 shadow-2xl"
+      className="p-10 border-2 shadow-2xl rounded-xl w-96"
     >
       <div className="flex justify-center gap-4 mb-4">
         <h2 className="text-2xl font-bold">Register</h2>
@@ -49,7 +57,7 @@ const FormChatRegistration = () => {
           id="name"
           value={name}
           onChange={handleInput}
-          className="text-black rounded-xl mt-2"
+          className="mt-2 text-black rounded-xl"
         />
       </div>
       <div className="flex flex-col mb-4">
@@ -59,7 +67,7 @@ const FormChatRegistration = () => {
           id="email"
           value={email}
           onChange={handleInput}
-          className="text-black rounded-xl mt-2"
+          className="mt-2 text-black rounded-xl"
         />
       </div>
       <div className="flex flex-col mb-2">
@@ -69,11 +77,14 @@ const FormChatRegistration = () => {
           id="password"
           value={password}
           onChange={handleInput}
-          className="text-black rounded-xl mt-2"
+          className="mt-2 text-black rounded-xl"
         />
       </div>
-      <div className="flex justify-center items-center">
-        <button type="submit" className="border-2 rounded-xl h-10 w-40 sm:w-20 mt-4 shadow-2xl hover:scale-105">
+      <div className="flex items-center justify-center">
+        <button
+          type="submit"
+          className="w-40 h-10 mt-4 border-2 shadow-2xl rounded-xl sm:w-20 hover:scale-105"
+        >
           Sign up
         </button>
       </div>
