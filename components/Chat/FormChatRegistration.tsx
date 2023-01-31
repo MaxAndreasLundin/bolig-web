@@ -33,18 +33,11 @@ const FormChatRegistration = () => {
       headers: {
         "Content-Type": "application/json",
       },
-
       method: "POST",
     });
 
     const result = await response.json();
     alert(`Register complete: ${result.registerInput}`);
-
-    localStorage.setItem("token", JSON.stringify(result));
-
-    const bearer = localStorage.getItem("token");
-
-    console.log(bearer);
   };
 
   return (
