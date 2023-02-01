@@ -2,10 +2,39 @@
 
 import React, { useState, useRef, useEffect } from "react";
 
+interface ChatMessage {
+  human: boolean;
+  message: string;
+}
+
+const getChatMessages = async () => {
+  const token = localStorage.getItem("token");
+  return await fetch("http://localhost:8080/api/v1/messages", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "GET",
+  })
+    .then((resp) => resp.json())
+    .then((data) => data as ChatMessage[]);
+};
+
+const postChatMessage = async (message: string) => {
+  const token = localStorage.getItem("token");
+  return await fetch("http://localhost:8080/api/v1/messages", {
+    body: message,
+    headers: {
+      "Content-Type": "text/plain",
+      Authorization: `Bearer ${token}`,
+    },
+    method: "POST",
+  })
+    .then((resp) => resp.json())
+    .then((data) => data as ChatMessage[]);
+};
+
 const ChatBot: React.FC = () => {
-  const [messages, setMessages] = useState<string[]>([
-    "Hello, I am Marvin. How can I help you today?",
-  ]);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState("");
   const chatWindowRef = useRef<HTMLDivElement>(null);
 
@@ -13,24 +42,44 @@ const ChatBot: React.FC = () => {
     if (chatWindowRef.current) {
       chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, [chatMessages]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    const doWork = async () => {
+      const chatMessages = await getChatMessages();
+      console.log(chatMessages);
+      setChatMessages(chatMessages);
+    };
+    doWork();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setMessages([
-      ...messages,
-      `Max: ${inputValue}`,
-      `Marvin: Hi Max, I'm here to help!`,
+    setChatMessages([
+      ...chatMessages,
+      {
+        human: true,
+        message: inputValue,
+      },
+      {
+        human: false,
+        message: "...",
+      },
     ]);
     setInputValue("");
+
+    const response = await postChatMessage(inputValue);
+    setChatMessages(response);
   };
 
   return (
     <div className="flex h-full max-h-full flex-col rounded-lg bg-gray-900 p-8">
       <div ref={chatWindowRef} className="flex-1 overflow-auto">
-        {messages.map((message, index) => (
+        {chatMessages.map((chatMessage, index) => (
           <div key={index} className="mb-2">
-            <p className="text-white">{message}</p>
+            <p className="text-white">
+              {chatMessage.human ? "You" : "Marv"}: {chatMessage.message}
+            </p>
           </div>
         ))}
       </div>
