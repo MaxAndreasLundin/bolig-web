@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import AdminPanel from "../../components/AdminPanel";
 
 interface ChatMessage {
   human: boolean;
@@ -114,6 +115,7 @@ const ChatBotPage: React.FC = () => {
   return (
     <div className="flex h-screen max-h-96 justify-center">
       <ChatBot />
+      <AdminPanel />
     </div>
   );
 };
