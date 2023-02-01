@@ -112,10 +112,20 @@ const ChatBot: React.FC = () => {
 };
 
 const ChatBotPage: React.FC = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  };
+
   return (
     <div className="flex h-screen max-h-96 justify-center">
       <ChatBot />
       <AdminPanel />
+      <div>
+        <button onClick={handleLogout} className="h-10 w-16 rounded-xl border">
+          Logout
+        </button>
+      </div>
     </div>
   );
 };
