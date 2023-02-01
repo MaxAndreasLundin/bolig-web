@@ -26,16 +26,15 @@ const ChatBot: React.FC = () => {
   };
 
   return (
-    <div
-      ref={chatWindowRef}
-      className="max-h-full overflow-auto rounded-lg bg-gray-900 p-8"
-    >
-      {messages.map((message, index) => (
-        <div key={index} className="mb-2">
-          <p className="text-white">{message}</p>
-        </div>
-      ))}
-      <form onSubmit={handleSubmit}>
+    <div className="flex h-full max-h-full flex-col rounded-lg bg-gray-900 p-8">
+      <div ref={chatWindowRef} className="flex-1 overflow-auto">
+        {messages.map((message, index) => (
+          <div key={index} className="mb-2">
+            <p className="text-white">{message}</p>
+          </div>
+        ))}
+      </div>
+      <form onSubmit={handleSubmit} className="w-full">
         <input
           type="text"
           className="input-field mb-2 w-full"
