@@ -85,7 +85,7 @@ const ChatBot: React.FC = () => {
   }
 
   return (
-    <div className="flex h-full max-h-full flex-col rounded-lg bg-gray-900 p-8">
+    <div className="m-6 flex h-96 max-h-full flex-col rounded-lg bg-gray-900 p-8">
       <div ref={chatWindowRef} className="flex-1 overflow-auto">
         {augmentedChatMessages.map((chatMessage, index) => (
           <div key={index} className="mb-2">
@@ -118,9 +118,9 @@ const ChatBotPage: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen max-h-96 justify-center">
-      <ChatBot />
+    <div className="flex flex-col items-center justify-center">
       <AdminPanel />
+      <ChatBot />
       <div>
         <button onClick={handleLogout} className="h-10 w-16 rounded-xl border">
           Logout

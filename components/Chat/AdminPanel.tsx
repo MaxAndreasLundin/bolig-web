@@ -51,18 +51,23 @@ const AdminPanel: React.FC = () => {
             <th className="px-4 py-2">Name</th>
             <th className="px-4 py-2">Email</th>
             <th className="px-4 py-2">Role</th>
-            <th className="px-4 py-2">Delete</th>
+            <th className="px-4 py-2"></th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id} className="bg-gray-500">
+            <tr key={user.id} className="bg-gray-900">
               <td className="border px-4 py-2">{user.id}</td>
               <td className="border px-4 py-2">{user.name}</td>
               <td className="border px-4 py-2">{user.email}</td>
               <td className="border px-4 py-2">{user.role}</td>
-              <td className="border px-4 py-2">
-                <button onClick={() => handleDelete(user.id)}>Delete</button>
+              <td className="flex flex-col items-center border px-4 py-2">
+                <button
+                  className="rounded-full bg-blue-600 p-2 text-white"
+                  onClick={() => handleDelete(user.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
