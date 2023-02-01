@@ -34,13 +34,17 @@ const Page = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.href = "/";
-  }
+  };
 
   return (
-    <PrivateRoute>
-      <div>Welcome to the Chat User Account page!</div>
-      <button onClick={handleLogout} className="border h-10 w-16 rounded-xl">Logout</button>
-    </PrivateRoute>
+    <div>
+      <PrivateRoute>
+        <div>Welcome to the Chat User Account page!</div>
+        <button onClick={handleLogout} className="h-10 w-16 rounded-xl border">
+          Logout
+        </button>
+      </PrivateRoute>
+    </div>
   );
 };
 
