@@ -20,6 +20,13 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Forms.jsx", "app/contact/page.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/Forms.jsx",
+    "app/contact/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }
