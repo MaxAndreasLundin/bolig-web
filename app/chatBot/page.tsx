@@ -47,7 +47,6 @@ const ChatBot: React.FC = () => {
   useEffect(() => {
     const doWork = async () => {
       const chatMessages = await getChatMessages();
-      console.log(chatMessages);
       setChatMessages(chatMessages);
     };
     doWork();
@@ -72,10 +71,22 @@ const ChatBot: React.FC = () => {
     setChatMessages(response);
   };
 
+  let augmentedChatMessages = chatMessages;
+
+  if (augmentedChatMessages.length === 0) {
+    augmentedChatMessages = [
+      {
+        human: false,
+        message:
+          "Hello my name is Marv, how can I help you become less retared?",
+      },
+    ];
+  }
+
   return (
     <div className="flex h-full max-h-full flex-col rounded-lg bg-gray-900 p-8">
       <div ref={chatWindowRef} className="flex-1 overflow-auto">
-        {chatMessages.map((chatMessage, index) => (
+        {augmentedChatMessages.map((chatMessage, index) => (
           <div key={index} className="mb-2">
             <p className="text-white">
               {chatMessage.human ? "You" : "Marv"}: {chatMessage.message}

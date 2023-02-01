@@ -44,7 +44,7 @@ const FormChatLogin = () => {
       alert(`Login successful: ${token}`);
 
       localStorage.setItem("token", token);
-      window.location.href = "/chatUserAccount";
+      window.location.href = "/chatBot";
     } else {
       alert("user not found");
     }
