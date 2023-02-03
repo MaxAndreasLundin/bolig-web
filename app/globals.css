@@ -32,6 +32,11 @@ a {
   }
 }
 
+
+.bg-bolig {
+  @apply bg-gradient-to-t from-[#393a97] to-[#01094c]
+}
+
 .link-web {
   @apply p-4 inline-block hover:bg-sky-900 hover:rounded-md hover:scale-110;
 }
