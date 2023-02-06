@@ -14,10 +14,10 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="bg-gradient-to-t from-[#393a97] to-[#01094c]">
+      <body>
         <Navbar />
-        <Footer />
         {children}
+        <Footer />
       </body>
     </html>
   );
