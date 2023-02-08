@@ -1,35 +1,37 @@
-import Link from "next/link";
-import React from "react";
+"use client"
+import React, { useState } from "react";
+import LoginForm from "../../components/login/LoginForm";
+import RegistrationForm from "../../components/login/RegistrationForm";
 
 const login = () => {
+  const [click, setClick] = useState(true);
+
+  const handleClick = () => {
+    setClick(!click);
+  }
+
   return (
-    <div className="bg-neutral-900 text-white flex flex-1 flex-col items-center justify-center">
-      <div className="bg-neutral-800 flex flex-col items-center justify-center p-10 rounded-xl">
-        <h1 className="text-2xl font-bold">Logga in</h1>
-        <div className="flex flex-col gap-4 m-8">
-          <div className="flex gap-4">
-            <input
-              className="input-field"
-              type="email"
-              name="name"
-              placeholder="Email..."
-            />
-            <input
-              className="input-field"
-              type="password"
-              name="password"
-              placeholder="Pasword..."
-            />
+    <div className="bg-bolig flex flex-1 flex-col items-center justify-center border">
+      <div className="grid w-full grid-cols-1 grid-rows-3 sm:grid-cols-2 sm:grid-rows-1">
+        <div className="flex flex-col items-center justify-center border">
+        <h1 className="text-5xl font-bold">Welcome,</h1>
+          <p>Sign in or create an account to access your account.</p>
+          <div className="mt-4 flex items-center justify-center gap-1">
+            <p>Click here to</p>
+            <button
+              onClick={handleClick}
+              className="h-10 w-20 rounded-xl bg-orange-500 shadow-2xl outline-none hover:scale-105"
+            >
+              {click! ? "Register" : "Login"}
+            </button>
           </div>
-        <button className="bg-blue-600 flex justify-center w-full rounded-full p-2 border border-gray-600 hover:bg-blue-700">Sign in</button>
         </div>
-        <p>
-          No account? Create a new account by{" "}
-          <Link href={"registration"}>
-            <span className="underline cursor-pointer">Click here!</span>
-          </Link>
-        </p>
-        <p className="text-blue-500 text-xs pt-2">Forgot password, Click here.</p>
+
+        <div className="row-span-2 flex flex-col items-center justify-center border">
+        <div className="flex flex-col">
+            {click ? <LoginForm /> : <RegistrationForm />}
+          </div>
+        </div>
       </div>
     </div>
   );
