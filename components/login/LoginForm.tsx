@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 type LoginDataProps = {
@@ -25,7 +25,16 @@ const LoginForm = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoginInput(defaultLogin);
-    console.log(loginInput)
+    console.log(loginInput);
+
+    const response = await fetch("http://localhost:3333/auth/signin", {
+      body: JSON.stringify(loginInput),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    });
+
+    const result = await response.json();
+    alert(`Login complete: ${result.loginInput}`);
 
     /* const response = await fetch(
       "http://localhost:8080/api/v1/auth/authenticate",
@@ -91,6 +100,6 @@ const LoginForm = () => {
       </div>
     </form>
   );
-}
+};
 
-export default LoginForm
+export default LoginForm;
