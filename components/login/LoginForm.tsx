@@ -25,8 +25,9 @@ const LoginForm = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoginInput(defaultLogin);
+    console.log(loginInput)
 
-    const response = await fetch(
+    /* const response = await fetch(
       "http://localhost:8080/api/v1/auth/authenticate",
       {
         body: JSON.stringify(loginInput),
@@ -46,7 +47,7 @@ const LoginForm = () => {
       window.location.href = "/chatBot";
     } else {
       alert("user not found");
-    }
+    } */
   };
 
   return (
@@ -83,7 +84,7 @@ const LoginForm = () => {
       <div className="flex items-center justify-center">
         <button
           type="submit"
-          className="mt-4 h-10 w-40 rounded-xl border-2 shadow-2xl hover:scale-105 sm:w-20"
+          className="mt-4 h-10 w-40 rounded-xl border-2 shadow-2xl hover:scale-105 hover:bg-sky-700 sm:w-20"
         >
           Login
         </button>
