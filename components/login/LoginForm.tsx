@@ -35,28 +35,6 @@ const LoginForm = () => {
 
     const result = await response.json();
     alert(`Login complete: ${result.loginInput}`);
-
-    /* const response = await fetch(
-      "http://localhost:8080/api/v1/auth/authenticate",
-      {
-        body: JSON.stringify(loginInput),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      }
-    );
-
-    if (response.ok) {
-      const result = await response.json();
-      const token = result.token;
-      alert(`Login successful: ${token}`);
-
-      localStorage.setItem("token", token);
-      window.location.href = "/chatBot";
-    } else {
-      alert("user not found");
-    } */
   };
 
   return (
