@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import LoginForm from "../../components/login/LoginForm";
 import RegistrationForm from "../../components/login/RegistrationForm";
 
-const login = () => {
+const Login = () => {
   const [click, setClick] = useState(true);
 
   const handleClick = () => {
@@ -37,4 +37,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

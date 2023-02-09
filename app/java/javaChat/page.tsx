@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import FormChatLogin from "../../components/Chat/FormChatLogin";
-import FormChatRegistration from "../../components/Chat/FormChatRegistration";
+import FormChatLogin from "../../../components/Chat/FormChatLogin";
+import FormChatRegistration from "../../../components/Chat/FormChatRegistration";
 
-const page = () => {
+const JavaChatLogin = () => {
   const [click, setClick] = useState<boolean>(true);
 
   const handleClick = () => {
@@ -11,7 +11,7 @@ const page = () => {
   };
 
   return (
-    <div className="flex flex-1">
+    <div className="bg-bolig flex flex-1">
       <div className="grid w-full grid-cols-1 grid-rows-3 sm:grid-cols-2 sm:grid-rows-1">
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-5xl font-bold">Welcome,</h1>
@@ -37,4 +37,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default JavaChatLogin;

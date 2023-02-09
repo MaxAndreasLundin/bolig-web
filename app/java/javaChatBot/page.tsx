@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import AdminPanel from "../../components/Chat/AdminPanel";
+import AdminPanel from "../../../components/Chat/AdminPanel";
 
 interface ChatMessage {
   human: boolean;
