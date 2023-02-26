@@ -6,7 +6,7 @@ interface TypeOfLivingProps {
 
 const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
   const [typeOfLiving, setTypeOfLiving] = useState<string[]>([]);
-  const [allTypeOfLiving, setAllTypeOfLiving] = useState(false);
+  const [allTypes, setAllTypes] = useState<string[]>(["townHouse", "house", "apartment"]);
 
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
@@ -19,6 +19,7 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
       //Funktionen hämtar först det tidigare värdet på tillståndet med hjälp av prevTypeOfLiving-parametern och
       //lägger sedan till namnet på den nyvalda kryssrutan till arrayen med hjälp av spread-operatorn.
       //Detta skapar en ny array som innehåller alla tidigare valda bo typ samt den nyvalda.
+      setAllTypes([])
     } else {
       setTypeOfLiving((prevTypeOfLivings) =>
         prevTypeOfLivings.filter((houseType) => houseType !== name)
@@ -30,19 +31,27 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
     //onSelectTypes(typeOfLiving); // Call the function to send the data to the main component
   };
 
-  const handleAllLivingTypes = (e: ChangeEvent<HTMLInputElement>) => {
-    setAllTypeOfLiving(e.target.checked);
-    if (e.target.checked) {
-      setTypeOfLiving(["townHouse", "house", "apartment"]);
+  const handlePetTypesChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    
+    if (checked) {
+      setAllTypes(["townHouse", "house", "apartment"]); // If checked, set state to array of pet types
+      setTypeOfLiving([])
     } else {
-      setTypeOfLiving([]);
+      setAllTypes([]); // If unchecked, reset state to empty array
     }
+
+    console.log(allTypes)
   };
 
   // Use useEffect to monitor changes to the typeOfLiving state and send updated data to main component
   useEffect(() => {
-    onTypeOfLivingSelected(typeOfLiving);
-  }, [typeOfLiving, onTypeOfLivingSelected]);
+    if (typeOfLiving.length > 0) {
+      onTypeOfLivingSelected(typeOfLiving);
+    } else {
+      onTypeOfLivingSelected(allTypes);
+    }
+  }, [typeOfLiving, allTypes, onTypeOfLivingSelected]);
 
   return (
     <div>
@@ -97,21 +106,21 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
       </label>
 
       <label
-        htmlFor="selectAll"
+        htmlFor="allTypes"
         className={`float-left w-20 hover:border ${
-          allTypeOfLiving ? "bg-green-500" : "bg-red-500"
+          allTypes.length > 0 ? "bg-green-500" : "bg-red-500"
         }`}
-      >
+        >
         <input
-          type="checkbox"
-          id="selectAll"
-          name="selectAll"
-          checked={allTypeOfLiving}
-          onChange={handleAllLivingTypes}
-          className="absolute -top-6"
+        type="checkbox"
+        id="allTypes"
+        name="allTypes"
+        checked={allTypes.length > 0}
+        onChange={handlePetTypesChange}
+        className="absolute -top-6"
         />
         <span className="block p-2 text-center">Select All</span>
-      </label>
+        </label>
     </div>
   );
 };
