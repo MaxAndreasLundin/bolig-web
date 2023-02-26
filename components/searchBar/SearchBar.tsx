@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 
 interface SearchDataProps {
   search: string,
-  livingType: string[],
+  typeOfLiving: string[],
   numbOfRoom: string
 }
 
