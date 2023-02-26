@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import SelectForm from "./searchFormElement/SelectForm";
+import NumbOfRooms from "./searchFormElement/NumbOfRooms";
 import TypeOfLiving from "./searchFormElement/TypeOfLiving";
 
 type SearchFormProps = {
@@ -9,7 +9,7 @@ type SearchFormProps = {
 const SearchForm = (props: SearchFormProps) => {
   const [searchInput, setSearchInput] = useState("");
   const [selectedTypesOfLiving, setSelectedTypesOfLiving] = useState<string[]>([]);
-  const [numbOfRooms, setNumbOfRooms] = useState("");
+  const [numbOfRooms, setNumbOfRooms] = useState("1");
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
@@ -19,11 +19,11 @@ const SearchForm = (props: SearchFormProps) => {
     setSelectedTypesOfLiving(selectedHousing);
   }
 
-
-  const HandleSelect = (room: string) => {
-    setNumbOfRooms(room)
+  const HandleSelect = (typeOfRoom: string) => {
+    setNumbOfRooms(typeOfRoom)
   }
 
+  
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -43,7 +43,7 @@ const SearchForm = (props: SearchFormProps) => {
       
         <TypeOfLiving onTypeOfLivingSelected={handleTypeOfLiving} />
 
-        <SelectForm onSelectForm={HandleSelect} />
+        <NumbOfRooms onSelectRooms={HandleSelect} />
       </div>
 
       <button type="submit">Search</button>
