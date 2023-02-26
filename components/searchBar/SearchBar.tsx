@@ -6,6 +6,7 @@ interface SearchDataProps {
   search: string,
   typeOfLiving: string[],
   numbOfRoom: string
+  livingArea: string
 }
 
 const SearchBar = () => {
