@@ -3,10 +3,10 @@ import { GoSearch } from "react-icons/go";
 import SearchForm from "./SearchForm";
 
 interface SearchDataProps {
-  search: string,
   typeOfLiving: string[],
   numbOfRoom: string
   livingArea: string
+  highestPrice: string
 }
 
 const SearchBar = () => {
@@ -19,7 +19,7 @@ const SearchBar = () => {
   const getFormData = (searchData: SearchDataProps) => {
     const newSearch2 = {
       ...searchData,
-      address: searchLocationInput,
+      city: searchLocationInput,
     };
     console.log("Form Data:", newSearch2);
     console.log("Handelform:", getFormData);
