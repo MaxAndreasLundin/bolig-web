@@ -48,16 +48,16 @@ const SearchForm = (props: SearchFormProps) => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="text-gray-600">
+    <form onSubmit={onSubmit} className="bg-white flex flex-col w-full grid-rows-3 rounded-2xl text-gray-600">
 
-      <div className="float-left m-1 overflow-auto border">
+      <div className="">
       
         <TypeOfLiving onTypeOfLivingSelected={handleTypeOfLiving} />
 
+      </div>
+      <div>
         <NumbOfRooms onSelectRooms={handleNumbOfRooms} />
-
         <LivingArea onLivingArea={handleLivingArea} />
-
         <HighestPrice onHighestPrice={handleHighestPrice} />
 
       </div>

@@ -1,4 +1,7 @@
 import React, { ChangeEvent, useState, useEffect } from "react";
+import { GoHome } from "react-icons/go";
+import { MdOutlineLocationCity, MdDashboard } from "react-icons/md"
+import { GiFamilyHouse } from "react-icons/gi"
 
 interface TypeOfLivingProps {
   onTypeOfLivingSelected: (selectedHousing: string[]) => void;
@@ -54,11 +57,11 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
   }, [typeOfLiving, allTypes, onTypeOfLivingSelected]);
 
   return (
-    <div>
+    <div className="flex flex-col md:flex-row text-white py-4 gap-2">
       <label
         htmlFor="townHouse"
-        className={`float-left w-20 hover:border ${
-          typeOfLiving.includes("townHouse") ? "bg-green-500" : "bg-red-500"
+        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
+          typeOfLiving.includes("townHouse") ? "bg-blue-900" : "bg-transparent text-black"
         }`}
       >
         <input
@@ -69,12 +72,15 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
           onChange={handleCheckboxChange}
           className="absolute -top-6"
         />
-        <span className="block p-2 text-center">Town House</span>
+        <div className="flex justify-center items-center">
+          <GiFamilyHouse />
+          <span className="block p-2 text-center">Town House</span>
+        </div>
       </label>
       <label
         htmlFor="house"
-        className={`float-left w-20 hover:border ${
-          typeOfLiving.includes("house") ? "bg-green-500" : "bg-red-500"
+        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
+          typeOfLiving.includes("house") ? "bg-blue-900" : "bg-transparent text-black"
         }`}
       >
         <input
@@ -85,13 +91,16 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
           onChange={handleCheckboxChange}
           className="absolute -top-6"
         />
-        <span className="block p-2 text-center">House</span>
+        <div className="flex justify-center items-center">
+          <GoHome />
+          <span className="block p-2 text-center">House</span>
+        </div>
       </label>
 
       <label
         htmlFor="apartment"
-        className={`float-left w-20 hover:border ${
-          typeOfLiving.includes("apartment") ? "bg-green-500" : "bg-red-500"
+        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
+          typeOfLiving.includes("apartment") ? "bg-blue-900" : "bg-transparent text-black"
         }`}
       >
         <input
@@ -102,13 +111,16 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
           onChange={handleCheckboxChange}
           className="absolute -top-6"
         />
-        <span className="block p-2 text-center">Apartment</span>
+        <div className="flex justify-center items-center">
+          <MdOutlineLocationCity />
+          <span className="block p-2 text-center">Apartment</span>
+        </div>
       </label>
 
       <label
         htmlFor="allTypes"
-        className={`float-left w-20 hover:border ${
-          allTypes.length > 0 ? "bg-green-500" : "bg-red-500"
+        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
+          allTypes.length > 0 ? "bg-blue-900" : "bg-transparent text-black"
         }`}
         >
         <input
@@ -119,7 +131,10 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
         onChange={handlePetTypesChange}
         className="absolute -top-6"
         />
-        <span className="block p-2 text-center">Select All</span>
+        <div className="flex justify-center items-center">
+          <MdDashboard />
+          <span className="block p-2 text-center">Select All</span>
+        </div>
         </label>
     </div>
   );

@@ -1,16 +1,20 @@
 "use client"
-
-import SearchBar from "../components/searchBar/SearchBar";
+import Image from "next/image";
+import houseImg from "./image/house8.jpg"
 
 export default function Home() {
 
   return (
-    <div className="bg-bolig w-full flex flex-1 flex-col justify-center items-center relative border">
-      <div className="absolute top-0 w-full">
-        <SearchBar />
+    <div className="bg-white w-full flex flex-1 flex-col justify-between items-center relative">
+      <div className="flex flex-col justify-center items-center pt-20 z-10 text-white">
+        <h1 className="text-7xl font-extrabold mb-4">Bolig</h1>
+        <p className="text-2xl">A new home awaits, find it now!</p>
       </div>
-      <h1 className="text-6xl font-extrabold mb-4">Homepage</h1>
-      <p>A new home awaits, find it now!</p>
+
+      <div className="opacity-90">
+        <Image src={houseImg} alt="picture of house" layout="fill" objectFit="cover"/>
+      </div>
+      
     </div>
   );
 }
