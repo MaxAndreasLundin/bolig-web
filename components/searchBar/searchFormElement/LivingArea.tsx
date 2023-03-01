@@ -11,9 +11,9 @@ const LivingArea = ({onLivingArea}: LivingAreaProps) => {
   }
 
   return (
-    <div>
-      <p className='text-white'>Minimum living area m<sup>2</sup></p>
-      <select onChange={handleSelectArea}>
+    <div className='mb-2'>
+      <p className='font-bold py-2'>Min. Living area m<sup>2</sup></p>
+      <select onChange={handleSelectArea} className="w-full rounded-md border-blue-900">
         <option value="900">All</option>
         <option value="20">20</option>
         <option value="30">30</option>

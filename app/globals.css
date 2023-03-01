@@ -45,7 +45,7 @@ a {
 }
 
 .link-mobile {
-  @apply flex items-center justify-center p-4 w-full border-b hover:bg-neutral-700 hover:rounded-md hover:scale-110;
+  @apply flex items-center justify-center p-4 w-full border-b hover:bg-blue-100 hover:rounded-md hover:scale-110;
 }
 
 

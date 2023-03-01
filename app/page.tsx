@@ -1,20 +1,23 @@
-"use client"
+"use client";
 import Image from "next/image";
-import houseImg from "./image/house8.jpg"
 
 export default function Home() {
-
   return (
-    <div className="bg-white w-full flex flex-1 flex-col justify-between items-center relative">
-      <div className="flex flex-col justify-center items-center pt-20 z-10 text-white">
-        <h1 className="text-7xl font-extrabold mb-4">Bolig</h1>
-        <p className="text-2xl">A new home awaits, find it now!</p>
+    <div className="relative flex w-full flex-1 flex-col items-center justify-between bg-white">
+      <div className="z-10 flex flex-col items-center justify-center pt-32 text-white">
+        <h1 className="mb-4 text-7xl font-extrabold drop-shadow-2xl">Bolig</h1>
+        <p className="text-2xl md:text-3xl drop-shadow-2xl">A new home awaits, find it now!</p>
       </div>
 
       <div className="opacity-90">
-        <Image src={houseImg} alt="picture of house" layout="fill" objectFit="cover"/>
+        <Image
+          src="/Image/house8.jpg"
+          alt="picture of house"
+          fill
+          style={{ objectFit: "cover" }}
+          priority={true}
+        />
       </div>
-      
     </div>
   );
 }

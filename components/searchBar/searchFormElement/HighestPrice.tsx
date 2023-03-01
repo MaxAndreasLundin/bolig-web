@@ -10,9 +10,9 @@ const HighestPrice = ({onHighestPrice}: HighestPriceProps) => {
   }
 
   return (
-    <div>
-      <p className='text-white'>Highest Price</p>
-      <select onChange={handleSelect}>
+    <div className='mb-2'>
+      <p className='font-bold py-2'>Highest Price</p>
+      <select onChange={handleSelect} className="w-full rounded-md border-blue-900">
         <option value="20000000">Nothing</option>
         <option value="200000">200 000 kr</option>
         <option value="500000">500 000 kr</option>

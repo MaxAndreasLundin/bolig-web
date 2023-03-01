@@ -11,9 +11,9 @@ const NumbOfRooms = ({onSelectRooms}: NumbOfRoomsProps) => {
   }
 
   return (
-    <div>
-      <p className="text-white">Minimum number of roooms</p>
-        <select onChange={handleSelect}>
+    <div className='mb-2'>
+      <p className="font-bold py-2">Min. Number of roooms</p>
+        <select onChange={handleSelect} className="w-full rounded-md border-blue-900">
           <option value="15">All</option>
           <option value="1">1 Room</option>
           <option value="2">2 Room</option>

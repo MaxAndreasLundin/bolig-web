@@ -10,7 +10,7 @@ interface SearchDataProps {
 }
 
 const SearchBar = () => {
-  const [searchLocationInput, setSearchLocationInput] = useState("d");
+  const [searchLocationInput, setSearchLocationInput] = useState("");
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchLocationInput(e.target.value);
@@ -28,15 +28,18 @@ const SearchBar = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="flex items-center justify-center border-none md:border-2 rounded-full md:shadow-sm bg-white">
+
+      <div className="flex items-center justify-center border-2 border-blue-900 rounded-full md:shadow-sm bg-white">
         <input
           type="text"
           value={searchLocationInput}
           onChange={handleSearchInput}
           placeholder="Search your new home..."
-          className="flex-grow bg-transparent border-2 border-blue-900 rounded-2xl p-2 sm:px-6 outline-none text-sm sm:text-base text-gray-600 placeholder:text-xs placeholder:sm:text-base"
+          className="flex-grow bg-transparent rounded-2xl p-2  border-none sm:px-6 outline-none text-sm sm:text-base text-gray-600 placeholder:text-xs placeholder:sm:text-base"
         />
-        <GoSearch className="hidden sm:flex justify-center items-center sm:mr-2 text-2xl text-gray-600" />
+        <div className="bg-blue-900 rounded-full md:mx-2 w-full">
+          <GoSearch className="hidden md:flex justify-center items-center p-1 m-1 text-2xl text-white h-6 w-6 " />
+        </div>
       </div>
 
       {searchLocationInput && <SearchForm onSearchForm={getFormData} />}
