@@ -7,6 +7,8 @@ export default function Home() {
       <div className="z-10 flex flex-col items-center justify-center pt-32 text-white">
         <h1 className="mb-4 text-7xl font-extrabold drop-shadow-2xl">Bolig</h1>
         <p className="text-2xl md:text-3xl drop-shadow-2xl">A new home awaits, find it now!</p>
+
+        <button>Test</button>
       </div>
 
       <div className="opacity-90">

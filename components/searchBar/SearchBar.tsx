@@ -23,6 +23,7 @@ const SearchBar = () => {
     };
 
     console.log("New Search:", newSearch);
+    window.location.href = "/residenceForSale"
   };
 
   return (
