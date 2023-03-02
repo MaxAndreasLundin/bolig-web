@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import bgImg from "../public/house9.jpg"
 import Link from "next/link";
 
 export default function Home() {
@@ -17,12 +18,11 @@ export default function Home() {
 
       </div>
 
-      <div className="opacity-90">
+      <div className="absolute w-full h-full opacity-90">
         <Image
-          src="/Image/house8.jpg"
-          alt="picture of house"
+          src={bgImg}
+          alt="house"
           fill
-          style={{ objectFit: "cover" }}
           priority={true}
         />
       </div>

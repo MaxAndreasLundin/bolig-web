@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 grid grid-cols-4 bg-blue-50 p-1 px-2 sm:p-2">
+      <header className="sticky top-0 z-50 grid grid-cols-4 bg-blue-200 p-1 px-2 sm:p-2">
         {/*left*/}
         <div className="relative flex items-center h-14 text-blue-900">
           <Link href={"/"} className="flex justify-center items-center gap-1">
