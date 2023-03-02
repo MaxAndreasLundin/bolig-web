@@ -4,10 +4,10 @@ import { MdOutlineLocationCity, MdDashboard } from "react-icons/md"
 import { GiFamilyHouse } from "react-icons/gi"
 
 interface TypeOfLivingProps {
-  onTypeOfLivingSelected: (selectedHousing: string[]) => void;
+  onTypeOfResidence: (selectedHousing: string[]) => void;
 }
 
-const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
+const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
   const [typeOfLiving, setTypeOfLiving] = useState<string[]>([]);
   const [allTypes, setAllTypes] = useState<string[]>(["townHouse", "house", "apartment"]);
 
@@ -34,15 +34,15 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
     //onSelectTypes(typeOfLiving); // Call the function to send the data to the main component
   };
 
-  const handlePetTypesChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleAllTypesChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     
     if (checked) {
       setAllTypes(["townHouse", "house", "apartment"]); // If checked, set state to array of pet types
       setTypeOfLiving([])
-    } else {
+    } /* else {
       setAllTypes([]); // If unchecked, reset state to empty array
-    }
+    } */
 
     console.log(allTypes)
   };
@@ -50,11 +50,11 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
   // Use useEffect to monitor changes to the typeOfLiving state and send updated data to main component
   useEffect(() => {
     if (typeOfLiving.length > 0) {
-      onTypeOfLivingSelected(typeOfLiving);
+      onTypeOfResidence(typeOfLiving);
     } else {
-      onTypeOfLivingSelected(allTypes);
+      onTypeOfResidence(allTypes);
     }
-  }, [typeOfLiving, allTypes, onTypeOfLivingSelected]);
+  }, [typeOfLiving, allTypes, onTypeOfResidence]);
 
   return (
     <div className="flex flex-col md:flex-row text-white py-4 gap-2">
@@ -128,7 +128,7 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
         id="allTypes"
         name="allTypes"
         checked={allTypes.length > 0}
-        onChange={handlePetTypesChange}
+        onChange={handleAllTypesChange}
         className="absolute -top-6"
         />
         <div className="flex justify-center items-center">
@@ -140,4 +140,4 @@ const TypeOfLiving = ({ onTypeOfLivingSelected }: TypeOfLivingProps) => {
   );
 };
 
-export default TypeOfLiving;
+export default TypeOfResidence;

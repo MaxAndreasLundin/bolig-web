@@ -2,7 +2,7 @@ import React, { FormEvent, useState } from "react";
 import HighestPrice from "./searchFormElement/HighestPrice";
 import LivingArea from "./searchFormElement/LivingArea";
 import NumbOfRooms from "./searchFormElement/NumbOfRooms";
-import TypeOfLiving from "./searchFormElement/TypeOfLiving";
+import TypeOfResidence from "./searchFormElement/TypeOfResidence";
 import { GoSearch } from "react-icons/go";
 import { SearchDataProps } from "./SearchBar";
 
@@ -11,35 +11,35 @@ interface SearchFormProps {
 }
 
 const SearchForm = ({ onSearchForm }: SearchFormProps) => {
-  const [typeOfLiving, setTypeOfLiving] = useState<string[]>([]);
-  const [numbOfRooms, setNumbOfRooms] = useState("15");
-  const [livingArea, setLivingArea] = useState("250");
-  const [highestPrice, setHighestPrice] = useState("20000000");
+  const [typeOfResidence, setTypeOfResidence] = useState<string[]>([]);
+  const [room, setRoom] = useState(15);
+  const [area, setArea] = useState(250);
+  const [price, setPrice] = useState(20000000);
 
   const handleTypeOfLiving = (selectedHousing: string[]) => {
-    setTypeOfLiving(selectedHousing);
+    setTypeOfResidence(selectedHousing);
   };
 
-  const handleNumbOfRooms = (typeOfRoom: string) => {
-    setNumbOfRooms(typeOfRoom);
+  const handleNumbOfRooms = (typeOfRoom: number) => {
+    setRoom(typeOfRoom);
   };
 
-  const handleLivingArea = (livingArea: string) => {
-    setLivingArea(livingArea);
+  const handleLivingArea = (livingArea: number) => {
+    setArea(livingArea);
   };
 
-  const handleHighestPrice = (highestPrice: string) => {
-    setHighestPrice(highestPrice);
+  const handleHighestPrice = (highestPrice: number) => {
+    setPrice(highestPrice);
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newSearch = {
-      typeOfLiving,
-      numbOfRooms,
-      livingArea,
-      highestPrice,
+      typeOfResidence,
+      room,
+      area,
+      price,
     };
     onSearchForm(newSearch);
   };
@@ -50,7 +50,7 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
       className="flex w-full flex-col rounded-2xl bg-blue-50 pt-6 text-gray-600 lg:w-[80%]"
     >
       <div className="">
-        <TypeOfLiving onTypeOfLivingSelected={handleTypeOfLiving} />
+        <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
       <div className="mb-6  border-b pb-6 md:mb-8 md:pb-8 lg:w-[40%]">
         <NumbOfRooms onSelectRooms={handleNumbOfRooms} />
