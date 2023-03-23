@@ -36,7 +36,7 @@ export const ResidenceList: ResidenceListProps[] = [
   {
     id: 3,
     title: "Falugatan 19",
-    city: "Göteborg",
+    city: "Stockholm",
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum ipsum magni magnam rerum facere architecto autem hic, dolor at optio veniam amet voluptas laboriosam explicabo blanditiis sapiente excepturi error inventore, libero sequi. Illum inventore, quod eius repudiandae doloremque perferendis facilis sit qui consectetur quos vitae cupiditate ipsam earum, accusamus eum?",
     typeOfResidence: "apartment",
     price: 1000000,

@@ -10,16 +10,23 @@ const residenceForSale = () => {
     const result = localStorage.getItem("searchData")
 
     if(result) {
-      const {area, city, price, room, typeOfResidence } = JSON.parse(result);
+      const { city, price, room } = JSON.parse(result);
 
+      if (price === 0 && room === 0) {
+        return value.city.toLowerCase().includes(city.toLowerCase());
+      } else if ( price === 0) {
+        return value.city.toLowerCase().includes(city.toLowerCase()) &&
+        value.room.toString().includes(room)  
+      } else if ( room === 0) {
+        return value.city.toLowerCase().includes(city.toLowerCase()) &&
+        value.price.toString().includes(price)
+      }
       return (
       value.city.toLowerCase().includes(city.toLowerCase()) &&
-      value.price.toString().includes(price)
-      /* value.typeOfResidence.includes(typeOfResidence) */
+      value.price.toString().includes(price) &&
+      value.room.toString().includes(room)
       )
     }
-    return true
-
   })
 
   return (

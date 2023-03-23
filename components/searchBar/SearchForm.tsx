@@ -5,6 +5,7 @@ import TypeOfResidence from "./searchFormElement/TypeOfResidence";
 import { GoSearch } from "react-icons/go";
 import { SearchDataProps } from "./SearchBar";
 import { selectPrice } from "./searchFormElement/SelectPrice";
+import { selectNumbOfRooms } from "./searchFormElement/SelectNumbOfRooms";
 
 interface SearchFormProps {
   onSearchForm: (newSearch: SearchDataProps) => void;
@@ -12,7 +13,7 @@ interface SearchFormProps {
 
 const SearchForm = ({ onSearchForm }: SearchFormProps) => {
   const [typeOfResidence, setTypeOfResidence] = useState<string[]>([]);
-  const [room, setRoom] = useState(15);
+  const [room, setRoom] = useState(0);
   const [area, setArea] = useState(250);
   const [price, setPrice] = useState(0);
 
@@ -20,8 +21,8 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
     setTypeOfResidence(selectedHousing);
   };
 
-  const handleNumbOfRooms = (typeOfRoom: number) => {
-    setRoom(typeOfRoom);
+  const handleNumbOfRooms = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setRoom(Number(e.target.value));
   };
 
   const handleLivingArea = (livingArea: number) => {
@@ -30,20 +31,18 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
 
   const handleHighestPrice = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPrice(Number(e.target.value));
-    console.log(price)
   };
-  
+
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     const newSearch = {
       typeOfResidence,
       room,
       area,
       price,
     };
-    console.log("end",price)
-    console.log("new",newSearch)
+
     onSearchForm(newSearch);
   };
 
@@ -56,11 +55,24 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
       <div className="mb-6  border-b pb-6 md:mb-8 md:pb-8 lg:w-[40%]">
+        
         <select onChange={handleHighestPrice}>
-          <option value="" className="w-full rounded-md border-blue-900">Select</option>
-          {selectPrice.map((value) => <option key={value.id} value={value.value}>{value.view} kr</option>)}
+          <option value="">Select</option>
+          {selectPrice.map((data) => (
+            <option key={data.id} value={data.value}>
+              {data.view} kr
+            </option>
+          ))}
         </select>
-        <NumbOfRooms onSelectRooms={handleNumbOfRooms} />
+
+        <select onChange={handleNumbOfRooms}>
+          <option value="">Select</option>
+          {selectNumbOfRooms.map((data) => (
+            <option key={data.id} value={data.value}>{data.view}</option>
+          ))}
+        </select>
+
+        {/* <NumbOfRooms onSelectRooms={handleNumbOfRooms} /> */}
         <LivingArea onLivingArea={handleLivingArea} />
       </div>
 
