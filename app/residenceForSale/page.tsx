@@ -1,55 +1,50 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import ResidenceCard from '../../components/card/ResidenceCard'
-import { ResidenceList } from '../../components/helpers/ResidenceList'
+import { ResidenceListProps } from '../../components/helpers/ResidenceList'
 
 
 const residenceForSale = () => {
+  const [search, setSearch] = useState<ResidenceListProps[]>([]);
+
+  const fetchSearchResults = async () => {
+    try {
+      const response = await fetch("http://localhost:3333/....", {
+        headers: {"Content-Type": "application/json"},
+        method: "GET",
+      });
+      const result = await response.json();
+      setSearch(result);
+    } catch (error) {
+      //handle fetch error
+    }
+  };
+
+  useEffect(() => {
+    fetchSearchResults();
+  }, []);
   
-  const filterList = ResidenceList.filter((value) => {
-    /* const result = localStorage.getItem("searchData")
-
-    if(result) {
-      const { city, price, room } = JSON.parse(result);
-
-      if (price === 0 && room === 0) {
-        return value.city.toLowerCase().includes(city.toLowerCase());
-      } else if ( price === 0) {
-        return value.city.toLowerCase().includes(city.toLowerCase()) &&
-        value.room.toString().includes(room)  
-      } else if ( room === 0) {
-        return value.city.toLowerCase().includes(city.toLowerCase()) &&
-        value.price.toString().includes(price)
-      }
-      return (
-      value.city.toLowerCase().includes(city.toLowerCase()) &&
-      value.price.toString().includes(price) &&
-      value.room.toString().includes(room)
-      )
-    } */
-  })
-
   return (
     <div className='bg-white text-gray-500'>
       <div className='p-2 my-10 border-b'>
         <h1 className='text-4xl font-semibold pb-4'>Residence for sale</h1>
+        <div>
+          {search.map((item) => (
+            <div key={item.id}>
+              <ResidenceCard 
+                id={item.id}
+                title={item.title}
+                city={item.city}
+                description={item.description}
+                typeOfResidence={item.typeOfResidence}
+                price={item.price}
+                room={item.room}
+                area={item.area}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-      {filterList.map((resident) => {
-        return (
-          <div key={resident.id}>
-            <ResidenceCard 
-              id={resident.id}
-              title={resident.title}
-              city={resident.city}
-              description={resident.description}
-              typeOfResidence={resident.typeOfResidence}
-              price={resident.price}
-              room={resident.room}
-              area={resident.area}
-            />
-          </div>
-        )
-      })}
     </div>
   )
 }

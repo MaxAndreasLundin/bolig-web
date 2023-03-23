@@ -53,8 +53,7 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
       <div className="">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
-      <div className="mb-6  border-b pb-6 md:mb-8 md:pb-8 lg:w-[40%]">
-        
+      <div className="sm:flex mb-6 border-b pb-6 md:mb-8 md:pb-8 lg:w-[40%]">
         <select onChange={handleHighestPrice}>
           <option value="">Select</option>
           {selectPrice.map((data) => (
@@ -67,21 +66,26 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
         <select onChange={handleNumbOfRooms}>
           <option value="">Select</option>
           {selectNumbOfRooms.map((data) => (
-            <option key={data.id} value={data.value}>{data.view}</option>
+            <option key={data.id} value={data.value}>
+              {data.view}
+            </option>
           ))}
         </select>
 
         <select onChange={handleLivingArea}>
           <option value="">Select</option>
           {livingArea.map((data) => (
-            <option key={data.id} value={data.value}>{data.view}</option>
+            <option key={data.id} value={data.value}>
+              {data.view}
+            </option>
           ))}
         </select>
-
       </div>
 
       <div className="mb-4 flex items-center justify-center gap-8">
-        <button className="rounded-md border py-2 px-4 md:px-10">Cancel</button>
+        <button className="rounded-md border py-2 px-4 md:px-10">
+          <a href="/">Cancel</a>
+        </button>
 
         <button
           type="submit"

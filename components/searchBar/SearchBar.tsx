@@ -16,15 +16,30 @@ const SearchBar = () => {
     setSearchLocationInput(e.target.value);
   };
 
-  const getFormData = (searchData: SearchDataProps) => {
+  const getFormData = async (searchData: SearchDataProps) => {
     const newSearch = {
       ...searchData,
       city: searchLocationInput,
     };
-
     console.log("New Search:", newSearch);
-    /* localStorage.setItem("searchData", JSON.stringify(newSearch)) */
-    window.location.href = "/residenceForSale"
+
+    try {
+      const response = await fetch("http://localhost:3333...", {
+        body: JSON.stringify(newSearch),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      })
+      const result = await response.json();
+      console.log(result)
+      if (result.success) {
+        window.location.href = "/residenceForSale";
+      } else {
+        alert("error")
+      }
+    } catch (error) {
+      // handle fetch error
+      console.log("fetch backend error")
+    }
   };
 
   return (
