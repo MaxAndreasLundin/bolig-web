@@ -14,7 +14,8 @@ const residenceForSale = () => {
 
       return (
       value.city.toLowerCase().includes(city.toLowerCase()) &&
-      value.typeOfResidence.includes(typeOfResidence)
+      value.price.toString().includes(price)
+      /* value.typeOfResidence.includes(typeOfResidence) */
       )
     }
     return true

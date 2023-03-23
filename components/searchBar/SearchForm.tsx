@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from "react";
-import HighestPrice from "./searchFormElement/HighestPrice";
 import LivingArea from "./searchFormElement/LivingArea";
 import NumbOfRooms from "./searchFormElement/NumbOfRooms";
 import TypeOfResidence from "./searchFormElement/TypeOfResidence";
 import { GoSearch } from "react-icons/go";
 import { SearchDataProps } from "./SearchBar";
+import { selectPrice } from "./searchFormElement/SelectPrice";
 
 interface SearchFormProps {
   onSearchForm: (newSearch: SearchDataProps) => void;
@@ -14,7 +14,7 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
   const [typeOfResidence, setTypeOfResidence] = useState<string[]>([]);
   const [room, setRoom] = useState(15);
   const [area, setArea] = useState(250);
-  const [price, setPrice] = useState(20000000);
+  const [price, setPrice] = useState(0);
 
   const handleTypeOfLiving = (selectedHousing: string[]) => {
     setTypeOfResidence(selectedHousing);
@@ -28,19 +28,22 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
     setArea(livingArea);
   };
 
-  const handleHighestPrice = (highestPrice: number) => {
-    setPrice(highestPrice);
+  const handleHighestPrice = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPrice(Number(e.target.value));
+    console.log(price)
   };
-
+  
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    
     const newSearch = {
       typeOfResidence,
       room,
       area,
       price,
     };
+    console.log("end",price)
+    console.log("new",newSearch)
     onSearchForm(newSearch);
   };
 
@@ -53,9 +56,12 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
       <div className="mb-6  border-b pb-6 md:mb-8 md:pb-8 lg:w-[40%]">
+        <select onChange={handleHighestPrice}>
+          <option value="" className="w-full rounded-md border-blue-900">Select</option>
+          {selectPrice.map((value) => <option key={value.id} value={value.value}>{value.view} kr</option>)}
+        </select>
         <NumbOfRooms onSelectRooms={handleNumbOfRooms} />
         <LivingArea onLivingArea={handleLivingArea} />
-        <HighestPrice onHighestPrice={handleHighestPrice} />
       </div>
 
       <div className="mb-4 flex items-center justify-center gap-8">
