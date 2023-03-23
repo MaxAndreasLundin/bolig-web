@@ -7,7 +7,7 @@ import { ResidenceList } from '../../components/helpers/ResidenceList'
 const residenceForSale = () => {
   
   const filterList = ResidenceList.filter((value) => {
-    const result = localStorage.getItem("searchData")
+    /* const result = localStorage.getItem("searchData")
 
     if(result) {
       const { city, price, room } = JSON.parse(result);
@@ -26,7 +26,7 @@ const residenceForSale = () => {
       value.price.toString().includes(price) &&
       value.room.toString().includes(room)
       )
-    }
+    } */
   })
 
   return (

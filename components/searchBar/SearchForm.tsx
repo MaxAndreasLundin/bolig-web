@@ -1,11 +1,10 @@
 import React, { FormEvent, useState } from "react";
-import LivingArea from "./searchFormElement/LivingArea";
-import NumbOfRooms from "./searchFormElement/NumbOfRooms";
 import TypeOfResidence from "./searchFormElement/TypeOfResidence";
 import { GoSearch } from "react-icons/go";
 import { SearchDataProps } from "./SearchBar";
 import { selectPrice } from "./searchFormElement/SelectPrice";
 import { selectNumbOfRooms } from "./searchFormElement/SelectNumbOfRooms";
+import { livingArea } from "./searchFormElement/LivingArea";
 
 interface SearchFormProps {
   onSearchForm: (newSearch: SearchDataProps) => void;
@@ -14,7 +13,7 @@ interface SearchFormProps {
 const SearchForm = ({ onSearchForm }: SearchFormProps) => {
   const [typeOfResidence, setTypeOfResidence] = useState<string[]>([]);
   const [room, setRoom] = useState(0);
-  const [area, setArea] = useState(250);
+  const [area, setArea] = useState(0);
   const [price, setPrice] = useState(0);
 
   const handleTypeOfLiving = (selectedHousing: string[]) => {
@@ -25,8 +24,8 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
     setRoom(Number(e.target.value));
   };
 
-  const handleLivingArea = (livingArea: number) => {
-    setArea(livingArea);
+  const handleLivingArea = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setArea(Number(e.target.value));
   };
 
   const handleHighestPrice = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -72,8 +71,13 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
           ))}
         </select>
 
-        {/* <NumbOfRooms onSelectRooms={handleNumbOfRooms} /> */}
-        <LivingArea onLivingArea={handleLivingArea} />
+        <select onChange={handleLivingArea}>
+          <option value="">Select</option>
+          {livingArea.map((data) => (
+            <option key={data.id} value={data.value}>{data.view}</option>
+          ))}
+        </select>
+
       </div>
 
       <div className="mb-4 flex items-center justify-center gap-8">

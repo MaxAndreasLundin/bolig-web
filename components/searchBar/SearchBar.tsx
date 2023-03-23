@@ -23,7 +23,7 @@ const SearchBar = () => {
     };
 
     console.log("New Search:", newSearch);
-    localStorage.setItem("searchData", JSON.stringify(newSearch))
+    /* localStorage.setItem("searchData", JSON.stringify(newSearch)) */
     window.location.href = "/residenceForSale"
   };
 

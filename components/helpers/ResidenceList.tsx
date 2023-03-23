@@ -21,7 +21,7 @@ export const ResidenceList: ResidenceListProps[] = [
     typeOfResidence: "apartment",
     price: 1000000,
     room: 2,
-    area: 32,
+    area: 30,
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const ResidenceList: ResidenceListProps[] = [
     typeOfResidence: "house",
     price: 3500000,
     room: 2,
-    area: 34,
+    area: 30,
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ export const ResidenceList: ResidenceListProps[] = [
     typeOfResidence: "apartment",
     price: 6000000,
     room: 3,
-    area: 68,
+    area: 60,
   },
   {
     id: 5,
@@ -61,6 +61,6 @@ export const ResidenceList: ResidenceListProps[] = [
     typeOfResidence: "apartment",
     price: 3000000,
     room: 2,
-    area: 52,
+    area: 50,
   },
 ]
