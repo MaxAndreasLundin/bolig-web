@@ -13,7 +13,7 @@ const ResidenceCard = ({
   area,
 }: ResidenceListProps) => {
   return (
-    <div className="m-4 flex flex-col rounded-xl border bg-white text-gray-600 shadow-xl md:flex-row lg:w-[60%]">
+    <div className="m-4 flex flex-col rounded-xl border bg-white text-gray-600 shadow-xl md:flex-row lg:w-[60%] cursor-pointer">
       <div className="relative h-52 w-[100%] rounded-xl md:w-[50%] lg:w-[40%]">
         <Image
           src={recidentImg}

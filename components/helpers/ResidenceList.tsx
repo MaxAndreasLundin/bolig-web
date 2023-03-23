@@ -28,7 +28,7 @@ export const ResidenceList: ResidenceListProps[] = [
     title: "Norra Stationsgatan 54",
     city: "Stockholm",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente.",
-    typeOfResidence: "apartment",
+    typeOfResidence: "house",
     price: 3500000,
     room: 2,
     area: 34,

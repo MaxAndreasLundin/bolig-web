@@ -47,7 +47,7 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex w-full flex-col rounded-2xl bg-blue-50 pt-6 text-gray-600 lg:w-[80%]"
+      className="flex w-full flex-col rounded-2xl bg-sky-50 pt-6 text-gray-600 lg:w-[80%]"
     >
       <div className="">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
