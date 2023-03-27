@@ -7,7 +7,8 @@ import { ResidenceListProps } from '../../components/helpers/ResidenceList'
 const residenceForSale = () => {
   const [search, setSearch] = useState<ResidenceListProps[]>([]);
 
-  const token = localStorage.getItem("token");
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
   const fetchSearchResults = async () => {
     try {
       const response = await fetch("http://localhost:3333/estates/category", {
