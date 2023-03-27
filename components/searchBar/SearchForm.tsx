@@ -36,10 +36,19 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
     e.preventDefault();
 
     const newSearch = {
-      typeOfResidence,
-      room,
-      area,
-      price,
+      /* typeOfResidence, */
+      room: {
+        gte: room,
+        lte: 15
+      },
+      area: {
+        gte: area,
+        lte: 100
+      },
+      price: {
+        gte: price,
+        lte: 50000000,
+      }
     };
 
     onSearchForm(newSearch);

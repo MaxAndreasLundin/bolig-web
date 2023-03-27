@@ -3,10 +3,26 @@ import { GoSearch } from "react-icons/go";
 import SearchForm from "./SearchForm";
 
 export interface SearchDataProps {
-  typeOfResidence: string[];
-  room: number;
-  area: number;
-  price: number;
+  /* typeOfResidence: string[]; */
+  title?: string;
+  description?: string;
+  link?: string;
+  location?: string;
+  typeOfResidence?: string;
+  coordinates?: string;
+  room: {
+    gte: number;
+    lte: number;
+  };
+  area: {
+    gte: number;
+    lte: number;
+  };
+  price: {
+    gte: number;
+    lte: number;
+  };
+  [key: string]: string | number | { gte?: number; lte?: number } | undefined;
 }
 
 const SearchBar = () => {
@@ -17,28 +33,57 @@ const SearchBar = () => {
   };
 
   const getFormData = async (searchData: SearchDataProps) => {
-    const newSearch = {
+    const EstateFilter = {
       ...searchData,
-      city: searchLocationInput,
+      location: searchLocationInput,
     };
-    console.log("New Search:", newSearch);
+    console.log("New Search:", EstateFilter);
 
+    const formattedFilter = Object.entries(EstateFilter).reduce(
+      (acc: Record<string, string>, [key, value]) => {
+        if (typeof value === "object") {
+          acc[key] = JSON.stringify(value);
+        } else {
+          acc[key] = value;
+        }
+        return acc;
+      },
+      {}
+    );
+
+    const params = new URLSearchParams(formattedFilter).toString();
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Please log in to search for apartment");
+      return;
+    }
     try {
-      const response = await fetch("http://localhost:3333...", {
-        body: JSON.stringify(newSearch),
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-      })
+      const response = await fetch(
+        `http://localhost:3333/estates/category?${params}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("Request URL:", response.url); // Add this line
+      console.log("Response status:", response.status); // Add this line
       const result = await response.json();
-      console.log(result)
-      if (result.success) {
-        window.location.href = "/residenceForSale";
+      console.log("result", result);
+
+      if (result.length > 0) {
+        /* window.location.href = "/residenceForSale"; */
+        console.log("YEs");
+        console.log("result", result);
       } else {
-        alert("error")
+        alert("Search failed");
       }
     } catch (error) {
       // handle fetch error
-      console.log("fetch backend error")
+      console.log("fetch backend error", error);
     }
   };
 

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import bgImg from "../public/house9.jpg"
+import bgImg from "../public/house9.webp"
 import Link from "next/link";
 
 export default function Home() {
