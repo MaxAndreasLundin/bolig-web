@@ -5,7 +5,15 @@ import { ResidenceListProps } from '../../components/helpers/ResidenceList'
 
 
 const residenceForSale = () => {
-  const [search, setSearch] = useState<ResidenceListProps[]>([]);
+  const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
+
+  useEffect(() => {
+    const storedResult = localStorage.getItem("searchResult");
+    if (storedResult) {
+      setSearchResult(JSON.parse(storedResult));
+    }
+  }, []);
+  /* const [search, setSearch] = useState<ResidenceListProps[]>([]);
 
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
@@ -24,14 +32,15 @@ const residenceForSale = () => {
 
   useEffect(() => {
     fetchSearchResults();
-  }, []);
+  }, []); */
   
   return (
     <div className='bg-white text-gray-500'>
       <div className='p-2 my-10 border-b'>
         <h1 className='text-4xl font-semibold pb-4'>Residence for sale</h1>
+          
         <div>
-          {search.map((item) => (
+          {searchResult.map((item) => (
             <div key={item.id}>
               <ResidenceCard 
                 id={item.id}

@@ -25,6 +25,8 @@ export interface SearchDataProps {
   [key: string]: string | number | { gte?: number; lte?: number } | undefined;
 }
 
+
+
 const SearchBar = () => {
   const [searchLocationInput, setSearchLocationInput] = useState("");
 
@@ -69,21 +71,19 @@ const SearchBar = () => {
           },
         }
       );
-      console.log("Request URL:", response.url); // Add this line
-      console.log("Response status:", response.status); // Add this line
       const result = await response.json();
-      console.log("result", result);
 
       if (result.length > 0) {
-        /* window.location.href = "/residenceForSale"; */
-        console.log("YEs");
+        localStorage.setItem("searchResult", JSON.stringify(result));
+        window.location.href = "/residenceForSale";
         console.log("result", result);
       } else {
         alert("Search failed");
       }
     } catch (error) {
       // handle fetch error
-      console.log("fetch backend error", error);
+      alert("fetch backend failed")
+      console.log("fetch backend failed", error);
     }
   };
 

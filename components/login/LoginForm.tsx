@@ -44,9 +44,6 @@ const LoginForm = () => {
     } else {
       alert("user not found");
     }
-
-    /* const result = await response.json();
-    alert(`Login complete: ${result.loginInput}`); */
   };
 
   return (
