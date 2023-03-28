@@ -33,8 +33,17 @@ const LoginForm = () => {
       method: "POST",
     });
 
-    const result = await response.json();
-    alert(`Login complete: ${result.loginInput}`);
+    if (response.ok) {
+      const result = await response.json();
+      const token = result.access_token;
+      console.log("r",result);
+      console.log("",token);
+      alert(`Login successful: ${token}`);
+
+      localStorage.setItem("token", token);
+    } else {
+      alert("user not found");
+    }
   };
 
   return (

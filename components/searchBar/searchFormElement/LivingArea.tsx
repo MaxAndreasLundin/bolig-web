@@ -1,36 +1,12 @@
-import React, { ChangeEvent } from 'react'
-
-interface LivingAreaProps {
-  onLivingArea: (livingArea: number) => void;
-}
-
-const LivingArea = ({onLivingArea}: LivingAreaProps) => {
-
-  const handleSelectArea = (e: ChangeEvent<HTMLSelectElement>) => {
-    const selectValue = parseInt(e.target.value);
-    onLivingArea(selectValue)
-  }
-
-  return (
-    <div className='mb-2'>
-      <p className='font-bold py-2'>Min. Living area m<sup>2</sup></p>
-      <select onChange={handleSelectArea} className="w-full rounded-md border-blue-900">
-        <option value={900}>All</option>
-        <option value={20}>20</option>
-        <option value={30}>30</option>
-        <option value={40}>40</option>
-        <option value={50}>50</option>
-        <option value={60}>60</option>
-        <option value={70}>70</option>
-        <option value={80}>80</option>
-        <option value={90}>90</option>
-        <option value={100}>100</option>
-        <option value={150}>150</option>
-        <option value={200}>200</option>
-        <option value={250}>250</option>
-      </select>
-    </div>
-  )
-}
-
-export default LivingArea
+export const livingArea = [
+  {id: 1, value: 10, view: "10"}, 
+  {id: 2, value: 20, view: "20"}, 
+  {id: 3, value: 30, view: "30"}, 
+  {id: 4, value: 40, view: "40"}, 
+  {id: 5, value: 50, view: "50"}, 
+  {id: 6, value: 60, view: "60"}, 
+  {id: 7, value: 70, view: "70"}, 
+  {id: 8, value: 80, view: "80"}, 
+  {id: 9, value: 90, view: "90"}, 
+  {id: 10, value: 100, view: "100"}, 
+]

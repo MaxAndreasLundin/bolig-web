@@ -16,11 +16,11 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 grid grid-cols-4 bg-blue-50 p-1 px-2 sm:p-2">
+      <header className="sticky top-0 z-50 grid grid-cols-4 bg-sky-50 p-1 px-2 sm:p-2">
         {/*left*/}
-        <div className="relative flex items-center h-14 text-blue-900">
+        <div className="relative flex items-center h-14 text-stone-600">
           <Link href={"/"} className="flex justify-center items-center gap-1">
-            <h1 className="w-full pl-2 text-3xl font-bold text-blue-900">Bolig</h1>
+            <h1 className="w-full pl-2 text-3xl font-bold">Bolig</h1>
             <GoHome className="text-3xl" />
           </Link>
         </div>
@@ -32,7 +32,7 @@ const Navbar = () => {
 
         {/*right*/}
         <div className="flex items-center justify-end gap-2 pr-2 h-14">
-          <div className="flex items-center gap-1 rounded-full border-blue-900 text-blue-900 border-2 py-1 px-3 hover:bg-blue-100">
+          <div className="flex items-center gap-1 rounded-full border-stone-600 text-stone-800 border-2 py-1 px-3 hover:bg-sky-100">
             <div
               className="block cursor-pointer"
               onClick={handleClick}
@@ -43,7 +43,7 @@ const Navbar = () => {
                 <MenuIcon className="h-6" />
               )}
             </div>
-            <div className="bg-blue-900 rounded-full py-1 px-2 ">
+            <div className="bg-stone-700 rounded-full py-1 px-2 ">
               <Link href={"login"}>
                 <FaUser className="h-6 text-white" />
               </Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
       <div
         className={
           click
-            ? "fixed right-0 top-0 h-full w-full sm:w-[40%] md:w-[30%] lg:w-[20%] bg-blue-50 opacity-95 duration-500 ease-in z-20"
+            ? "fixed right-0 top-0 h-full w-full sm:w-[40%] md:w-[30%] lg:w-[20%] bg-sky-50 opacity-90 duration-500 ease-in z-20"
             : "fixed right-0 -top-full h-full w-full sm:w-[40%] md:w-[30%] lg:w-[20%] duration-500 ease-out z-20"
         }
       >
