@@ -25,8 +25,6 @@ export interface SearchDataProps {
   [key: string]: string | number | { gte?: number; lte?: number } | undefined;
 }
 
-
-
 const SearchBar = () => {
   const [searchLocationInput, setSearchLocationInput] = useState("");
 
@@ -78,11 +76,11 @@ const SearchBar = () => {
         window.location.href = "/residenceForSale";
         console.log("result", result);
       } else {
-        alert("Search failed");
+        alert("Your search could not be found...");
       }
     } catch (error) {
       // handle fetch error
-      alert("fetch backend failed")
+      alert("fetch backend failed");
       console.log("fetch backend failed", error);
     }
   };
