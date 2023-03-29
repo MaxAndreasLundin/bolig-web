@@ -34,24 +34,30 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const newSearch: Partial<SearchDataProps> = {};
 
-    const newSearch = {
-      /* typeOfResidence, */
-      room: {
-        gte: room,
-        lte: 15
-      },
-      area: {
-        gte: area,
-        lte: 100
-      },
-      price: {
-        gte: price,
-        lte: 50000000,
-      }
-    };
+    if (room) {
+      newSearch.room = {
+        gte: 0,
+        lte: room,
+      };
+    }
 
-    onSearchForm(newSearch);
+    if (area) {
+      newSearch.area = {
+        gte: 0,
+        lte: area,
+      };
+    }
+
+    if (price) {
+      newSearch.price = {
+        gte: 0,
+        lte: price,
+      };
+    }
+
+    onSearchForm(newSearch as SearchDataProps);
   };
 
   return (
@@ -62,7 +68,7 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
       <div className="">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
-      <div className="sm:flex mb-6 border-b pb-6 md:mb-8 md:pb-8 lg:w-[40%]">
+      <div className="mb-6 border-b pb-6 sm:flex md:mb-8 md:pb-8 lg:w-[40%]">
         <select onChange={handleHighestPrice}>
           <option value="">Select</option>
           {selectPrice.map((data) => (

@@ -22,6 +22,7 @@ export interface SearchDataProps {
     gte: number;
     lte: number;
   };
+
   [key: string]: string | number | { gte?: number; lte?: number } | undefined;
 }
 
@@ -39,36 +40,21 @@ const SearchBar = () => {
     };
     console.log("New Search:", EstateFilter);
 
-    const formattedFilter = Object.entries(EstateFilter).reduce(
-      (acc: Record<string, string>, [key, value]) => {
-        if (typeof value === "object") {
-          acc[key] = JSON.stringify(value);
-        } else {
-          acc[key] = value;
-        }
-        return acc;
-      },
-      {}
-    );
-
-    const params = new URLSearchParams(formattedFilter).toString();
-
     const token = localStorage.getItem("token");
     if (!token) {
       alert("Please log in to search for apartment");
       return;
     }
     try {
-      const response = await fetch(
-        `http://localhost:3333/estates/category?${params}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch("http://localhost:3333/estates/category", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(EstateFilter),
+      });
+
       const result = await response.json();
 
       if (result.length > 0) {
@@ -79,7 +65,6 @@ const SearchBar = () => {
         alert("Your search could not be found...");
       }
     } catch (error) {
-      // handle fetch error
       alert("fetch backend failed");
       console.log("fetch backend failed", error);
     }
