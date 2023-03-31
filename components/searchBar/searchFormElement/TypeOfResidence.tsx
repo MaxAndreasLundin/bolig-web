@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
-import { GoHome } from "react-icons/go";
-import { MdOutlineLocationCity, MdDashboard } from "react-icons/md"
-import { GiFamilyHouse } from "react-icons/gi"
+import React, { ChangeEvent, useState, useEffect } from 'react';
+import { GoHome } from 'react-icons/go';
+import { MdOutlineLocationCity, MdDashboard } from 'react-icons/md';
+import { GiFamilyHouse } from 'react-icons/gi';
 
 interface TypeOfLivingProps {
   onTypeOfResidence: (selectedHousing: string[]) => void;
@@ -9,7 +9,11 @@ interface TypeOfLivingProps {
 
 const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
   const [typeOfLiving, setTypeOfLiving] = useState<string[]>([]);
-  const [allTypes, setAllTypes] = useState<string[]>(["townHouse", "house", "apartment"]);
+  const [allTypes, setAllTypes] = useState<string[]>([
+    'townHouse',
+    'house',
+    'apartment',
+  ]);
 
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
@@ -22,10 +26,10 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
       //Funktionen hämtar först det tidigare värdet på tillståndet med hjälp av prevTypeOfLiving-parametern och
       //lägger sedan till namnet på den nyvalda kryssrutan till arrayen med hjälp av spread-operatorn.
       //Detta skapar en ny array som innehåller alla tidigare valda bo typ samt den nyvalda.
-      setAllTypes([])
+      setAllTypes([]);
     } else {
       setTypeOfLiving((prevTypeOfLivings) =>
-        prevTypeOfLivings.filter((houseType) => houseType !== name)
+        prevTypeOfLivings.filter((houseType) => houseType !== name),
       );
     }
     //Om kryssrutan inte är markerad tar funktionen bort namnet på den avmarkerade kryssrutan från tillståndsarrayen.
@@ -36,15 +40,15 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
 
   const handleAllTypesChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
-    
+
     if (checked) {
-      setAllTypes(["townHouse", "house", "apartment"]); // If checked, set state to array of pet types
-      setTypeOfLiving([])
+      setAllTypes(['townHouse', 'house', 'apartment']); // If checked, set state to array of pet types
+      setTypeOfLiving([]);
     } /* else {
       setAllTypes([]); // If unchecked, reset state to empty array
     } */
 
-    console.log(allTypes)
+    console.log(allTypes);
   };
 
   // Use useEffect to monitor changes to the typeOfLiving state and send updated data to main component
@@ -57,85 +61,98 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
   }, [typeOfLiving, allTypes, onTypeOfResidence]);
 
   return (
-    <div className="flex flex-col md:flex-row text-white py-4 gap-2">
-      <label
-        htmlFor="townHouse"
-        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
-          typeOfLiving.includes("townHouse") ? "bg-blue-900" : "bg-transparent text-black"
-        }`}
-      >
-        <input
-          type="checkbox"
-          id="townHouse"
-          name="townHouse"
-          checked={typeOfLiving.includes("townHouse")} //kontrollerar om kryssrutan ska vara markerad eller inte
-          onChange={handleCheckboxChange}
-          className="absolute -top-6"
-        />
-        <div className="flex justify-center items-center">
-          <GiFamilyHouse />
-          <span className="block p-2 text-center">Town House</span>
-        </div>
-      </label>
-      <label
-        htmlFor="house"
-        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
-          typeOfLiving.includes("house") ? "bg-blue-900" : "bg-transparent text-black"
-        }`}
-      >
-        <input
-          type="checkbox"
-          id="house"
-          name="house"
-          checked={typeOfLiving.includes("house")}
-          onChange={handleCheckboxChange}
-          className="absolute -top-6"
-        />
-        <div className="flex justify-center items-center">
-          <GoHome />
-          <span className="block p-2 text-center">House</span>
-        </div>
-      </label>
-
-      <label
-        htmlFor="apartment"
-        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
-          typeOfLiving.includes("apartment") ? "bg-blue-900" : "bg-transparent text-black"
-        }`}
-      >
-        <input
-          type="checkbox"
-          id="apartment"
-          name="apartment"
-          checked={typeOfLiving.includes("apartment")}
-          onChange={handleCheckboxChange}
-          className="absolute -top-6"
-        />
-        <div className="flex justify-center items-center">
-          <MdOutlineLocationCity />
-          <span className="block p-2 text-center">Apartment</span>
-        </div>
-      </label>
-
-      <label
-        htmlFor="allTypes"
-        className={`float-left w-full rounded-lg border-2 border-blue-900 hover:bg-blue-800 hover:text-white ${
-          allTypes.length > 0 ? "bg-blue-900" : "bg-transparent text-black"
-        }`}
+    <div className="mx-2 flex flex-col justify-between gap-4 py-4 text-white lg:flex-row md:mb-8">
+      <div className="flex gap-4 w-full">
+        <label
+          htmlFor="allTypes"
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+            allTypes.length > 0
+              ? 'bg-indigo-900'
+              : 'bg-transparent text-indigo-900'
+          }`}
         >
-        <input
-        type="checkbox"
-        id="allTypes"
-        name="allTypes"
-        checked={allTypes.length > 0}
-        onChange={handleAllTypesChange}
-        className="absolute -top-6"
-        />
-        <div className="flex justify-center items-center">
-          <MdDashboard />
-          <span className="block p-2 text-center">Select All</span>
-        </div>
+          <input
+            type="checkbox"
+            id="allTypes"
+            name="allTypes"
+            checked={allTypes.length > 0}
+            onChange={handleAllTypesChange}
+            className="absolute -top-6"
+          />
+          <div className="flex items-center justify-center">
+            <MdDashboard />
+            <span className="block p-2 text-center">Select All</span>
+          </div>
         </label>
+
+        <label
+          htmlFor="apartment"
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+            typeOfLiving.includes('apartment')
+              ? 'bg-indigo-900'
+              : 'bg-transparent text-indigo-900'
+          }`}
+        >
+          <input
+            type="checkbox"
+            id="apartment"
+            name="apartment"
+            checked={typeOfLiving.includes('apartment')}
+            onChange={handleCheckboxChange}
+            className="absolute -top-6"
+          />
+          <div className="flex items-center justify-center">
+            <MdOutlineLocationCity />
+            <span className="block p-2 text-center">Apartment</span>
+          </div>
+        </label>
+      </div>
+
+      <div className="flex gap-4 w-full">
+        <label
+          htmlFor="townHouse"
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+            typeOfLiving.includes('townHouse')
+              ? 'bg-indigo-900'
+              : 'bg-transparent text-indigo-900'
+          }`}
+        >
+          <input
+            type="checkbox"
+            id="townHouse"
+            name="townHouse"
+            checked={typeOfLiving.includes('townHouse')} //kontrollerar om kryssrutan ska vara markerad eller inte
+            onChange={handleCheckboxChange}
+            className="absolute -top-6"
+          />
+          <div className="flex items-center justify-center">
+            <GiFamilyHouse />
+            <span className="block p-2 text-center">Town House</span>
+          </div>
+        </label>
+
+        <label
+          htmlFor="house"
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+            typeOfLiving.includes('house')
+              ? 'bg-indigo-900'
+              : 'bg-transparent text-indigo-900'
+          }`}
+        >
+          <input
+            type="checkbox"
+            id="house"
+            name="house"
+            checked={typeOfLiving.includes('house')}
+            onChange={handleCheckboxChange}
+            className="absolute -top-6"
+          />
+          <div className="flex items-center justify-center">
+            <GoHome />
+            <span className="block p-2 text-center">House</span>
+          </div>
+        </label>
+      </div>
     </div>
   );
 };

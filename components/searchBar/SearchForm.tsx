@@ -1,10 +1,10 @@
-import React, { FormEvent, useState } from "react";
-import TypeOfResidence from "./searchFormElement/TypeOfResidence";
-import { GoSearch } from "react-icons/go";
-import { SearchDataProps } from "./SearchBar";
-import { selectPrice } from "./searchFormElement/SelectPrice";
-import { selectNumbOfRooms } from "./searchFormElement/SelectNumbOfRooms";
-import { livingArea } from "./searchFormElement/LivingArea";
+import React, { FormEvent, useState } from 'react';
+import TypeOfResidence from './searchFormElement/TypeOfResidence';
+import { GoSearch } from 'react-icons/go';
+import { SearchDataProps } from './SearchBar';
+import { selectPrice } from './searchFormElement/SelectPrice';
+import { selectNumbOfRooms } from './searchFormElement/SelectNumbOfRooms';
+import { livingArea } from './searchFormElement/LivingArea';
 
 interface SearchFormProps {
   onSearchForm: (newSearch: SearchDataProps) => void;
@@ -63,48 +63,57 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex w-full flex-col rounded-2xl bg-sky-50 pt-6 text-gray-600 lg:w-[80%]"
+      className="flex w-full flex-col rounded-2xl pt-6 text-indigo-900"
     >
       <div className="">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
-      <div className="mb-6 border-b pb-6 sm:flex md:mb-8 md:pb-8 lg:w-[40%]">
-        <select onChange={handleHighestPrice}>
-          <option value="">Select</option>
-          {selectPrice.map((data) => (
-            <option key={data.id} value={data.value}>
-              {data.view} kr
-            </option>
-          ))}
-        </select>
+      <div className="flex flex-col md:flex-row md:justify-between mb-6 border-b-2 border-indigo-900 pb-10 md:mb-8 mx-2">
+        <div className='flex flex-col'>
+          <p className='font-semibold mb-2'>Higest Price</p>
+          <select onChange={handleHighestPrice} className='rounded-lg mb-2 border-indigo-800 border-2 md:w-36 cursor-pointer'>
+            <option value="">Select All</option>
+            {selectPrice.map((data) => (
+              <option key={data.id} value={data.value}>
+                {data.view} kr
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select onChange={handleNumbOfRooms}>
-          <option value="">Select</option>
-          {selectNumbOfRooms.map((data) => (
-            <option key={data.id} value={data.value}>
-              {data.view}
-            </option>
-          ))}
-        </select>
+        <div className='flex flex-col'>
+          <p className='font-semibold mb-2'>Rooms</p>
+          <select onChange={handleNumbOfRooms} className='rounded-lg mb-2 border-indigo-800 border-2 md:w-36 cursor-pointer'>
+            <option value="">All Rooms</option>
+            {selectNumbOfRooms.map((data) => (
+              <option key={data.id} value={data.value}>
+                {data.view}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select onChange={handleLivingArea}>
-          <option value="">Select</option>
-          {livingArea.map((data) => (
-            <option key={data.id} value={data.value}>
-              {data.view}
-            </option>
-          ))}
-        </select>
+        <div className='flex flex-col'>
+          <p className='font-semibold mb-2'>Living Area</p>
+          <select onChange={handleLivingArea} className='rounded-lg border-indigo-800 border-2 md:w-36 cursor-pointer'>
+            <option value="">Select All</option>
+            {livingArea.map((data) => (
+              <option key={data.id} value={data.value}>
+                {data.view}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="mb-4 flex items-center justify-center gap-8">
-        <button className="rounded-md border py-2 px-4 md:px-10">
+        <button className="rounded-md border border-indigo-900 py-2 px-6 md:px-10">
           <a href="/">Cancel</a>
         </button>
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 rounded-md bg-blue-900 p-2 text-white hover:bg-blue-800 md:px-8"
+          className="flex items-center justify-center gap-2 rounded-md bg-indigo-900 py-2 px-4 text-white hover:bg-indigo-800 md:px-8"
         >
           Search <GoSearch />
         </button>

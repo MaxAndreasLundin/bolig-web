@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full grid grid-cols-4 bg-white p-1 px-2 sm:p-2 text-indigo-900">
+      <header className="sticky top-0 z-50 w-full max-w-[1200px] grid grid-cols-4 bg-white p-1 px-2 sm:p-2 text-indigo-900">
         {/*left*/}
         <div className="relative flex items-center h-14">
           <Link href={"/"} className="flex justify-center items-center gap-1">
@@ -59,7 +59,7 @@ const Navbar = () => {
       <div
         className={
           click
-            ? "fixed right-0 top-0 h-full w-full sm:w-[40%] md:w-[30%] lg:w-[20%] bg-white opacity-90 duration-500 ease-in z-20 md:hidden"
+            ? "fixed right-0 top-0 h-full w-full sm:w-[40%] md:w-[30%] lg:w-[20%] bg-white duration-500 ease-in z-20 md:hidden"
             : "fixed -right-full top-0 h-full w-full sm:w-[40%] md:w-[30%] lg:w-[20%] duration-500 ease-out z-20"
         }
       >
