@@ -10,9 +10,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     
-  height: 100%;
+  background-color: white;  
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 a {
@@ -23,18 +25,6 @@ a {
 * {
   box-sizing: border-box;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-    color: black;
-  }
-}
-
 
 .bg-bolig {
   @apply bg-gradient-to-t from-[#393a97] to-[#01094c]
