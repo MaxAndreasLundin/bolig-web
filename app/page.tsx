@@ -14,9 +14,9 @@ export default function Home() {
           {/* <div className="absolute z-10 inset-0 bg-white bg-opacity-20"></div> */}
 
           <div className="flex flex-col items-center justify-center pt-10 border">
-            <p>Explore Bolig Lorem, ipsum.</p>
-            <p className="text-2xl font-bold drop-shadow-2xl md:text-5xl mb-14">
-              A new home awaits, find it now!
+            <p className='text-lg font-semibold tracking-wider'>Explore Bolig Lorem, ipsum.</p>
+            <p className="text-3xl font-semibold md:font-bold drop-shadow-2xl md:text-5xl mb-14">
+              A New Home Awaits, Find It Now!
             </p>
             <SearchBar />
 
