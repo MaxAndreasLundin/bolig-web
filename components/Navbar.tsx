@@ -16,9 +16,9 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 grid grid-cols-4 bg-sky-50 p-1 px-2 sm:p-2">
+      <header className="sticky top-0 z-50 w-full grid grid-cols-4 bg-white p-1 px-2 sm:p-2 text-purple-900">
         {/*left*/}
-        <div className="relative flex items-center h-14 text-stone-600">
+        <div className="relative flex items-center h-14">
           <Link href={"/"} className="flex justify-center items-center gap-1">
             <h1 className="w-full pl-2 text-3xl font-bold">Bolig</h1>
             <GoHome className="text-3xl" />
@@ -26,15 +26,21 @@ const Navbar = () => {
         </div>
 
         {/* Middle */}  
-        <div className="flex items-center col-span-2 justify-center py-2">
-          <SearchBar />
+        <div className="invisible md:visible flex items-center col-span-2 justify-center py-2 border">
+          <ul className="flex gap-4 font-semibold">
+            <li className="hover:scale-105"><a href="" className="hover-effect">Home</a></li>
+            <li className="hover:scale-105"><a href="" className="hover-effect">Sell housing</a></li>
+            <li className="hover:scale-105"><a href="" className="hover-effect">News</a></li>
+            <li className="hover:scale-105"><a href="" className="hover-effect">Contact</a></li>
+          </ul>
+          {/* <SearchBar /> */}
         </div>
 
         {/*right*/}
         <div className="flex items-center justify-end gap-2 pr-2 h-14">
-          <div className="flex items-center gap-1 rounded-full border-stone-600 text-stone-800 border-2 py-1 px-3 hover:bg-sky-100">
+          <div className="flex items-center gap-1 rounded-full border-purple-900 text-stone-800 border-2 py-1 px-3 hover:bg-sky-100">
             <div
-              className="block cursor-pointer"
+              className="block cursor-pointer text-purple-900"
               onClick={handleClick}
             >
               {click ? (
@@ -43,7 +49,7 @@ const Navbar = () => {
                 <MenuIcon className="h-6" />
               )}
             </div>
-            <div className="bg-stone-700 rounded-full py-1 px-2 ">
+            <div className="bg-purple-900 rounded-full py-1 px-2 ">
               <Link href={"login"}>
                 <FaUser className="h-6 text-white" />
               </Link>

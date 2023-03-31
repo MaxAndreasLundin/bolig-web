@@ -30,6 +30,11 @@ a {
   @apply bg-gradient-to-t from-[#393a97] to-[#01094c]
 }
 
+.hover-effect {
+  @apply relative cursor-pointer transition-all duration-300 transform hover:text-purple-700 before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:rounded-full before:transition-all before:bg-purple-700 hover:before:w-full
+}
+
+
 .link-web {
   @apply p-4 inline-block hover:bg-sky-900 hover:rounded-md hover:scale-110;
 }

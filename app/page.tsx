@@ -1,26 +1,29 @@
 'use client';
 import GetListOfAllResidence from '../components/searchBar/GetListOfAllResidence';
+import SearchBar from '../components/searchBar/SearchBar';
 
 export default function Home() {
   return (
-    <div className="flex h-[100vh] w-full max-w-[1200px] flex-1 flex-col items-center overflow-y-auto border border-red-600">
-      
-        <div
-          className="h-[600px] w-full rounded-xl border border-green-600 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(/houseWinter.jpg)`}}
-        >
-          <div className="absolute inset-0 bg-white bg-opacity-20"></div>
-          <div className="z-10 flex flex-col items-center justify-center pt-32 text-white">
-            <h1 className="mb-4 text-7xl font-extrabold drop-shadow-2xl">
-              <a href="/">Bolig</a>
-            </h1>
-            <p className="text-2xl drop-shadow-2xl md:text-3xl">
+    <div className="flex h-[100vh] w-full max-w-[1200px] flex-1 flex-col items-center overflow-y-auto border border-red-600 text-white">
+      <div
+        className="h-[600px] w-full rounded-xl border border-green-600 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/houseWinter.jpg)`,
+        }}
+      >
+          {/* <div className="absolute z-10 inset-0 bg-white bg-opacity-20"></div> */}
+
+          <div className="flex flex-col items-center justify-center pt-10 border">
+            <p>Explore Bolig Lorem, ipsum.</p>
+            <p className="text-2xl font-bold drop-shadow-2xl md:text-5xl mb-14">
               A new home awaits, find it now!
             </p>
+            <SearchBar />
 
-            <GetListOfAllResidence />
+            {/* <GetListOfAllResidence /> */}
           </div>
-          {/* <Image src={bgImg} alt="house" priority={true} /> */}
+        {/* <Image src={bgImg} alt="house" priority={true} /> */}
+
       </div>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi totam
