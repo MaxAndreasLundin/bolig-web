@@ -71,6 +71,10 @@ const SearchBar = () => {
     }
   };
 
+  const onCancel = () => {
+    setSearchLocationInput("");
+  }
+
   return (
     <div className="flex w-full sm:w-[70%] md:w-[60%] lg:w-[50%] flex-col items-center justify-center px-4">
       <div className="flex w-full flex-col items-center justify-center rounded-2xl bg-white lg:bg-opacity-90 md:shadow-md border-indigo-900 shadow-2xl">
@@ -88,7 +92,7 @@ const SearchBar = () => {
           </div>
         </div>
           {searchLocationInput && 
-          <SearchForm onSearchForm={getFormData} />
+          <SearchForm onCancel={onCancel} onSearchForm={getFormData} />
         }
       </div>
     </div>

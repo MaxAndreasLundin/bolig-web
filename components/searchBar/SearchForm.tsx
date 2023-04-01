@@ -8,9 +8,10 @@ import { livingArea } from './searchFormElement/LivingArea';
 
 interface SearchFormProps {
   onSearchForm: (newSearch: SearchDataProps) => void;
+  onCancel: () => void;
 }
 
-const SearchForm = ({ onSearchForm }: SearchFormProps) => {
+const SearchForm = ({onCancel, onSearchForm }: SearchFormProps) => {
   const [typeOfResidence, setTypeOfResidence] = useState<string[]>([]);
   const [room, setRoom] = useState(0);
   const [area, setArea] = useState(0);
@@ -60,6 +61,10 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
     onSearchForm(newSearch as SearchDataProps);
   };
 
+  const handleCancel = () => {
+    onCancel();
+  };
+
   return (
     <form
       onSubmit={onSubmit}
@@ -107,8 +112,8 @@ const SearchForm = ({ onSearchForm }: SearchFormProps) => {
       </div>
 
       <div className="mb-4 flex items-center justify-center gap-8">
-        <button className="rounded-md border border-indigo-900 py-2 px-6 md:px-10">
-          <a href="/">Cancel</a>
+        <button onClick={handleCancel} className="rounded-md border border-indigo-900 py-2 px-6 md:px-10">
+          Cancel
         </button>
 
         <button
