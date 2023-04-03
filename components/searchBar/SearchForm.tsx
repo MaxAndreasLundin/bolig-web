@@ -12,12 +12,12 @@ interface SearchFormProps {
 }
 
 const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
-  const [typeOfResidence, setTypeOfResidence] = useState<string[]>([]);
+  const [typeOfResidence, setTypeOfResidence] = useState<string>('');
   const [room, setRoom] = useState(0);
   const [area, setArea] = useState(0);
   const [price, setPrice] = useState(0);
 
-  const handleTypeOfLiving = (selectedHousing: string[]) => {
+  const handleTypeOfLiving = (selectedHousing: string) => {
     setTypeOfResidence(selectedHousing);
   };
 
@@ -36,6 +36,8 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newSearch: Partial<SearchDataProps> = {};
+
+    newSearch.typeOfResidence = typeOfResidence
 
     if (room) {
       newSearch.room = {
@@ -70,7 +72,7 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
       onSubmit={onSubmit}
       className="flex w-full flex-col rounded-2xl pt-6 text-indigo-900"
     >
-      <div className="">
+      <div className="md:mb-8">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
 

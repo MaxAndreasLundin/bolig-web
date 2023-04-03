@@ -4,15 +4,21 @@ import { selectPrice } from '../searchBar/searchFormElement/SelectPrice';
 import { selectNumbOfRooms } from '../searchBar/searchFormElement/SelectNumbOfRooms'; 
 import { livingArea } from '../searchBar/searchFormElement/LivingArea'; 
 import { SearchDataProps } from '../searchBar/SearchBar';
+import TypeOfResidence from '../searchBar/searchFormElement/TypeOfResidence';
 
 const SearchFormResicence = () => {
   const [searchLocationInput, setSearchLocationInput] = useState('');
+  const [typeOfResidence, setTypeOfResidence] = useState<string>('');
   const [room, setRoom] = useState(0);
   const [area, setArea] = useState(0);
   const [price, setPrice] = useState(0);
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchLocationInput(e.target.value);
+  };
+
+  const handleTypeOfLiving = (selectedHousing: string) => {
+    setTypeOfResidence(selectedHousing);
   };
 
   const handleNumbOfRooms = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -32,6 +38,9 @@ const SearchFormResicence = () => {
     const newSearch: Partial<SearchDataProps> = {};
 
     newSearch.location = searchLocationInput;
+
+    newSearch.typeOfResidence = typeOfResidence;
+
 
     if (room) {
       newSearch.room = {
@@ -103,6 +112,9 @@ const SearchFormResicence = () => {
           <input type="text" id='location' onChange={handleSearchInput} placeholder='City' className='bg-transparent border-0 border-b-2 w-full placeholder:text-gray-500 placeholder:font-semibold placeholder:tracking-widest placeholder:text-sm'/>
         </div>
         
+        <div className="pt-6">
+          <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
+        </div>
 
         <p className="mb-2 font-semibold pt-4 pb-2">Rooms</p>
         <select
