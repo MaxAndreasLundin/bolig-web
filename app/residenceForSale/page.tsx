@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import ResidenceCard from "../../components/card/ResidenceCard";
 import { ResidenceListProps } from "../../components/helpers/ResidenceList";
 import SearchBar from "../../components/searchBar/SearchBar";
+import { GiCoffeeCup } from 'react-icons/gi'
 
 const ResidenceForSale = () => {
   const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
@@ -23,8 +24,9 @@ const ResidenceForSale = () => {
     <div className="flex h-[100vh] w-[100vw] flex-1 justify-center text-gray-500 border border-red-700">
 
       {isLoading ? (
-        <div className="flex justify-center items-center">
-        <p className="text-2xl">Loading...</p>
+        <div className="flex justify-center items-center gap-4">
+        <p className="text-2xl animate-pulse">Loading...</p>
+        <GiCoffeeCup className="h-8 w-8 animate-bounce"/>
       </div>
       ) : (
       <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-[1200px] border-2">
