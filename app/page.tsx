@@ -4,9 +4,9 @@ import SearchBar from '../components/searchBar/SearchBar';
 
 export default function Home() {
   return (
-    <div className="flex h-[100vh] w-full max-w-[1200px] flex-1 flex-col items-center overflow-y-auto text-white">
+    <div className="flex h-[100vh] w-full max-w-[1200px] flex-1 flex-col items-center overflow-y-auto overflow-x-hidden text-white">
       <div
-        className="h-[600px] w-full rounded-xl border bg-cover bg-center bg-no-repeat"
+        className="h-[600px] w-full lg:rounded-xl border bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/houseWinter.jpg)`,
         }}

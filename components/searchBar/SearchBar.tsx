@@ -76,7 +76,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="flex w-full sm:w-[70%] md:w-[60%] lg:w-[50%] flex-col items-center justify-center px-4">
+    <div className="flex w-full sm:w-[70%] md:w-[60%] lg:w-[50%] flex-col items-center justify-center">
       <div className="flex w-full flex-col items-center justify-center rounded-2xl bg-white lg:bg-opacity-90 md:shadow-md border-indigo-900 shadow-2xl">
         <div className="flex w-full items-center justify-center">
           <MdLocationOn className='h-8 w-8 text-indigo-900 ml-4'/>
