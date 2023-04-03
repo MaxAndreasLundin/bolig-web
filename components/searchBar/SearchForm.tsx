@@ -11,7 +11,7 @@ interface SearchFormProps {
   onCancel: () => void;
 }
 
-const SearchForm = ({onCancel, onSearchForm }: SearchFormProps) => {
+const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
   const [typeOfResidence, setTypeOfResidence] = useState<string[]>([]);
   const [room, setRoom] = useState(0);
   const [area, setArea] = useState(0);
@@ -73,10 +73,14 @@ const SearchForm = ({onCancel, onSearchForm }: SearchFormProps) => {
       <div className="">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
-      <div className="flex flex-col md:flex-row md:justify-between mb-6 border-b-2 border-indigo-900 pb-10 md:mb-8 mx-2">
-        <div className='flex flex-col'>
-          <p className='font-semibold mb-2'>Higest Price</p>
-          <select onChange={handleHighestPrice} className='rounded-lg mb-2 border-indigo-800 border-2 md:w-36 cursor-pointer'>
+
+      <div className="mx-2 mb-6 flex flex-col border-b-2 border-indigo-900 pb-10 md:mb-8 xl:flex-row md:justify-between">
+        <div className="flex flex-col">
+          <p className="mb-2 font-semibold">Higest Price</p>
+          <select
+            onChange={handleHighestPrice}
+            className="mb-2 cursor-pointer rounded-lg border-2 border-indigo-800"
+          >
             <option value="">Select All</option>
             {selectPrice.map((data) => (
               <option key={data.id} value={data.value}>
@@ -86,9 +90,12 @@ const SearchForm = ({onCancel, onSearchForm }: SearchFormProps) => {
           </select>
         </div>
 
-        <div className='flex flex-col'>
-          <p className='font-semibold mb-2'>Rooms</p>
-          <select onChange={handleNumbOfRooms} className='rounded-lg mb-2 border-indigo-800 border-2 md:w-36 cursor-pointer'>
+        <div className="flex flex-col">
+          <p className="mb-2 font-semibold">Rooms</p>
+          <select
+            onChange={handleNumbOfRooms}
+            className="mb-2 cursor-pointer rounded-lg border-2 border-indigo-800"
+          >
             <option value="">All Rooms</option>
             {selectNumbOfRooms.map((data) => (
               <option key={data.id} value={data.value}>
@@ -98,9 +105,12 @@ const SearchForm = ({onCancel, onSearchForm }: SearchFormProps) => {
           </select>
         </div>
 
-        <div className='flex flex-col'>
-          <p className='font-semibold mb-2'>Living Area</p>
-          <select onChange={handleLivingArea} className='rounded-lg border-indigo-800 border-2 md:w-36 cursor-pointer'>
+        <div className="flex flex-col">
+          <p className="mb-2 font-semibold">Living Area</p>
+          <select
+            onChange={handleLivingArea}
+            className="cursor-pointer rounded-lg border-2 border-indigo-800"
+          >
             <option value="">Select All</option>
             {livingArea.map((data) => (
               <option key={data.id} value={data.value}>
@@ -112,7 +122,10 @@ const SearchForm = ({onCancel, onSearchForm }: SearchFormProps) => {
       </div>
 
       <div className="mb-4 flex items-center justify-center gap-8">
-        <button onClick={handleCancel} className="rounded-md border border-indigo-900 py-2 px-6 md:px-10">
+        <button
+          onClick={handleCancel}
+          className="rounded-md border border-indigo-900 py-2 px-6 md:px-10"
+        >
           Cancel
         </button>
 

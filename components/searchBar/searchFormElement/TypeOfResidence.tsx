@@ -61,7 +61,7 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
   }, [typeOfLiving, allTypes, onTypeOfResidence]);
 
   return (
-    <div className="mx-2 flex flex-col justify-between gap-4 py-4 text-white lg:flex-row md:mb-8">
+    <div className="mx-2 flex flex-col justify-between gap-4 py-4 text-white md:mb-8">
       <div className="flex gap-4 w-full">
         <label
           htmlFor="allTypes"
