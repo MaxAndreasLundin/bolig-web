@@ -22,7 +22,7 @@ const ResidenceForSale = () => {
 
   return (
     <>
-    <div className="flex h-[100vh] w-[100vw] flex-1 justify-center text-gray-500 border border-red-700">
+    <div className="flex h-[100vh] w-[100vw] flex-1 justify-center text-gray-500">
 
       {isLoading ? (
         <div className="flex justify-center items-center gap-4">
@@ -30,13 +30,13 @@ const ResidenceForSale = () => {
         <GiCoffeeCup className="h-8 w-8 animate-bounce"/>
       </div>
       ) : (
-      <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-[1200px] border-2">
+      <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-[1200px] lg:rounded-lg bg-gray-100">
         <div className="flex md:hidden items-center justify-center w-full pt-6 px-8"><SearchBar /></div>
-        <div className="hidden md:flex items-start justify-start pt-10 h-full w-[500px] border">
+        <div className="hidden md:flex items-start justify-start pt-14 h-full w-[500px]">
           <SearchFormResicence />
         </div>
         
-        <div className="w-full my-10 border p-2">
+        <div className="w-full my-10 p-2">
           <h1 className="pb-4 text-4xl font-semibold">Residence for sale</h1>
 
           <div className="w-full">

@@ -86,39 +86,43 @@ const SearchFormResicence = () => {
     }
   }
 
-  
-
-
   return (
     <form onSubmit={handleSubmit}
-    className='flex flex-1 flex-col justify-start items-start h-full border border-green-500'>
-      <div className='border h-[30%] w-full'>image</div>
+    className='flex flex-1 flex-col justify-start items-start h-full bg-gray-50'>
+      <div style={{
+        backgroundImage: `url(/search.jpg)`,
+      }} className='border h-[30%] w-full bg-cover bg-center bg-no-repeat rounded-t-lg'></div>
 
-      <label htmlFor="location">Location</label>
-      <input type="text" id='location' onChange={handleSearchInput} />
       
 
-      <div className="flex flex-col">
-          <p className="mb-2 font-semibold">Rooms</p>
-          <select
-            onChange={handleNumbOfRooms}
-            className="mb-2 cursor-pointer rounded-lg border-2 border-indigo-800"
-          >
-            <option value="">All Rooms</option>
-            {selectNumbOfRooms.map((data) => (
-              <option key={data.id} value={data.value}>
-                {data.view}
-              </option>
-            ))}
-          </select>
+      <div className="flex flex-col w-full p-4">
+        
+        <label htmlFor="location" className='font-semibold py-2'>Location</label>
+        <div className='flex items-center'>
+          <GoSearch className='h-6 w-6'/>
+          <input type="text" id='location' onChange={handleSearchInput} placeholder='City' className='bg-transparent border-0 border-b-2 w-full placeholder:text-gray-500 placeholder:font-semibold placeholder:tracking-widest placeholder:text-sm'/>
         </div>
+        
+
+        <p className="mb-2 font-semibold pt-4 pb-2">Rooms</p>
+        <select
+          onChange={handleNumbOfRooms}
+          className="mb-2 cursor-pointer rounded-md border-2 border-indigo-800"
+        >
+          <option value="">All Rooms</option>
+          {selectNumbOfRooms.map((data) => (
+            <option key={data.id} value={data.value}>
+              {data.view}
+            </option>
+          ))}
+        </select>
 
         <div className="flex flex-col">
-          <p className="mb-2 font-semibold">Living Area</p>
+          <p className="mb-2 font-semibold pt-4 pb-2">Living Area</p>
           <select
             onChange={handleLivingArea}
-            className="cursor-pointer rounded-lg border-2 border-indigo-800"
-          >
+            className="cursor-pointer rounded-md border-2 border-indigo-800"
+            >
             <option value="">Select All</option>
             {livingArea.map((data) => (
               <option key={data.id} value={data.value}>
@@ -128,30 +132,29 @@ const SearchFormResicence = () => {
           </select>
         </div>
 
-        <div className="mx-2 mb-6 flex flex-col border-b-2 border-indigo-900 pb-10 md:mb-8 xl:flex-row md:justify-between">
-          <div className="flex flex-col">
-            <p className="mb-2 font-semibold">Higest Price</p>
-            <select
-              onChange={handleHighestPrice}
-              className="mb-2 cursor-pointer rounded-lg border-2 border-indigo-800"
+        <div className="flex flex-col">
+          <p className="mb-2 font-semibold pt-4 pb-2">Higest Price</p>
+          <select
+            onChange={handleHighestPrice}
+            className="mb-2 cursor-pointer rounded-md border-2 border-indigo-800"
             >
-              <option value="">Select All</option>
-              {selectPrice.map((data) => (
-                <option key={data.id} value={data.value}>
-                  {data.view} kr
-                </option>
-              ))}
-            </select>
-          </div>
+            <option value="">Select All</option>
+            {selectPrice.map((data) => (
+              <option key={data.id} value={data.value}>
+                {data.view} kr
+              </option>
+            ))}
+          </select>
         </div>
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 rounded-md bg-indigo-900 py-2 px-4 text-white hover:bg-indigo-800 md:px-8"
-        >
+          className="flex items-center justify-center gap-2 rounded-md bg-indigo-900 py-3 px-4 my-6 text-white font-semibold hover:bg-indigo-800 md:px-8"
+          >
           Search <GoSearch />
         </button>
 
+      </div>
     </form>
   )
 }
