@@ -11,7 +11,7 @@ export default function Home() {
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/houseParis2.jpg)`,
         }}
       >
-        <div className="h-full w-full md:w-[50%] lg:w-[40%] flex flex-1 flex-col items-start justify-center pt-10 p-4 bg-white bg-opacity-80 md:bg-transparent border border-black">
+        <div className="h-full w-full md:w-[50%] lg:w-[40%] flex flex-1 flex-col items-start justify-center pt-10 p-4 bg-white bg-opacity-80 md:bg-transparent">
           <div className='mb-20'>
             <p className="text-3xl font-semibold md:font-bold drop-shadow-2xl md:text-4xl">
               A New Home Awaits, <br/> Find It Now!
@@ -26,6 +26,16 @@ export default function Home() {
           {/* <GetListOfAllResidence /> */}
         </div>
 
+      </div>
+
+      <div className='flex flex-1 flex-col gap-4 text-white'>
+        <p className='text-indigo-900 font-semibold'>newest Delas</p>
+        <div className='flex gap-4'>
+          <div className='bg-blue-800 w-52 h-52 rounded-lg'>1</div>
+          <div className='bg-blue-800 w-52 h-52 rounded-lg'>2</div>
+          <div className='bg-blue-800 w-52 h-52 rounded-lg'>3</div>
+          <div className='bg-blue-800 w-52 h-52 rounded-lg'>4</div>
+        </div>
       </div>
     </div>
   );
