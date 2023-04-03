@@ -4,6 +4,7 @@ import ResidenceCard from "../../components/card/ResidenceCard";
 import { ResidenceListProps } from "../../components/helpers/ResidenceList";
 import SearchBar from "../../components/searchBar/SearchBar";
 import { GiCoffeeCup } from 'react-icons/gi'
+import SearchFormResicence from "../../components/searchFormSmallCard/SearchFormResicence";
 
 const ResidenceForSale = () => {
   const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
@@ -31,7 +32,9 @@ const ResidenceForSale = () => {
       ) : (
       <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-[1200px] border-2">
         <div className="flex md:hidden items-center justify-center w-full pt-6 px-8"><SearchBar /></div>
-        <div className="hidden md:flex w-[500px] border">Search</div>
+        <div className="hidden md:flex items-start justify-start pt-10 h-full w-[500px] border">
+          <SearchFormResicence />
+        </div>
         
         <div className="w-full my-10 border p-2">
           <h1 className="pb-4 text-4xl font-semibold">Residence for sale</h1>
