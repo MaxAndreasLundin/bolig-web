@@ -33,10 +33,10 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
       <div className="flex gap-4 w-full">
         <label
           htmlFor="allTypes"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
             typeOfLiving === ''
-              ? 'bg-indigo-900'
-              : 'bg-transparent text-indigo-900'
+              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
+              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
           }`}
         >
           <input
@@ -55,10 +55,10 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
 
         <label
           htmlFor="apartment"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
             typeOfLiving === "Apartment"
-              ? 'bg-indigo-900'
-              : 'bg-transparent text-indigo-900'
+              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
+              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
           }`}
         >
           <input
@@ -79,10 +79,10 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
       <div className="flex gap-4 w-full">
         <label
           htmlFor="townHouse"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
             typeOfLiving === "TownHouse"
-              ? 'bg-indigo-900'
-              : 'bg-transparent text-indigo-900'
+              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
+              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
           }`}
         >
           <input
@@ -101,10 +101,10 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
 
         <label
           htmlFor="house"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg border-2 border-indigo-900 py-2 hover:bg-indigo-800 hover:text-white ${
+          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
             typeOfLiving === "House"
-              ? 'bg-indigo-900'
-              : 'bg-transparent text-indigo-900'
+              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
+              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
           }`}
         >
           <input

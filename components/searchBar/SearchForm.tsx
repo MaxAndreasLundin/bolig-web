@@ -133,7 +133,7 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 rounded-md bg-indigo-900 py-2 px-4 text-white hover:bg-indigo-800 md:px-8"
+          className="flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] py-2 px-4 text-white hover:bg-indigo-800 md:px-8"
         >
           Search <GoSearch />
         </button>
