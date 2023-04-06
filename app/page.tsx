@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GetListOfAllResidence from '../components/searchBar/GetListOfAllResidence';
 import SearchBar from '../components/searchBar/SearchBar';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import CityCard from '../components/card/CityCard';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -49,9 +50,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center w-full max-w-[1200px] gap-4 text-white bg-[#f6f4fc] py-10 border">
-        <p className="font-bold text-indigo-900 text-2xl pl-4 py-4">Newest Delas</p>
-        <div className="flex justify-center items-center w-[80%] overflow-hidden gap-4 border">
+      {/* Newest Deals */}
+      <div className="flex flex-col items-center w-full max-w-[1200px] gap-4 text-white bg-[#f6f4fc] py-10">
+        <p className="font-bold text-indigo-900 text-2xl pl-4 py-4">Newest Deals</p>
+        <div className="flex justify-center items-center w-[80%] overflow-hidden gap-4 border mb-10">
           <button onClick={handlePrevSlide} className='bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] rounded-full p-2'>
             <AiOutlineArrowLeft className='text-white'/>
           </button>
@@ -69,7 +71,16 @@ export default function Home() {
             <AiOutlineArrowRight className='text-white'/>
           </button>
         </div>
+        
+        {/*Explore your favorit city*/}
+        <div className='border flex flex-col items-center w-[80%] h-[500px] my-20'>
+          <h3 className='text-blue-900 text-2xl font-bold'>Explore Your favorit City</h3>
+          <div className='border grid grid-cols-4 gap-2 h-full w-full py-10'>
+            <CityCard />
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }
