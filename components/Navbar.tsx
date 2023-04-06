@@ -15,9 +15,9 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full max-w-[1200px] grid grid-cols-4 bg-white p-1 px-2 sm:p-2 text-indigo-900">
+      <header className="sticky top-0 z-50 w-full max-w-[1200px] grid grid-cols-4 bg-white my-2 px-2 sm:p-2 text-indigo-900">
         {/*left*/}
-        <div className="relative flex items-center h-14">
+        <div className="relative flex items-center">
           <Link href={"/"} className="flex justify-center items-center gap-1">
             <h1 className="w-full pl-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]">Bolig</h1>
             <GoHome className="text-3xl" />
@@ -35,7 +35,7 @@ const Navbar = () => {
         </div>
 
         {/*right*/}
-        <div className="flex items-center justify-end gap-2 pr-2 h-14">
+        <div className="flex items-center justify-end gap-2 pr-2">
           <div className="flex items-center gap-1 rounded-full text-stone-800 border-2 py-1 px-3 hover:bg-sky-100 bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]">
             <div className="rounded-full border md:border-hidden py-1 px-2 md:px-1 ">
               <Link href={"login"}>

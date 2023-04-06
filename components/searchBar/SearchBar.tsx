@@ -87,7 +87,7 @@ const SearchBar = () => {
             placeholder="Search location..."
             className="w-full flex-grow rounded-2xl border-none bg-transparent p-4 text-indigo-900 placeholder:font-semibold sm:px-6 sm:text-base placeholder:sm:text-base"
           />
-          <div className="mr-4 flex h-full transform items-center justify-center rounded-full bg-indigo-900 duration-300 hover:scale-105 hover:cursor-pointer md:mx-2">
+          <div className="mr-4 flex h-full transform items-center justify-center rounded-full bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] duration-300 hover:scale-105 hover:cursor-pointer md:mx-2">
             <GoSearch className="m-1 flex h-6 w-6 items-center justify-center p-1 text-2xl text-white " />
           </div>
         </div>

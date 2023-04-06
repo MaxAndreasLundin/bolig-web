@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <div className="flex h-[100vh] w-[100vw] flex-1 flex-col items-center text-indigo-900">
       <div
-        className="min-h-[600px] w-full max-w-[1200px] bg-cover bg-center bg-no-repeat lg:rounded-t-xl"
+        className="flex items-center h-full min-h-[600px] w-full max-w-[1200px] bg-cover bg-center bg-no-repeat lg:rounded-t-xl"
         style={{
           backgroundImage: `linear-gradient(to right,rgba(246,244,252, 0.7) 30%, rgba(255, 255, 255, 0.2) 100%), url(/houseParis2.jpg)`,
         }}
       >
-        <div className="flex h-full w-full flex-1 flex-col items-start justify-center bg-white bg-opacity-80 p-4 pt-10 md:w-[50%] md:bg-transparent lg:w-[40%]">
-          <div className="mb-20">
-            <p className="text-3xl font-semibold drop-shadow-2xl md:text-4xl md:font-bold">
+        <div className="flex h-full w-full flex-col items-center justify-center bg-white bg-opacity-80 p-4 pt-10 md:w-[50%] md:bg-transparent lg:w-[40%]">
+          <div className="flex flex-col justify-center items-start mb-20 mx-6">
+            <p className="text-3xl text-center font-semibold drop-shadow-2xl md:text-4xl md:font-bold">
               A New Home Awaits, <br /> Find It Now!
             </p>
             <p className="py-2 text-base font-semibold tracking-wider text-[#7d6af4]">
@@ -27,6 +27,7 @@ export default function Home() {
               Browse through our exclusive listings, tailored to meet a wide
               range of preferences and budgets.
             </p>
+          
           </div>
 
           <SearchBar />
