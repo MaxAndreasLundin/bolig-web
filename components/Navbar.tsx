@@ -19,7 +19,7 @@ const Navbar = () => {
         {/*left*/}
         <div className="relative flex items-center h-14">
           <Link href={"/"} className="flex justify-center items-center gap-1">
-            <h1 className="w-full pl-2 text-3xl font-bold">Bolig</h1>
+            <h1 className="w-full pl-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]">Bolig</h1>
             <GoHome className="text-3xl" />
           </Link>
         </div>

@@ -32,7 +32,7 @@ const GetListOfAllResidence = () => {
     <>
       <button
         onClick={fetchResidence}
-        className="my-12 rounded-xl border bg-white bg-opacity-80 p-2 font-semibold text-gray-700 hover:scale-105 lg:my-44"
+        className="rounded-xl border bg-white bg-opacity-80 p-2 font-semibold text-gray-700 hover:scale-105 lg:my-44"
       >
         Explore whats for sale
       </button>

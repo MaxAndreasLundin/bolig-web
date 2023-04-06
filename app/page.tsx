@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className="flex h-[100vh] w-[100vw] flex-1 flex-col items-center text-indigo-900">
       <div
-        className="min-h-[600px] w-full max-w-[1200px] border bg-cover bg-center bg-no-repeat lg:rounded-xl"
+        className="min-h-[600px] w-full max-w-[1200px] border-1 bg-cover bg-center bg-no-repeat lg:rounded-xl"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(/houseParis2.jpg)`,
+          backgroundImage: `linear-gradient(to right,rgba(246,244,252, 0.7) 30%, rgba(255, 255, 255, 0.2) 100%), url(/houseParis2.jpg)`,
         }}
       >
         <div className="flex h-full w-full flex-1 flex-col items-start justify-center bg-white bg-opacity-80 p-4 pt-10 md:w-[50%] md:bg-transparent lg:w-[40%]">
@@ -16,7 +16,7 @@ export default function Home() {
             <p className="text-3xl font-semibold drop-shadow-2xl md:text-4xl md:font-bold">
               A New Home Awaits, <br /> Find It Now!
             </p>
-            <p className="py-2 text-base font-semibold tracking-wider">
+            <p className="py-2 text-base font-semibold tracking-wider text-[#7d6af4]">
               Discover Exceptional Real Estate Opportunities Across the Nation.
             </p>
             <p>
