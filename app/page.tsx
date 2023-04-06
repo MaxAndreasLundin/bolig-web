@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex h-[100vh] w-[100vw] flex-1 flex-col items-center text-indigo-900">
       <div
-        className="min-h-[600px] w-full max-w-[1200px] border-1 bg-cover bg-center bg-no-repeat lg:rounded-xl"
+        className="min-h-[600px] w-full max-w-[1200px] bg-cover bg-center bg-no-repeat lg:rounded-t-xl"
         style={{
           backgroundImage: `linear-gradient(to right,rgba(246,244,252, 0.7) 30%, rgba(255, 255, 255, 0.2) 100%), url(/houseParis2.jpg)`,
         }}
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-4 text-white">
+      <div className="flex flex-1 flex-col w-full max-w-[1200px] gap-4 text-white bg-[#f6f4fc] border">
         <p className="font-semibold text-indigo-900">newest Delas</p>
         <div className="flex gap-4">
           <div className="h-52 w-52 rounded-lg bg-blue-800">1</div>

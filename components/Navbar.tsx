@@ -36,21 +36,21 @@ const Navbar = () => {
 
         {/*right*/}
         <div className="flex items-center justify-end gap-2 pr-2 h-14">
-          <div className="flex items-center gap-1 rounded-full border-indigo-900 text-stone-800 border-2 py-1 px-3 hover:bg-sky-100">
-            <div
-              className="block cursor-pointer text-indigo-900 md:hidden"
-              onClick={handleClick}
-            >
-              {click ? (
-                <XIcon className="h-6" />
-              ) : (
-                <MenuIcon className="h-6" />
-              )}
-            </div>
-            <div className="bg-indigo-900 rounded-full py-1 px-2 ">
+          <div className="flex items-center gap-1 rounded-full text-stone-800 border-2 py-1 px-3 hover:bg-sky-100 bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]">
+            <div className="rounded-full border md:border-hidden py-1 px-2 md:px-1 ">
               <Link href={"login"}>
                 <FaUser className="h-6 text-white" />
               </Link>
+            </div>
+            <div
+              className="block cursor-pointer md:hidden"
+              onClick={handleClick}
+            >
+              {click ? (
+                <XIcon className="h-6 text-white" />
+              ) : (
+                <MenuIcon className="h-6 text-white" />
+              )}
             </div>
           </div>
         </div>
