@@ -37,7 +37,7 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
     e.preventDefault();
     const newSearch: Partial<SearchDataProps> = {};
 
-    newSearch.typeOfResidence = typeOfResidence
+    newSearch.typeOfResidence = typeOfResidence;
 
     if (room) {
       newSearch.room = {
@@ -70,18 +70,18 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex w-full flex-col rounded-2xl pt-6 text-indigo-900"
+      className="flex w-full flex-col rounded-2xl pt-6 text-primary"
     >
       <div className="md:mb-8">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
 
-      <div className="mx-2 mb-6 flex flex-col border-b-2 border-indigo-900 pb-10 md:mb-8 xl:flex-row md:justify-between">
+      <div className="mx-2 mb-6 flex flex-col border-b-2 border-primary pb-10 md:mb-8 md:justify-between xl:flex-row">
         <div className="flex flex-col">
           <p className="mb-2 font-semibold">Higest Price</p>
           <select
             onChange={handleHighestPrice}
-            className="mb-2 cursor-pointer rounded-lg border-2 border-indigo-800"
+            className="mb-2 cursor-pointer rounded-lg border-2 border-primary"
           >
             <option value="">Select All</option>
             {selectPrice.map((data) => (
@@ -96,7 +96,7 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
           <p className="mb-2 font-semibold">Rooms</p>
           <select
             onChange={handleNumbOfRooms}
-            className="mb-2 cursor-pointer rounded-lg border-2 border-indigo-800"
+            className="mb-2 cursor-pointer rounded-lg border-2 border-primary"
           >
             <option value="">All Rooms</option>
             {selectNumbOfRooms.map((data) => (
@@ -111,7 +111,7 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
           <p className="mb-2 font-semibold">Living Area</p>
           <select
             onChange={handleLivingArea}
-            className="cursor-pointer rounded-lg border-2 border-indigo-800"
+            className="cursor-pointer rounded-lg border-2 border-primary"
           >
             <option value="">Select All</option>
             {livingArea.map((data) => (
@@ -126,14 +126,14 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
       <div className="mb-4 flex items-center justify-center gap-8">
         <button
           onClick={handleCancel}
-          className="rounded-md border border-indigo-900 py-2 px-6 md:px-10"
+          className="rounded-md border border-primary py-2 px-6 hover:bg-white_bolig_hover md:px-10"
         >
           Cancel
         </button>
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] py-2 px-4 text-white hover:bg-indigo-800 md:px-8"
+          className="flex items-center justify-center gap-2 rounded-md bg-third py-2 px-4 text-white_bolig hover:bg-third_hover md:px-8"
         >
           Search <GoSearch />
         </button>

@@ -7,15 +7,16 @@ const CityCard = () => {
       {ListOfCities.map((city) => (
         <div
         key={city.id}
-        className={`bg-cover bg-center bg-no-repeat h-full rounded ${
-          city.id === 1 ? "col-span-2" : ""
-        } ${city.id === 2 ? "row-span-2" : ""}`}
+        
+        className={`bg-cover bg-center bg-no-repeat h-[220px] rounded hover:cursor-pointer hover:opacity-80 ${
+          city.id === 1 ? "lg:col-span-2" : ""
+        } ${city.id === 2 ? "lg:row-span-2 lg:h-[448px]" : ""}`}
         style={{
           backgroundImage: `url(${city.img})`,
         }}
       >
-        <div className="bg-gradient-to-b from-transparent to-black p-4 h-full flex flex-col justify-end rounded">
-          <p>{city.name}</p>
+        <div className="p-4 h-full flex flex-col justify-end font-semibold tracking-wider rounded">
+          <p className='text-white_bolig'>{city.name}</p>
         </div>
       </div>
       ))}

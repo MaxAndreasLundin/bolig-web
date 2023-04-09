@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useEffect } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { GoHome } from 'react-icons/go';
 import { MdOutlineLocationCity, MdDashboard } from 'react-icons/md';
 import { GiFamilyHouse } from 'react-icons/gi';
@@ -16,34 +16,30 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
 
     if (checked) {
       setTypeOfLiving(name);
-      console.log('TEST', typeOfLiving)
+      console.log('TEST', typeOfLiving);
       onTypeOfResidence(name === 'allTypes' ? '' : name);
     } else {
-      setTypeOfLiving('')
-      onTypeOfResidence('')
+      setTypeOfLiving('');
+      onTypeOfResidence('');
     }
   };
 
-  
-  // Use useEffect to monitor changes to the typeOfLiving state and send updated data to main component
-
-
   return (
-    <div className="mx-2 flex flex-col justify-between gap-4 py-4 text-white">
-      <div className="flex gap-4 w-full">
+    <div className="mx-2 flex flex-col justify-between gap-4 py-4">
+      <div className="flex w-full gap-4">
         <label
           htmlFor="allTypes"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
+          className={`float-left flex w-full cursor-pointer justify-center rounded-lg py-2 hover:border-primary_hover hover:text-third md:h-14 ${
             typeOfLiving === ''
-              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
-              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
+              ? 'bg-primary text-white_bolig'
+              : 'bg-transparent border-2'
           }`}
         >
           <input
             type="checkbox"
             id="allTypes"
             name=""
-            checked={typeOfLiving == "AllTypes"}
+            checked={typeOfLiving == 'AllTypes'}
             onChange={handleCheckboxChange}
             className="hidden"
           />
@@ -55,17 +51,17 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
 
         <label
           htmlFor="apartment"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
-            typeOfLiving === "Apartment"
-              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
-              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
+          className={`float-left flex w-full cursor-pointer justify-center rounded-lg py-2 hover:border-primary_hover hover:text-third md:h-14 ${
+            typeOfLiving === 'Apartment'
+              ? 'bg-primary text-white_bolig'
+              : 'bg-transparent border-2'
           }`}
         >
           <input
             type="checkbox"
             id="apartment"
             name="Apartment"
-            checked={typeOfLiving === "Apartment"}
+            checked={typeOfLiving === 'Apartment'}
             onChange={handleCheckboxChange}
             className="hidden"
           />
@@ -76,20 +72,20 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
         </label>
       </div>
 
-      <div className="flex gap-4 w-full">
+      <div className="flex w-full gap-4">
         <label
           htmlFor="townHouse"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
-            typeOfLiving === "TownHouse"
-              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
-              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
+          className={`float-left flex w-full cursor-pointer justify-center rounded-lg py-2 hover:border-primary_hover hover:text-third md:h-14 ${
+            typeOfLiving === 'TownHouse'
+              ? 'bg-primary text-white_bolig'
+              : 'bg-transparent border-2'
           }`}
         >
           <input
             type="checkbox"
             id="townHouse"
             name="TownHouse"
-            checked={typeOfLiving === "TownHouse"} //kontrollerar om kryssrutan ska vara markerad eller inte
+            checked={typeOfLiving === 'TownHouse'} //kontrollerar om kryssrutan ska vara markerad eller inte
             onChange={handleCheckboxChange}
             className="hidden"
           />
@@ -101,17 +97,17 @@ const TypeOfResidence = ({ onTypeOfResidence }: TypeOfLivingProps) => {
 
         <label
           htmlFor="house"
-          className={`float-left flex justify-center w-full md:h-14 cursor-pointer rounded-lg py-2 hover:bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf] hover:text-white ${
-            typeOfLiving === "House"
-              ? 'bg-gradient-to-r from-[#7d6af5] to-[#9c4ecf]'
-              : 'bg-transparent text-indigo-900 border-2 border-indigo-900'
+          className={`float-left flex w-full cursor-pointer justify-center rounded-lg py-2 hover:border-primary_hover hover:text-third md:h-14 ${
+            typeOfLiving === 'House'
+              ? 'bg-primary text-white_bolig'
+              : 'bg-transparent border-2'
           }`}
         >
           <input
             type="checkbox"
             id="house"
             name="House"
-            checked={typeOfLiving === "House"}
+            checked={typeOfLiving === 'House'}
             onChange={handleCheckboxChange}
             className="hidden"
           />
