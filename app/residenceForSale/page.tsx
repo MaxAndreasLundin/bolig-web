@@ -48,7 +48,7 @@ const ResidenceForSale = () => {
                     <ResidenceCard
                       id={item.id}
                       title={item.title}
-                      city={item.city}
+                      location={item.location}
                       description={item.description}
                       typeOfResidence={item.typeOfResidence}
                       price={item.price}
