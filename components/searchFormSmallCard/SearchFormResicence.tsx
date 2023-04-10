@@ -1,8 +1,8 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { GoSearch } from 'react-icons/go';
 import { selectPrice } from '../searchBar/searchFormElement/SelectPrice';
-import { selectNumbOfRooms } from '../searchBar/searchFormElement/SelectNumbOfRooms'; 
-import { livingArea } from '../searchBar/searchFormElement/LivingArea'; 
+import { selectNumbOfRooms } from '../searchBar/searchFormElement/SelectNumbOfRooms';
+import { livingArea } from '../searchBar/searchFormElement/LivingArea';
 import { SearchDataProps } from '../searchBar/SearchBar';
 import TypeOfResidence from '../searchBar/searchFormElement/TypeOfResidence';
 
@@ -41,7 +41,6 @@ const SearchFormResicence = () => {
 
     newSearch.typeOfResidence = typeOfResidence;
 
-
     if (room) {
       newSearch.room = {
         gte: 0,
@@ -63,7 +62,7 @@ const SearchFormResicence = () => {
       };
     }
 
-    console.log(newSearch)
+    console.log(newSearch);
 
     const token = localStorage.getItem('token');
     if (!token) {
@@ -93,33 +92,43 @@ const SearchFormResicence = () => {
       alert('fetch backend failed');
       console.log('fetch backend failed', error);
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubmit}
-    className='flex flex-1 flex-col justify-start items-start h-full bg-gray-50'>
-      <div style={{
-        backgroundImage: `url(/search.jpg)`,
-      }} className='border h-[30%] w-full bg-cover bg-center bg-no-repeat rounded-t-lg'></div>
+    <form
+      onSubmit={handleSubmit}
+      className="flex h-full flex-1 flex-col items-start justify-start bg-white_bolig"
+    >
+      <div
+        style={{
+          backgroundImage: `url(/search.jpg)`,
+        }}
+        className="mx-4 h-[30%] w-full rounded-t-lg border bg-cover bg-center bg-no-repeat"
+      ></div>
 
-      
-
-      <div className="flex flex-col w-full p-4">
-        
-        <label htmlFor="location" className='font-semibold py-2'>Location</label>
-        <div className='flex items-center'>
-          <GoSearch className='h-6 w-6'/>
-          <input type="text" id='location' onChange={handleSearchInput} placeholder='City' className='bg-transparent border-0 border-b-2 w-full placeholder:text-gray-500 placeholder:font-semibold placeholder:tracking-widest placeholder:text-sm'/>
+      <div className="flex w-full flex-col p-4">
+        <label htmlFor="location" className="py-2 font-semibold">
+          Location
+        </label>
+        <div className="flex items-center">
+          <GoSearch className="h-6 w-6" />
+          <input
+            type="text"
+            id="location"
+            onChange={handleSearchInput}
+            placeholder="City"
+            className="w-full border-0 border-b-2 bg-white_bolig placeholder:text-sm placeholder:font-semibold placeholder:tracking-widest placeholder:text-primary"
+          />
         </div>
-        
+
         <div className="pt-6">
           <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
         </div>
 
-        <p className="mb-2 font-semibold pt-4 pb-2">Rooms</p>
+        <p className="mb-2 pt-4 pb-2 font-semibold">Rooms</p>
         <select
           onChange={handleNumbOfRooms}
-          className="mb-2 cursor-pointer rounded-md border-2 border-indigo-800"
+          className="mb-2 cursor-pointer rounded-md border-2 border-primary"
         >
           <option value="">All Rooms</option>
           {selectNumbOfRooms.map((data) => (
@@ -130,11 +139,11 @@ const SearchFormResicence = () => {
         </select>
 
         <div className="flex flex-col">
-          <p className="mb-2 font-semibold pt-4 pb-2">Living Area</p>
+          <p className="mb-2 pt-4 pb-2 font-semibold">Living Area</p>
           <select
             onChange={handleLivingArea}
-            className="cursor-pointer rounded-md border-2 border-indigo-800"
-            >
+            className="mb-2 cursor-pointer rounded-md border-2 border-primary"
+          >
             <option value="">Select All</option>
             {livingArea.map((data) => (
               <option key={data.id} value={data.value}>
@@ -145,11 +154,11 @@ const SearchFormResicence = () => {
         </div>
 
         <div className="flex flex-col">
-          <p className="mb-2 font-semibold pt-4 pb-2">Higest Price</p>
+          <p className="mb-2 pt-4 pb-2 font-semibold">Higest Price</p>
           <select
             onChange={handleHighestPrice}
-            className="mb-2 cursor-pointer rounded-md border-2 border-indigo-800"
-            >
+            className="mb-2 cursor-pointer rounded-md border-2 border-primary"
+          >
             <option value="">Select All</option>
             {selectPrice.map((data) => (
               <option key={data.id} value={data.value}>
@@ -161,14 +170,13 @@ const SearchFormResicence = () => {
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 rounded-md bg-indigo-900 py-3 px-4 my-6 text-white font-semibold hover:bg-indigo-800 md:px-8"
-          >
+          className="my-6 flex items-center justify-center gap-2 rounded-md bg-secondary py-3 px-4 font-semibold text-white_bolig hover:bg-secondary_hover md:px-8"
+        >
           Search <GoSearch />
         </button>
-
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default SearchFormResicence
+export default SearchFormResicence;

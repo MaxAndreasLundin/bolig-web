@@ -59,7 +59,7 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
     alert(`Sign up complete: ${result.formData}`);
   };
   return (
-    <form onSubmit={onSubmit} className={`${className} flex flex-col justify-center w-full h-full p-10 shadow-2xl transition duration-300 ease-in-out bg-stone-800 bg-opacity-60`}>
+    <form onSubmit={onSubmit} className={`${className} flex justify-center h-full w-full py-10 flex-col gap-6 pr-10 sm:pr-32 md:pr-0 lg:pr-20`}>
       <div className="mb-10 flex gap-4">
         <h2 className="text-4xl font-semibold">Register</h2>
         <FaUserEdit className="text-4xl" />
@@ -72,7 +72,7 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
           value={firstName}
           onChange={onChange}
           placeholder="..."
-          className="mt-2 w-full border-0 border-b-2 border-stone-700 bg-transparent placeholder:text-white"
+          className="mt-2 w-full border-0 border-b-2 border-white_bolig bg-secondary bg-opacity-95 placeholder:text-white_bolig"
         />
       </div>
       <div className="mb-4 flex flex-col">
@@ -83,7 +83,7 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
           value={lastName}
           onChange={onChange}
           placeholder="..."
-          className="mt-2 w-full border-0 border-b-2 border-stone-700 bg-transparent placeholder:text-white"
+          className="mt-2 w-full border-0 border-b-2 border-white_bolig bg-secondary bg-opacity-95 placeholder:text-white_bolig"
         />
       </div>
       <div className="mb-2 flex flex-col">
@@ -94,7 +94,7 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
           value={email}
           onChange={onChange}
           placeholder="..."
-          className="mt-2 w-full border-0 border-b-2 border-stone-700 bg-transparent placeholder:text-white"
+          className="mt-2 w-full border-0 border-b-2 border-white_bolig bg-secondary bg-opacity-95 placeholder:text-white_bolig"
         />
       </div>
       <div className="mb-2 flex flex-col">
@@ -105,20 +105,20 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
           value={password}
           onChange={onChange}
           placeholder="..."
-          className="mt-2 w-full border-0 border-b-2 border-stone-700 bg-transparent placeholder:text-white"
+          className="mt-2 w-full border-0 border-b-2 border-white_bolig bg-secondary bg-opacity-95 placeholder:text-white_bolig"
         />
       </div>
-      <div className="flex items-center justify-center mt-6 gap-4">
+      <div className="flex items-center justify-start mt-6 gap-4">
         <Link href={"/"}>
           <button
-            className="mt-4 h-10 w-28 rounded-md border-2 shadow-2xl hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
+            className="mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
           >
             Cancel
           </button>
         </Link>
         <button
           type="submit"
-          className="mt-4 h-10 w-28 rounded-md border-2 shadow-2xl hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
+          className="mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
         >
           Sign up
         </button>

@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import LoginForm from '../../components/login/LoginForm';
 import RegistrationForm from '../../components/login/RegistrationForm';
+import './../globals.css';
+import { GoHome } from 'react-icons/go';
 
 const Login = () => {
   const [click, setClick] = useState(true);
@@ -11,42 +13,44 @@ const Login = () => {
   };
 
   return (
-    <div className="flex h-[100vh] w-full max-w-[1200px] flex-1 flex-col items-center xl:rounded-xl overflow-x-hidden text-white bg-cover bg-center bg-no-repeat"
-    style={{
-      backgroundImage: `linear-gradient(rgba(26, 23, 23, 0.2), rgba(20, 19, 19, 0.2)),url(/city.jpg)`,
-    }}>
-      
-        <div className='h-full w-full flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-          <div className='py-32 md:py-0 flex h-full lg:col-span-2 flex-col justify-center items-center'>
-            <h1 className="text-5xl font-bold">Welcome,</h1>
-            <p>Sign in or create an account to access all the features of our service.</p>
-            <div className="mt-4 flex items-center justify-center gap-1">
-              <p>Click here to</p>
-              <button
-                onClick={handleClick}
-                className="h-10 w-20 rounded-md bg-orange-500 shadow-2xl outline-none hover:scale-105"
-                >
-                {click! ? 'Register' : 'Login'}
-              </button>
-            </div>
-          </div>
-          
-          <div className='h-full flex flex-col items-center justify-center overflow-hidden flex-1'>
-            {/* {click ? <LoginForm className={`${click ? 'opacity-100 duration-3500 transition-all ease-in-out' : 'opacity-0 duration-3500 transition-all ease-in-out'}`} /> : <RegistrationForm className={`${click ? 'opacity-0 duration-3500 transition-all ease-in-out' : 'opacity-100 duration-3500 transition-all ease-in-out'}`} />
-            } */}{click ?
-          <LoginForm
+    <div className="flex h-[100vh] w-[100vw] flex-1 flex-col items-center">
+      <div className="login-img h-full min-h-[700px] w-full max-w-[1400px]">
+        <div className="flex h-full min-h-[700px] w-full flex-1 flex-col bg-secondary bg-opacity-95 p-10 text-white_bolig md:w-[50%] md:bg-opacity-100 lg:p-20">
+          <h2 className="mb-4 text-3xl font-semibold tracking-wider text-third md:text-4xl">
+            Welcome
+          </h2>
+          <p>
+            Sign in or create an account to access all the features of our
+            service.
+          </p>
+          {click ? (
+            <LoginForm
               className={`duration-3500 transition-all ease-in-out ${
-                click ? 'opacity-100 transition ease-in-out' : 'opacity-0 transition-all ease-in-out'
+                click
+                  ? 'opacity-100 transition ease-in-out'
+                  : 'opacity-0 transition-all ease-in-out'
               }`}
-            /> :
+            />
+          ) : (
             <RegistrationForm
               className={`duration-3500 transition-all ease-in-out ${
-                click ? 'transition-all opacity-0 ease-in-out' : 'transition-all opacity-100 ease-in-out'
+                click
+                  ? 'opacity-0 transition-all ease-in-out'
+                  : 'opacity-100 transition-all ease-in-out'
               }`}
-            />}
+            />
+          )}
+          <div className="flex items-center justify-start">
+            <p>Don´t have account? Click here to </p>
+            <button
+              onClick={handleClick}
+              className="bg-orange-500 flex items-center gap-2 rounded-md px-2 font-medium text-third shadow-2xl outline-none hover:scale-105"
+            >
+              {click! ? 'Register' : 'Login'} <GoHome />
+            </button>
           </div>
         </div>
-
+      </div>
     </div>
   );
 };

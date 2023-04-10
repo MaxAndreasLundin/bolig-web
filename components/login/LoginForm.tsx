@@ -57,11 +57,11 @@ const LoginForm = ({ className }: LoginStyleProps) => {
   return (
     <form
       onSubmit={onSubmit}
-      className={`${className} flex justify-center h-full w-full flex-col p-10 gap-10 px-8 shadow-2xl bg-stone-800 bg-opacity-60`}
+      className={`${className} flex justify-center h-full w-full py-10 flex-col gap-6 pr-10 sm:pr-32 md:pr-0 lg:pr-20`}
     >
-      <div className="mb-4 flex gap-4">
-        <h2 className="text-4xl font-semibold">Login</h2>
-        <FaUser className="text-4xl" />
+      <div className="flex gap-2">
+        <h2 className="text-3xl font-semibold">Login</h2>
+        <FaUser className="text-3xl mt-1" />
       </div>
 
       <div className="flex flex-col">
@@ -74,7 +74,7 @@ const LoginForm = ({ className }: LoginStyleProps) => {
             id="email"
             value={email}
             onChange={handleChange}
-            className="mt-2 w-full border-0 border-b-2 border-stone-700 bg-transparent placeholder:text-white"
+            className="mt-2 w-full border-0 border-b-2 border-white_bolig bg-secondary bg-opacity-95 placeholder:text-white_bolig"
           />
         </div>
       </div>
@@ -89,14 +89,14 @@ const LoginForm = ({ className }: LoginStyleProps) => {
             id="password"
             value={password}
             onChange={handleChange}
-            className="mt-2 w-full border-0 border-b-2 border-stone-700 bg-transparent placeholder:text-white"
+            className="mt-2 w-full border-0 border-b-2 border-white_bolig bg-secondary bg-opacity-95 placeholder:text-white_bolig"
           />
         </div>
       </div>
-      <div className="flex items-center justify-start hover:cursor-pointer">
+      <div className="flex items-center justify-start text-white_bolig hover:cursor-pointer py-2">
         <button
           type="submit"
-          className="mt-4 h-10 w-40 rounded-md border-2 shadow-2xl hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
+          className="mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
         >
           Login
         </button>

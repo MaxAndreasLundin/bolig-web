@@ -30,6 +30,13 @@ a {
   background-position: center;
 }
 
+.login-img {
+  background-image: url(/login.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 * {
   box-sizing: border-box;
 }
