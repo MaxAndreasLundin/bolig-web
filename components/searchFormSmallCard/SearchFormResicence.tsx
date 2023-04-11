@@ -40,27 +40,12 @@ const SearchFormResicence = () => {
     newSearch.location = searchLocationInput;
     newSearch.typeOfResidence = typeOfResidence;
 
-    if (room) {
+    if (room || area || price) {
       newSearch.room = {
         gte: 0,
-        lte: room,
+        lte: room || area || price,
       };
     }
-
-    if (area) {
-      newSearch.area = {
-        gte: 0,
-        lte: area,
-      };
-    }
-
-    if (price) {
-      newSearch.price = {
-        gte: 0,
-        lte: price,
-      };
-    }
-
     console.log(newSearch);
 
     const result = await fetchData('http://localhost:3333/estates/category', 'POST', newSearch);
