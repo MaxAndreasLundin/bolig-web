@@ -29,7 +29,7 @@ export default function Home() {
             <p className="pb-2 text-3xl font-semibold drop-shadow-2xl md:text-4xl md:font-bold">
               A New Home Awaits, <br /> Find It Now!
             </p>
-            <p className="pt-2 pb-6 text-base tracking-wider text-primary">
+            <p className="pt-2 pb-8 text-base tracking-wider text-primary">
               Welcome to Bolig, the premier destination for all your real estate
               needs. Discover Exceptional Real Estate Opportunities Across the
               Nation.
@@ -56,7 +56,7 @@ export default function Home() {
           {Array.from({ length: totalSlides }).map((_, index) => (
             <div
               key={index}
-              className={`h-52 w-52 rounded-lg bg-[#ffffff] transition-all duration-500 ${
+              className={`h-52 w-52 rounded-lg bg-[#ffffff] text-primary transition-all duration-500 ${
                 index >= currentSlide && index < currentSlide + imagesToShow
                   ? 'block'
                   : 'hidden'

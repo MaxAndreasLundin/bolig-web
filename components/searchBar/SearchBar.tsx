@@ -76,7 +76,7 @@ const SearchBar = () => {
 
   return (
     <div className="md:full flex w-full flex-col items-center justify-center sm:w-[80%] xl:w-[90%]">
-      <div className="flex w-full flex-col items-center justify-center rounded-2xl border-primary bg-white_bolig shadow-2xl md:shadow-md lg:bg-opacity-90">
+      <div className="flex w-full flex-col items-center justify-center rounded-2xl border-primary bg-white_bolig shadow-2xl md:shadow-md">
         <div className="flex w-full items-center justify-center">
           <MdLocationOn className="ml-4 h-8 w-8 text-primary" />
           <input
@@ -84,7 +84,7 @@ const SearchBar = () => {
             value={searchLocationInput}
             onChange={handleSearchInput}
             placeholder="Search location..."
-            className="bg-transparent text-indigo-900 w-full flex-grow rounded-2xl border-none p-4 placeholder:font-semibold sm:px-6 sm:text-base placeholder:sm:text-base"
+            className="w-full flex-grow rounded-2xl border-none bg-white_bolig p-4 text-primary placeholder:font-semibold sm:px-6 sm:text-base placeholder:sm:text-base"
           />
           <div className="mr-4 flex h-full transform items-center justify-center rounded-full bg-primary duration-300 hover:scale-105 hover:cursor-pointer md:mx-2">
             <GoSearch className="m-1 flex h-6 w-6 items-center justify-center p-1 text-2xl text-white_bolig " />

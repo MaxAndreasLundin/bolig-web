@@ -5,6 +5,7 @@ import { selectNumbOfRooms } from '../searchBar/searchFormElement/SelectNumbOfRo
 import { livingArea } from '../searchBar/searchFormElement/LivingArea';
 import { SearchDataProps } from '../searchBar/SearchBar';
 import TypeOfResidence from '../searchBar/searchFormElement/TypeOfResidence';
+import { fetchData } from '../../app/utils/api';
 
 const SearchFormResicence = () => {
   const [searchLocationInput, setSearchLocationInput] = useState('');
@@ -36,9 +37,7 @@ const SearchFormResicence = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newSearch: Partial<SearchDataProps> = {};
-
     newSearch.location = searchLocationInput;
-
     newSearch.typeOfResidence = typeOfResidence;
 
     if (room) {
@@ -64,33 +63,14 @@ const SearchFormResicence = () => {
 
     console.log(newSearch);
 
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Please log in to search for apartment');
-      return;
-    }
-    try {
-      const response = await fetch('http://localhost:3333/estates/category', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(newSearch),
-      });
+    const result = await fetchData('http://localhost:3333/estates/category', 'POST', newSearch);
 
-      const result = await response.json();
-
-      if (result.length > 0) {
-        localStorage.setItem('searchResult', JSON.stringify(result));
-        window.location.href = '/residenceForSale';
-        console.log('result', result);
-      } else {
-        alert('Your search could not be found...');
-      }
-    } catch (error) {
-      alert('fetch backend failed');
-      console.log('fetch backend failed', error);
+    if (result && result.length > 0) {
+      localStorage.setItem('searchResult', JSON.stringify(result));
+      window.location.href = '/residenceForSale';
+      console.log('result', result);
+    } else {
+      alert('Your search could not be found...');
     }
   };
 
