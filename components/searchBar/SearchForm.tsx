@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from 'react';
 import TypeOfResidence from './searchFormElement/TypeOfResidence';
 import { GoSearch } from 'react-icons/go';
-import { SearchDataProps } from './SearchBar';
 import { selectPrice } from './searchFormElement/SelectPrice';
 import { selectNumbOfRooms } from './searchFormElement/SelectNumbOfRooms';
 import { livingArea } from './searchFormElement/LivingArea';
+import { SearchDataProps } from '../../app/types/searchData';
 
 interface SearchFormProps {
   onSearchForm: (newSearch: SearchDataProps) => void;

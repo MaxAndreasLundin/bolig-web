@@ -3,9 +3,9 @@ import { GoSearch } from 'react-icons/go';
 import { selectPrice } from '../searchBar/searchFormElement/SelectPrice';
 import { selectNumbOfRooms } from '../searchBar/searchFormElement/SelectNumbOfRooms';
 import { livingArea } from '../searchBar/searchFormElement/LivingArea';
-import { SearchDataProps } from '../searchBar/SearchBar';
 import TypeOfResidence from '../searchBar/searchFormElement/TypeOfResidence';
 import { fetchData } from '../../app/utils/api';
+import { SearchDataProps } from '../../app/types/searchData';
 import Image from 'next/image';
 
 const SearchFormResidence = () => {
@@ -49,7 +49,11 @@ const SearchFormResidence = () => {
     }
     console.log(newSearch);
 
-    const result = await fetchData('http://localhost:3333/estates/category', 'POST', newSearch);
+    const result = await fetchData(
+      'http://localhost:3333/estates/category',
+      'POST',
+      newSearch,
+    );
 
     if (result && result.length > 0) {
       localStorage.setItem('searchResult', JSON.stringify(result));
@@ -65,9 +69,7 @@ const SearchFormResidence = () => {
       onSubmit={handleSubmit}
       className="flex h-full flex-1 flex-col items-start justify-start bg-white_bolig"
     >
-      <div
-        className="relative h-[300px] w-full rounded-t-lg border bg-cover bg-center bg-no-repeat"
-      >
+      <div className="relative h-[300px] w-full rounded-t-lg border bg-cover bg-center bg-no-repeat">
         <Image
           src="/search.jpg"
           layout="fill"

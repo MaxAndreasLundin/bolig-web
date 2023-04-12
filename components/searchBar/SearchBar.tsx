@@ -2,29 +2,8 @@ import React, { ChangeEvent, useState } from 'react';
 import { GoSearch } from 'react-icons/go';
 import { MdLocationOn } from 'react-icons/md';
 import SearchForm from './SearchForm';
+import { SearchDataProps } from '../../app/types/searchData';
 
-export interface SearchDataProps {
-  title?: string;
-  description?: string;
-  link?: string;
-  location?: string;
-  typeOfResidence?: string;
-  coordinates?: string;
-  room?: {
-    gte: number;
-    lte: number;
-  };
-  area?: {
-    gte: number;
-    lte: number;
-  };
-  price?: {
-    gte: number;
-    lte: number;
-  };
-
-  [key: string]: string | number | { gte?: number; lte?: number } | undefined;
-}
 
 const SearchBar = () => {
   const [searchLocationInput, setSearchLocationInput] = useState('');
