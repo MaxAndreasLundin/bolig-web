@@ -10,15 +10,15 @@ export interface SearchDataProps {
   location?: string;
   typeOfResidence?: string;
   coordinates?: string;
-  room: {
+  room?: {
     gte: number;
     lte: number;
   };
-  area: {
+  area?: {
     gte: number;
     lte: number;
   };
-  price: {
+  price?: {
     gte: number;
     lte: number;
   };

@@ -1,10 +1,11 @@
 'use client';
 import { useState } from 'react';
 import GetListOfAllResidence from '../components/searchBar/GetListOfAllResidence';
-import SearchBar from '../components/searchBar/SearchBar';
+import SearchBar, { SearchDataProps } from '../components/searchBar/SearchBar';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import CityCard from '../components/card/CityCard';
 import './globals.css';
+import { fetchData } from './utils/api';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,6 +19,22 @@ export default function Home() {
   const handleNextSlide = () => {
     setCurrentSlide((prev) => prev + 1);
   };
+
+  const handleCity = async (location: SearchDataProps) => {
+    console.log('New Search',location)
+
+    const result = await fetchData('http://localhost:3333/estates/category', 'POST', location);
+
+    if (result && result.length > 0) {
+      localStorage.setItem('searchResult', JSON.stringify(result));
+      window.location.href = '/residenceForSale';
+      console.log('result', result);
+    } else {
+      alert('Your search could not be found...');
+    }
+
+  }
+
   return (
     <div className="flex h-[100vh] w-[100vw] flex-1 flex-col items-center text-primary">
       <div className="banner-img flex h-full min-h-[700px] w-full max-w-[1400px] items-center lg:rounded-t-xl">
@@ -80,7 +97,7 @@ export default function Home() {
             Explore Your favorit City
           </h3>
           <div className="grid h-full w-full grid-cols-1 gap-2 rounded-xl border bg-[#F5F5F5] p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <CityCard />
+            <CityCard onCity={handleCity}/>
           </div>
         </div>
       </div>

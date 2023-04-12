@@ -6,8 +6,9 @@ import { livingArea } from '../searchBar/searchFormElement/LivingArea';
 import { SearchDataProps } from '../searchBar/SearchBar';
 import TypeOfResidence from '../searchBar/searchFormElement/TypeOfResidence';
 import { fetchData } from '../../app/utils/api';
+import Image from 'next/image';
 
-const SearchFormResicence = () => {
+const SearchFormResidence = () => {
   const [searchLocationInput, setSearchLocationInput] = useState('');
   const [typeOfResidence, setTypeOfResidence] = useState<string>('');
   const [room, setRoom] = useState(0);
@@ -65,11 +66,15 @@ const SearchFormResicence = () => {
       className="flex h-full flex-1 flex-col items-start justify-start bg-white_bolig"
     >
       <div
-        style={{
-          backgroundImage: `url(/search.jpg)`,
-        }}
-        className="mx-4 h-[30%] w-full rounded-t-lg border bg-cover bg-center bg-no-repeat"
-      ></div>
+        className="relative h-[300px] w-full rounded-t-lg border bg-cover bg-center bg-no-repeat"
+      >
+        <Image
+          src="/search.jpg"
+          layout="fill"
+          objectFit="cover"
+          alt="Search background"
+        />
+      </div>
 
       <div className="flex w-full flex-col p-4">
         <label htmlFor="location" className="py-2 font-semibold">
@@ -144,4 +149,4 @@ const SearchFormResicence = () => {
   );
 };
 
-export default SearchFormResicence;
+export default SearchFormResidence;

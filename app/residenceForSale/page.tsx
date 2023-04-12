@@ -4,7 +4,7 @@ import ResidenceCard from '../../components/card/ResidenceCard';
 import { ResidenceListProps } from '../../components/helpers/ResidenceList';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { GiCoffeeCup } from 'react-icons/gi';
-import SearchFormResicence from '../../components/searchFormSmallCard/SearchFormResicence';
+import SearchFormResidence from '../../components/searchFormSmallCard/SearchFormResidence';
 
 const ResidenceForSale = () => {
   const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
@@ -29,15 +29,15 @@ const ResidenceForSale = () => {
             <GiCoffeeCup className="h-8 w-8 animate-bounce" />
           </div>
         ) : (
-          <div className="flex w-full max-w-[1400px] flex-col items-center justify-center bg-white_bolig md:flex-row lg:rounded-lg">
+          <div className="flex w-full max-w-[1400px] flex-col items-start justify-center bg-white_bolig md:flex-row lg:rounded-lg">
             <div className="flex w-full items-center justify-center px-8 pt-6 md:hidden">
               <SearchBar />
             </div>
             <div className="hidden h-full w-[500px] items-start justify-start pt-14 md:flex">
-              <SearchFormResicence />
+              <SearchFormResidence />
             </div>
 
-            <div className="my-10 w-full p-2">
+            <div className="flex flex-col justify-start items-start my-10 w-full p-2">
               <h1 className="pl-4 pb-4 text-4xl font-semibold">
                 Residence for sale
               </h1>
