@@ -50,7 +50,7 @@ const SearchFormResidence = () => {
     console.log(newSearch);
 
     const result = await fetchData(
-      'http://localhost:3333/estates/category',
+      `${process.env.NEST_BACKEND}/estates/category`,
       'POST',
       newSearch,
     );
@@ -97,7 +97,7 @@ const SearchFormResidence = () => {
           <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
         </div>
 
-        <p className="mb-2 pt-4 pb-2 font-semibold">Rooms</p>
+        <p className="mb-2 pb-2 pt-4 font-semibold">Rooms</p>
         <select
           onChange={handleNumbOfRooms}
           className="mb-2 cursor-pointer rounded-md border-2 border-primary"
@@ -111,7 +111,7 @@ const SearchFormResidence = () => {
         </select>
 
         <div className="flex flex-col">
-          <p className="mb-2 pt-4 pb-2 font-semibold">Living Area</p>
+          <p className="mb-2 pb-2 pt-4 font-semibold">Living Area</p>
           <select
             onChange={handleLivingArea}
             className="mb-2 cursor-pointer rounded-md border-2 border-primary"
@@ -126,7 +126,7 @@ const SearchFormResidence = () => {
         </div>
 
         <div className="flex flex-col">
-          <p className="mb-2 pt-4 pb-2 font-semibold">Higest Price</p>
+          <p className="mb-2 pb-2 pt-4 font-semibold">Higest Price</p>
           <select
             onChange={handleHighestPrice}
             className="mb-2 cursor-pointer rounded-md border-2 border-primary"
@@ -142,7 +142,7 @@ const SearchFormResidence = () => {
 
         <button
           type="submit"
-          className="my-6 flex items-center justify-center gap-2 rounded-md bg-secondary py-3 px-4 font-semibold text-white_bolig hover:bg-secondary_hover md:px-8"
+          className="my-6 flex items-center justify-center gap-2 rounded-md bg-secondary px-4 py-3 font-semibold text-white_bolig hover:bg-secondary_hover md:px-8"
         >
           Search <GoSearch />
         </button>

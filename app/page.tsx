@@ -23,7 +23,7 @@ export default function Home() {
   const selectCity = async (location: SearchDataProps) => {
     console.log('New Search',location)
 
-    const result = await fetchData('http://localhost:3333/estates/category', 'POST', location);
+    const result = await fetchData(`${process.env.NEST_BACKEND}/estates/category`, 'POST', location);
 
     if (result && result.length > 0) {
       localStorage.setItem('searchResult', JSON.stringify(result));

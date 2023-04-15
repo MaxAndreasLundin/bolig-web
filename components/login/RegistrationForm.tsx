@@ -1,7 +1,7 @@
-"use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import { FaUserEdit } from "react-icons/fa";
+'use client';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { FaUserEdit } from 'react-icons/fa';
 
 type FormDataProps = {
   email: string;
@@ -11,17 +11,17 @@ type FormDataProps = {
 };
 
 const defaultFormData: FormDataProps = {
-  email: "",
-  password: "",
-  firstName: "",
-  lastName: "",
+  email: '',
+  password: '',
+  firstName: '',
+  lastName: '',
 };
 
 interface RegistrationStyleProps {
   className: string;
 }
 
-const RegistrationForm = ({className}: RegistrationStyleProps ) => {
+const RegistrationForm = ({ className }: RegistrationStyleProps) => {
   const [formData, setFormData] = useState(defaultFormData);
   const { firstName, lastName, email, password } = formData;
 
@@ -42,15 +42,15 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
     setFormData(defaultFormData); //Clears the input field
 
     // Send the form data to our API and get a response.
-    const response = await fetch("http://localhost:3333/auth/signup", {
+    const response = await fetch(`${process.env.NEST_BACKEND}/auth/signup`, {
       // Body of the request is the JSON data we created above.
       body: JSON.stringify(formData),
       // Tell the server we're sending JSON.
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       // The method is POST because we are sending data.
-      method: "POST",
+      method: 'POST',
     });
 
     // Get the response data from server as JSON.
@@ -59,7 +59,10 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
     alert(`Sign up complete: ${result.formData}`);
   };
   return (
-    <form onSubmit={onSubmit} className={`${className} flex justify-center h-full w-full py-10 flex-col gap-6 pr-10 sm:pr-32 md:pr-0 lg:pr-20`}>
+    <form
+      onSubmit={onSubmit}
+      className={`${className} flex h-full w-full flex-col justify-center gap-6 py-10 pr-10 sm:pr-32 md:pr-0 lg:pr-20`}
+    >
       <div className="mb-10 flex gap-4">
         <h2 className="text-4xl font-semibold">Register</h2>
         <FaUserEdit className="text-4xl" />
@@ -108,17 +111,15 @@ const RegistrationForm = ({className}: RegistrationStyleProps ) => {
           className="mt-2 w-full border-0 border-b-2 border-white_bolig bg-secondary bg-opacity-95 placeholder:text-white_bolig"
         />
       </div>
-      <div className="flex items-center justify-start mt-6 gap-4">
-        <Link href={"/"}>
-          <button
-            className="mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
-          >
+      <div className="mt-6 flex items-center justify-start gap-4">
+        <Link href={'/'}>
+          <button className="hover:bg-neutral-700 mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:scale-105 hover:cursor-pointer hover:bg-opacity-40 sm:w-20">
             Cancel
           </button>
         </Link>
         <button
           type="submit"
-          className="mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
+          className="hover:bg-neutral-700 mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:scale-105 hover:cursor-pointer hover:bg-opacity-40 sm:w-20"
         >
           Sign up
         </button>

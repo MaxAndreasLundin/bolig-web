@@ -25,7 +25,7 @@ const SearchBar = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:3333/estates/category', {
+      const response = await fetch('https://bolig-api.vercel.app/estates/category', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
