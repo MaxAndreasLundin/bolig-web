@@ -11,7 +11,7 @@ const AdminPanel: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   const fetchUsers = async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('java_token');
     const response = await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ const AdminPanel: React.FC = () => {
   const handleDelete = (userId: number) => {
     const doWork = async () => {
       console.log('click');
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('java_token');
 
       await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user/${userId}`, {
         headers: {

@@ -43,8 +43,8 @@ const FormChatLogin = () => {
       const token = result.token;
       alert(`Login successful: ${token}`);
 
-      localStorage.setItem('token', token);
-      window.location.href = '/javaChatBot';
+      localStorage.setItem('java_token', token);
+      window.location.href = '/java/javaChatBot';
     } else {
       alert('user not found');
     }

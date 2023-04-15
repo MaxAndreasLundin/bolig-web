@@ -9,7 +9,7 @@ interface ChatMessage {
 }
 
 const getChatMessages = async () => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('java_token');
   return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -21,7 +21,7 @@ const getChatMessages = async () => {
 };
 
 const postChatMessage = async (message: string) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('java_token');
   return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
     body: message,
     headers: {
@@ -112,7 +112,7 @@ const ChatBot: React.FC = () => {
 
 const ChatBotPage: React.FC = () => {
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('java_token');
     window.location.href = '/';
   };
 
