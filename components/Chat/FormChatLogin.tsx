@@ -28,7 +28,7 @@ const FormChatLogin = () => {
     setLoginInput(defaultLogin);
 
     const response = await fetch(
-      `${process.env.JAVA_BACKEND}/api/v1/auth/authenticate`,
+      `${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/auth/authenticate`,
       {
         body: JSON.stringify(loginInput),
         headers: {

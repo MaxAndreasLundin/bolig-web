@@ -4,7 +4,6 @@ import { MdLocationOn } from 'react-icons/md';
 import SearchForm from './SearchForm';
 import { SearchDataProps } from '../../app/types/searchData';
 
-
 const SearchBar = () => {
   const [searchLocationInput, setSearchLocationInput] = useState('');
 
@@ -25,14 +24,17 @@ const SearchBar = () => {
       return;
     }
     try {
-      const response = await fetch('https://bolig-api.vercel.app/estates/category', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(EstateFilter),
         },
-        body: JSON.stringify(EstateFilter),
-      });
+      );
 
       const result = await response.json();
 

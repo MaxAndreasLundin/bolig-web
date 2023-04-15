@@ -50,7 +50,7 @@ const SearchFormResidence = () => {
     console.log(newSearch);
 
     const result = await fetchData(
-      `${process.env.NEST_BACKEND}/estates/category`,
+      `${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`,
       'POST',
       newSearch,
     );

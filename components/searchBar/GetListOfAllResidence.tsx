@@ -6,7 +6,7 @@ const GetListOfAllResidence = () => {
 
   const fetchResidence = async () => {
     try {
-      const response = await fetch('https://bolig-api.vercel.app/estates/category', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

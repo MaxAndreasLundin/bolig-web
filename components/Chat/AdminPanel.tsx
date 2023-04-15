@@ -12,7 +12,7 @@ const AdminPanel: React.FC = () => {
 
   const fetchUsers = async () => {
     const token = localStorage.getItem('token');
-    const response = await fetch(`${process.env.JAVA_BACKEND}/api/v1/user`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -30,7 +30,7 @@ const AdminPanel: React.FC = () => {
       console.log('click');
       const token = localStorage.getItem('token');
 
-      await fetch(`${process.env.JAVA_BACKEND}/api/v1/user/${userId}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

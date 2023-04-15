@@ -29,7 +29,7 @@ const FormChatRegistration = () => {
     setRegisterInput(defaultRegister);
 
     const response = await fetch(
-      `${process.env.JAVA_BACKEND}/api/v1/auth/register`,
+      `${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/auth/register`,
       {
         body: JSON.stringify(registerInput),
         headers: {

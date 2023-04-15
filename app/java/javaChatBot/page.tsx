@@ -10,7 +10,7 @@ interface ChatMessage {
 
 const getChatMessages = async () => {
   const token = localStorage.getItem('token');
-  return await fetch(`${process.env.JAVA_BACKEND}/api/v1/messages`, {
+  return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -22,7 +22,7 @@ const getChatMessages = async () => {
 
 const postChatMessage = async (message: string) => {
   const token = localStorage.getItem('token');
-  return await fetch(`${process.env.JAVA_BACKEND}/api/v1/messages`, {
+  return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
     body: message,
     headers: {
       'Content-Type': 'text/plain',
