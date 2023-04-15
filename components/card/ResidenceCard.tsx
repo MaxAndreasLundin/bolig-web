@@ -5,7 +5,7 @@ import { ResidenceListProps } from "../helpers/ResidenceList";
 
 const ResidenceCard = ({
   title,
-  city,
+  location,
   description,
   typeOfResidence,
   price,
@@ -13,7 +13,7 @@ const ResidenceCard = ({
   area,
 }: ResidenceListProps) => {
   return (
-    <div className="m-4 flex flex-col rounded-xl border bg-white text-gray-600 shadow-xl md:flex-row lg:w-[60%] cursor-pointer">
+    <div className="m-4 flex flex-col rounded-xl border bg-[#fff] text-primary shadow-xl md:flex-row cursor-pointer">
       <div className="relative h-52 w-[100%] rounded-xl md:w-[50%] lg:w-[40%]">
         <Image
           src={recidentImg}
@@ -26,7 +26,7 @@ const ResidenceCard = ({
       <div className="pt-4">
         <div className="p-2">
           <h1 className="text-lg font-semibold">{title}</h1>
-          <p className="text-sm">{city}</p>
+          <p className="text-sm">{location}</p>
         </div>
 
         <div className="flex gap-20 p-2 font-bold">

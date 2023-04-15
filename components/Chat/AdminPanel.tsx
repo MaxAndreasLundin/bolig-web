@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 interface User {
   id: number;
@@ -11,8 +11,8 @@ const AdminPanel: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   const fetchUsers = async () => {
-    const token = localStorage.getItem("token");
-    const response = await fetch("http://localhost:8080/api/v1/user", {
+    const token = localStorage.getItem('java_token');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -27,14 +27,14 @@ const AdminPanel: React.FC = () => {
 
   const handleDelete = (userId: number) => {
     const doWork = async () => {
-      console.log("click");
-      const token = localStorage.getItem("token");
+      console.log('click');
+      const token = localStorage.getItem('java_token');
 
-      await fetch(`http://localhost:8080/api/v1/user/${userId}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        method: "DELETE",
+        method: 'DELETE',
       });
       fetchUsers();
     };
@@ -63,7 +63,7 @@ const AdminPanel: React.FC = () => {
               <td className="border px-4 py-2">{user.role}</td>
               <td className="flex flex-col items-center border px-4 py-2">
                 <button
-                  className="rounded-full bg-blue-600 p-2 text-white"
+                  className="bg-blue-600 text-white rounded-full p-2"
                   onClick={() => handleDelete(user.id)}
                 >
                   Delete

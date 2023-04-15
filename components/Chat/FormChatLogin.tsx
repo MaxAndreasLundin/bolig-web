@@ -1,6 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import { FaUser } from "react-icons/fa";
+'use client';
+import React, { useState } from 'react';
+import { FaUser } from 'react-icons/fa';
 
 type LoginDataProps = {
   email: string;
@@ -8,8 +8,8 @@ type LoginDataProps = {
 };
 
 const defaultLogin: LoginDataProps = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const FormChatLogin = () => {
@@ -28,14 +28,14 @@ const FormChatLogin = () => {
     setLoginInput(defaultLogin);
 
     const response = await fetch(
-      "http://localhost:8080/api/v1/auth/authenticate",
+      `${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/auth/authenticate`,
       {
         body: JSON.stringify(loginInput),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        method: "POST",
-      }
+        method: 'POST',
+      },
     );
 
     if (response.ok) {
@@ -43,10 +43,10 @@ const FormChatLogin = () => {
       const token = result.token;
       alert(`Login successful: ${token}`);
 
-      localStorage.setItem("token", token);
-      window.location.href = "/javaChatBot";
+      localStorage.setItem('java_token', token);
+      window.location.href = '/java/javaChatBot';
     } else {
-      alert("user not found");
+      alert('user not found');
     }
   };
 
@@ -67,7 +67,7 @@ const FormChatLogin = () => {
           id="email"
           value={email}
           onChange={handleChange}
-          className="mt-2 rounded-xl text-black"
+          className="text-black mt-2 rounded-xl"
         />
       </div>
       <div className="mb-2 flex flex-col">
@@ -78,7 +78,7 @@ const FormChatLogin = () => {
           id="password"
           value={password}
           onChange={handleChange}
-          className="mt-2 rounded-xl text-black"
+          className="text-black mt-2 rounded-xl"
         />
       </div>
       <div className="flex items-center justify-center">

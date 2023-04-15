@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useRef, useEffect } from "react";
-import AdminPanel from "../../../components/Chat/AdminPanel";
+import React, { useState, useRef, useEffect } from 'react';
+import AdminPanel from '../../../components/Chat/AdminPanel';
 
 interface ChatMessage {
   human: boolean;
@@ -9,26 +9,26 @@ interface ChatMessage {
 }
 
 const getChatMessages = async () => {
-  const token = localStorage.getItem("token");
-  return await fetch("http://localhost:8080/api/v1/messages", {
+  const token = localStorage.getItem('java_token');
+  return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    method: "GET",
+    method: 'GET',
   })
     .then((resp) => resp.json())
     .then((data) => data as ChatMessage[]);
 };
 
 const postChatMessage = async (message: string) => {
-  const token = localStorage.getItem("token");
-  return await fetch("http://localhost:8080/api/v1/messages", {
+  const token = localStorage.getItem('java_token');
+  return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
     body: message,
     headers: {
-      "Content-Type": "text/plain",
+      'Content-Type': 'text/plain',
       Authorization: `Bearer ${token}`,
     },
-    method: "POST",
+    method: 'POST',
   })
     .then((resp) => resp.json())
     .then((data) => data as ChatMessage[]);
@@ -36,7 +36,7 @@ const postChatMessage = async (message: string) => {
 
 const ChatBot: React.FC = () => {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const chatWindowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,10 +63,10 @@ const ChatBot: React.FC = () => {
       },
       {
         human: false,
-        message: "...",
+        message: '...',
       },
     ]);
-    setInputValue("");
+    setInputValue('');
 
     const response = await postChatMessage(inputValue);
     setChatMessages(response);
@@ -78,19 +78,18 @@ const ChatBot: React.FC = () => {
     augmentedChatMessages = [
       {
         human: false,
-        message:
-          "Hello my name is Marv, how can I help you become less retared?",
+        message: 'Hello my name is Marv, how can I help you?',
       },
     ];
   }
 
   return (
-    <div className="m-6 flex h-96 max-h-full flex-col rounded-lg bg-gray-900 p-8">
+    <div className="bg-gray-900 m-6 flex h-96 max-h-full flex-col rounded-lg p-8">
       <div ref={chatWindowRef} className="flex-1 overflow-auto">
         {augmentedChatMessages.map((chatMessage, index) => (
           <div key={index} className="mb-2">
             <p className="text-white">
-              {chatMessage.human ? "You" : "Marv"}: {chatMessage.message}
+              {chatMessage.human ? 'You' : 'Marv'}: {chatMessage.message}
             </p>
           </div>
         ))}
@@ -103,7 +102,7 @@ const ChatBot: React.FC = () => {
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Write a message..."
         />
-        <button className="rounded-full bg-blue-600 p-2 text-white">
+        <button className="bg-blue-600 text-white rounded-full p-2">
           Submit
         </button>
       </form>
@@ -113,8 +112,8 @@ const ChatBot: React.FC = () => {
 
 const ChatBotPage: React.FC = () => {
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/";
+    localStorage.removeItem('java_token');
+    window.location.href = '/';
   };
 
   return (
