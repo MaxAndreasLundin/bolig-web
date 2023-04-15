@@ -34,7 +34,7 @@ const LoginForm = ({ className }: LoginStyleProps) => {
     setLoginInput(defaultLogin);
     console.log(loginInput);
 
-    const response = await fetch(`${process.env.NEST_BACKEND}/auth/signin`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/auth/signin`, {
       body: JSON.stringify(loginInput),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',

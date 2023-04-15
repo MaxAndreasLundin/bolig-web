@@ -42,7 +42,7 @@ const RegistrationForm = ({ className }: RegistrationStyleProps) => {
     setFormData(defaultFormData); //Clears the input field
 
     // Send the form data to our API and get a response.
-    const response = await fetch(`${process.env.NEST_BACKEND}/auth/signup`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/auth/signup`, {
       // Body of the request is the JSON data we created above.
       body: JSON.stringify(formData),
       // Tell the server we're sending JSON.
