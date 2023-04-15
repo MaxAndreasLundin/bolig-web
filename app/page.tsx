@@ -13,7 +13,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "https://bolig-api.vercel.app//api/auth/signup",
+        "https://bolig-api.vercel.app/api/auth/signup",
         {
           method: "POST",
           headers: {
@@ -22,6 +22,7 @@ export default function Home() {
           body: JSON.stringify({ email, password }),
         }
       );
+
 
       if (response.ok) {
         const data = await response.json();
