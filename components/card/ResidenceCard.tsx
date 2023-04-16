@@ -11,9 +11,10 @@ const ResidenceCard = ({
   price,
   room,
   area,
-}: ResidenceListProps) => {
+  onClick,
+}: ResidenceListProps& { onClick?: () => void }) => {
   return (
-    <div className="m-4 flex flex-col rounded-xl border bg-[#fff] text-primary shadow-xl md:flex-row cursor-pointer">
+    <div onClick={onClick} className="m-4 flex flex-col rounded-xl border bg-[#fff] text-primary shadow-xl md:flex-row cursor-pointer">
       <div className="relative h-52 w-[100%] rounded-xl md:w-[50%] lg:w-[40%]">
         <Image
           src={recidentImg}
