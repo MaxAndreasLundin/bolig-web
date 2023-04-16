@@ -24,14 +24,14 @@ a {
 }
 
 .banner-img {
-  background-image: url(/banner4.jpeg);
+  background-image: url(/pictures/banner4.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .login-img {
-  background-image: url(/login.jpeg);
+  background-image: url(/pictures/login.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

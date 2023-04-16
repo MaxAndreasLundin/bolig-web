@@ -1,6 +1,12 @@
-import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import './globals.css';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { Raleway } from 'next/font/google';
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function RootLayout({
   children,
@@ -9,12 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>
+      <head ><title>Bolig</title></head>
+      <body className={raleway.className}>
         <Navbar />
         {children}
         {<Footer />}
