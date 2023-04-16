@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
-import Image from 'next/image';
-import loginImg from '../../public/city.jpg';
 
 type LoginDataProps = {
   email: string;
@@ -34,11 +32,14 @@ const LoginForm = ({ className }: LoginStyleProps) => {
     setLoginInput(defaultLogin);
     console.log(loginInput);
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/auth/signin`, {
-      body: JSON.stringify(loginInput),
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_NEST_BACKEND}/auth/signin`,
+      {
+        body: JSON.stringify(loginInput),
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+      },
+    );
 
     if (response.ok) {
       const result = await response.json();
@@ -57,11 +58,11 @@ const LoginForm = ({ className }: LoginStyleProps) => {
   return (
     <form
       onSubmit={onSubmit}
-      className={`${className} flex justify-center h-full w-full py-10 flex-col gap-6 pr-10 sm:pr-32 md:pr-0 lg:pr-20`}
+      className={`${className} flex h-full w-full flex-col justify-center gap-6 py-10 pr-10 sm:pr-32 md:pr-0 lg:pr-20`}
     >
       <div className="flex gap-2">
         <h2 className="text-3xl font-semibold">Login</h2>
-        <FaUser className="text-3xl mt-1" />
+        <FaUser className="mt-1 text-3xl" />
       </div>
 
       <div className="flex flex-col">
@@ -70,7 +71,7 @@ const LoginForm = ({ className }: LoginStyleProps) => {
           <AiOutlineMail className="h-8 w-8" />
           <input
             type="email"
-            placeholder="..."
+            placeholder=""
             id="email"
             value={email}
             onChange={handleChange}
@@ -85,7 +86,7 @@ const LoginForm = ({ className }: LoginStyleProps) => {
           <AiOutlineLock className="h-8 w-8" />
           <input
             type="password"
-            placeholder="..."
+            placeholder=""
             id="password"
             value={password}
             onChange={handleChange}
@@ -93,10 +94,10 @@ const LoginForm = ({ className }: LoginStyleProps) => {
           />
         </div>
       </div>
-      <div className="flex items-center justify-start text-white_bolig hover:cursor-pointer py-2">
+      <div className="flex items-center justify-start py-2 text-white_bolig hover:cursor-pointer">
         <button
           type="submit"
-          className="mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:cursor-pointer hover:scale-105 hover:bg-neutral-700 hover:bg-opacity-40 sm:w-20"
+          className="hover:bg-neutral-700 mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:scale-105 hover:cursor-pointer hover:bg-opacity-40 sm:w-20"
         >
           Login
         </button>

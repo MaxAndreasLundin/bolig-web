@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import recidentImg from "../../public/hemnet.jpg";
+import residentImg from "../../public/pictures/hemnet.webp";
 import { ResidenceListProps } from "../helpers/ResidenceList";
 
 const ResidenceCard = ({
@@ -16,7 +16,7 @@ const ResidenceCard = ({
     <div className="m-4 flex flex-col rounded-xl border bg-[#fff] text-primary shadow-xl md:flex-row cursor-pointer">
       <div className="relative h-52 w-[100%] rounded-xl md:w-[50%] lg:w-[40%]">
         <Image
-          src={recidentImg}
+          src={residentImg}
           alt="hemnet"
           priority={true}
           className="rounded-xl object-cover h-full w-full"
