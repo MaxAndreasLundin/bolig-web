@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+    <path fill="#000" d="M49.8,10.3L16.5,42.1v16H26.1V45.6h48.8v12.6h9.6v-16L49.8,10.3z M25.7,75.2h18.4v-9.1h-6.4c-1.4,0-2.6-1.1-2.6-2.6v-6.4H25.7V75.2z M58.3,75.2h18.4V58.1H58.3V75.2z"/>
+    <path fill="#FFD700" d="M49.8,15.3L34.7,31.6h30.2L49.8,15.3z"/>
+    <rect x="25.7" y="56.5" fill="#FFD700" width="3" height="3"/>
+    <rect x="58.3" y="56.5" fill="#FFD700" width="3" height="3"/>
+    <text x="50%" y="95" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold" fill="#FFD700">Bolig</text>
+</svg>
