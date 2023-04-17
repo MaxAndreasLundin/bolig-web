@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import recidentImg from '../../public/hemnet.jpg';
+import recidentImg from '../../public/apartment.jpg';
 import { ResidenceListProps } from '../helpers/ResidenceList';
 
 const ResidenceCard = ({
