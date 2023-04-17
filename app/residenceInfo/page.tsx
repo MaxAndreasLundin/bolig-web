@@ -66,8 +66,10 @@ const ResidenceInfo = () => {
               <div className="flex gap-8 border p-2 md:col-start-2 md:row-span-2 md:row-start-1">
                 <BsCalendar4Week className="h-10 w-10 " />
                 <div className="flex flex-col gap-1">
-                  <div className='flex justify-between'>
-                    <p className='text-lg font-semibold'>Viewing of apartment</p>
+                  <div className="flex justify-between">
+                    <p className="text-lg font-semibold">
+                      Viewing of apartment
+                    </p>
                     <button onClick={() => setLikeBtn(!likeBtn)}>
                       {likeBtn ? (
                         <AiFillHeart className="h-6 w-6 text-third" />
@@ -78,8 +80,9 @@ const ResidenceInfo = () => {
                   </div>
                   <p>Fri 23 may kl. 12-00 - 12.45</p>
                   <p>
-                    Warmly welcome to our open house! <br/> 
-                    Don't hesitate to register your interest - after all, who could resist?
+                    Warmly welcome to our open house! <br />
+                    Don't hesitate to register your interest - after all, who
+                    could resist?
                   </p>
                 </div>
               </div>
