@@ -81,7 +81,7 @@ const ResidenceInfo = () => {
                   <p>Fri 23 may kl. 12-00 - 12.45</p>
                   <p>
                     Warmly welcome to our open house! <br />
-                    Don't hesitate to register your interest - after all, who
+                    Don&apos;t hesitate to register your interest - after all, who
                     could resist?
                   </p>
                 </div>
