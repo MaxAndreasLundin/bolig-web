@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ResidenceListProps } from '../../components/helpers/ResidenceList';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { BsChevronCompactLeft } from 'react-icons/bs';
+import CardSlider from '../../components/cardSlider/CardSlider';
 
 const ResidenceInfo = () => {
   const [residence, setResidence] = useState<ResidenceListProps | null>(null);
@@ -31,7 +32,9 @@ const ResidenceInfo = () => {
           )}
         </button>
       </div>
-      <div></div>
+      <div>
+        <CardSlider />
+      </div>
       <div></div>
       <div></div>
       {residence ? (
