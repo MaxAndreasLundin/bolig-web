@@ -74,6 +74,7 @@ const SearchFormResidence = () => {
           src="/pictures/search.webp"
           alt="Search background"
           fill
+          sizes="10%"
           style={{ objectFit: 'cover' }}
         />
       </div>
