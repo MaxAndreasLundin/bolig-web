@@ -1,5 +1,5 @@
 'use client';
-import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { FaUser } from 'react-icons/fa';
 import { GoHome } from 'react-icons/go';
 import React, { useState } from 'react';
@@ -69,9 +69,9 @@ const Navbar = () => {
               onClick={handleClick}
             >
               {click ? (
-                <XIcon className="h-6 text-white_bolig" />
+                <XMarkIcon className="h-6 text-white_bolig" />
               ) : (
-                <MenuIcon className="h-6 text-white_bolig" />
+                <Bars3Icon className="h-6 text-white_bolig" />
               )}
             </div>
           </div>
