@@ -20,6 +20,11 @@ const ResidenceForSale = () => {
     }
   }, []);
 
+  const handleCardClick = (residence: ResidenceListProps) => {
+    localStorage.setItem('selectedResidence', JSON.stringify(residence));
+    window.location.href = '/residenceInfo';
+  };
+
   return (
     <>
       <div className="flex h-[100vh] w-[100vw] flex-1 justify-center text-primary">
@@ -54,6 +59,7 @@ const ResidenceForSale = () => {
                       price={item.price}
                       room={item.room}
                       area={item.area}
+                      onClick={() => handleCardClick(item)}
                     />
                   </div>
                 ))}
