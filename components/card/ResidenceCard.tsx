@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import recidentImg from '../../public/apartment.jpg';
+import residentImg from '../../public/pictures/apartment.webp';
 import { ResidenceListProps } from '../helpers/ResidenceList';
 
 
