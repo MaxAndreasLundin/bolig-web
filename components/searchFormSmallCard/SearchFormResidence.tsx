@@ -71,10 +71,11 @@ const SearchFormResidence = () => {
     >
       <div className="relative h-[300px] w-full rounded-t-lg border bg-cover bg-center bg-no-repeat">
         <Image
-          src="/search.jpg"
-          layout="fill"
-          objectFit="cover"
+          src="/pictures/search.webp"
           alt="Search background"
+          fill
+          sizes="10%"
+          style={{ objectFit: 'cover' }}
         />
       </div>
 

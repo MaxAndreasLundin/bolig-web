@@ -3,6 +3,7 @@ import Image from 'next/image';
 import recidentImg from '../../public/apartment.jpg';
 import { ResidenceListProps } from '../helpers/ResidenceList';
 
+
 const ResidenceCard = ({
   title,
   location,
@@ -20,7 +21,7 @@ const ResidenceCard = ({
     >
       <div className="relative h-52 w-[100%] rounded-xl md:w-[50%] lg:w-[40%]">
         <Image
-          src={recidentImg}
+          src={residentImg}
           alt="hemnet"
           priority={true}
           className="h-full w-full rounded-xl object-cover"
