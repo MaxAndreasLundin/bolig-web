@@ -19,10 +19,10 @@ const ResidenceInfo = () => {
   }, []);
 
   return (
-    <div className="flex h-full w-[100vw] max-w-[1400px] flex-1 flex-col border-2">
+    <div className="flex h-full w-[100vw] max-w-[1400px] flex-1 flex-col pt-4">
       <div className="flex justify-between py-2 px-4">
         <a href="/residenceForSale">
-          <button className="flex  items-center justify-center rounded-md border border-primary py-2 px-4 font-semibold        hover:bg-white_bolig_hover">
+          <button className="flex  items-center justify-center rounded-md border-2 border-primary py-2 px-4 font-semibold shadow-lg        hover:bg-white_bolig_hover">
             <BsChevronCompactLeft />
             Back to List
           </button>

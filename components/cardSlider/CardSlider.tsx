@@ -25,13 +25,13 @@ const CardSlider = () => {
     <div className="group relative m-auto h-[320px] w-full max-w-[400x] py-4 px-4 md:h-[580px]">
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className="h-full w-full rounded-2xl border-primary bg-contain bg-center bg-no-repeat duration-500 md:border"
+        className="h-full w-full rounded-2xl bg-contain bg-center bg-no-repeat duration-500 md:bg-primary "
       ></div>
-      <div className="absolute top-[50%] left-5 hidden -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-primary/20 p-2 text-2xl group-hover:block">
+      <div className="absolute top-[50%] left-5 hidden -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-primary/20 p-2 text-2xl group-hover:block md:ml-4 md:bg-white_bolig/80">
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
 
-      <div className="absolute top-[50%] right-5 hidden -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-primary/20 p-2 text-2xl group-hover:block">
+      <div className="absolute top-[50%] right-5 hidden -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full bg-primary/20 p-2 text-2xl group-hover:block md:mr-4 md:bg-white_bolig/80">
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
       <div className="top-4 flex justify-center py-2">
