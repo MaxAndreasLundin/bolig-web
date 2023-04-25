@@ -1,7 +1,6 @@
 import React from 'react';
 
 const GetListOfAllResidence = () => {
-    typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
   const fetchResidence = async () => {
     try {
