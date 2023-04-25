@@ -18,11 +18,6 @@ const SearchBar = () => {
     };
     console.log('New Search:', EstateFilter);
 
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Please log in to search for apartment');
-      return;
-    }
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`,
@@ -30,7 +25,6 @@ const SearchBar = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(EstateFilter),
         },
