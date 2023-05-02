@@ -41,10 +41,24 @@ const SearchFormResidence = () => {
     newSearch.location = searchLocationInput;
     newSearch.typeOfResidence = typeOfResidence;
 
-    if (room || area || price) {
+    if (room) {
       newSearch.room = {
         gte: 0,
-        lte: room || area || price,
+        lte: room,
+      };
+    }
+
+    if (area) {
+      newSearch.area = {
+        gte: 0,
+        lte: area,
+      };
+    }
+
+    if (price) {
+      newSearch.price = {
+        gte: 0,
+        lte: price,
       };
     }
     console.log(newSearch);
