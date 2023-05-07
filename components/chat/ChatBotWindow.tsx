@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+'use client'
+
+import React, { useContext, useState } from 'react';
 import ChatBot from './ChatBot';
 import ChatAuth from './ChatAuth';
+import { ChatContext } from '../../context/chatBotContext';
 
-interface ChatBotWindowProps {
-  isLoggedIn: boolean;
-  setIsLoggedIn: (loggedIn: boolean) => void;
-  isMinimized: boolean;
-  setIsMinimized: (minimized: boolean) => void;
-}
-
-const ChatBotWindow: React.FC<ChatBotWindowProps> = ({
-  isLoggedIn,
-  setIsLoggedIn,
-  isMinimized,
-  setIsMinimized,
-}) => {
+const ChatBotWindow: React.FC = () => {
+  const { isLoggedIn, setIsLoggedIn, isMinimized, setIsMinimized } = useContext(
+    ChatContext
+  );
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
 
   const handleToggle = () => {

@@ -1,11 +1,9 @@
-'use client'
-
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ChatBotWindow from '../components/chat/ChatBotWindow';
 import { Raleway } from 'next/font/google';
-import { useState } from 'react';
+import { ChatProvider } from '../context/chatBotContext';
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -13,29 +11,23 @@ const raleway = Raleway({
 });
 
 export default function RootLayout({
-                                     children,
-                                   }: {
+  children,
+}: {
   children: React.ReactNode;
 }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
-
   return (
-    <html lang="en">
-    <head>
-      <title>Bolig</title>
-    </head>
-    <body className={raleway.className}>
-    <Navbar />
-    {children}
-    {<Footer />}
-    <ChatBotWindow
-      isLoggedIn={isLoggedIn}
-      setIsLoggedIn={setIsLoggedIn}
-      isMinimized={isMinimized}
-      setIsMinimized={setIsMinimized}
-    />
-    </body>
-    </html>
+    <ChatProvider>
+      <html lang="en">
+        <head>
+          <title>Bolig</title>
+        </head>
+        <body className={raleway.className}>
+          <Navbar />
+          {children}
+          {<Footer />}
+          <ChatBotWindow />
+        </body>
+      </html>
+    </ChatProvider>
   );
 }
