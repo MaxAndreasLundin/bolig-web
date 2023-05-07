@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import ChatBotWindow from '../components/chat/ChatBotWindow';
 import { Raleway } from 'next/font/google';
 import { ChatProvider } from '../context/chatBotContext';
+import React from 'react';
 
 const raleway = Raleway({
   subsets: ['latin'],
