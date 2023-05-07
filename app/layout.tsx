@@ -3,7 +3,7 @@
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import ChatBotWindow from '../components/Chat/ChatBotWindow';
+import ChatBotWindow from '../components/chat/ChatBotWindow';
 import { Raleway } from 'next/font/google';
 import { useState } from 'react';
 
