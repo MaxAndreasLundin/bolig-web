@@ -3,7 +3,7 @@
 import React, { useContext, useState } from 'react';
 import ChatBot from './ChatBot';
 import ChatAuth from './ChatAuth';
-import { ChatContext } from '../../context/chatBotContext';
+import { ChatContext } from '../../context/ChatBotContext';
 
 const ChatBotWindow: React.FC = () => {
   const { isLoggedIn, setIsLoggedIn, isMinimized, setIsMinimized } = useContext(
