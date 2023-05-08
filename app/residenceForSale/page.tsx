@@ -7,20 +7,19 @@ import SearchBar from '../../components/searchBar/SearchBar';
 import { GiCoffeeCup } from 'react-icons/gi';
 import SearchFormResidence from '../../components/searchFormSmallCard/SearchFormResidence';
 import Link from 'next/link';
+import { useSearch } from '../../context/SearchContext';
 
 const ResidenceForSale = () => {
-  const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
+  const { searchResult } = useSearch();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedResult = localStorage.getItem('searchResult');
-    if (storedResult) {
-      setSearchResult(JSON.parse(storedResult));
+    if (searchResult.length > 0) {
       setIsLoading(false);
     } else {
       setIsLoading(false);
     }
-  }, []);
+  }, [searchResult]);
 
   const handleCardClick = (residence: ResidenceListProps) => {
     localStorage.setItem('selectedResidence', JSON.stringify(residence));

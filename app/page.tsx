@@ -1,4 +1,6 @@
 'use client';
+
+import { useSearch } from '../context/SearchContext';
 import { useState } from 'react';
 import SearchBar from '../components/searchBar/SearchBar';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
@@ -8,6 +10,7 @@ import { fetchData } from './utils/api';
 import { SearchDataProps } from './types/searchData';
 
 export default function Home() {
+  const { setSearchResult } = useSearch();
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 8;
   const imagesToShow = 4;
@@ -21,19 +24,19 @@ export default function Home() {
   };
 
   const selectCity = async (location: SearchDataProps) => {
-    console.log('New Search',location)
+    console.log('New Search', location);
 
     const result = await fetchData(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`, 'POST', location);
 
     if (result && result.length > 0) {
-      localStorage.setItem('searchResult', JSON.stringify(result));
-      window.location.href = '/residenceForSale';
       console.log('result', result);
+      setSearchResult(result);
     } else {
       alert('Your search could not be found...');
     }
+  };
 
-  }
+
 
   return (
     <div className="flex h-[100vh] w-[100vw] flex-1 flex-col items-center text-primary">
