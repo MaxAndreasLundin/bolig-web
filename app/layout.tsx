@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <body className={raleway.className}>
         <Navbar />
         {children}
-        {<Footer />}
+        <Footer />
         <ChatBotWindow />
         </body>
         </html>
