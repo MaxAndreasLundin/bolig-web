@@ -49,7 +49,7 @@ const LoginForm = ({ className }: LoginStyleProps) => {
       alert(`Login successful: ${token}`);
 
       localStorage.setItem('token', token);
-      window.location.href = '/';
+      window.location.href = '/userDashboard';
     } else {
       alert('user not found');
     }

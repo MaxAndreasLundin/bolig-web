@@ -14,7 +14,7 @@ const Navbar = () => {
     setClick(!click);
   };
 
-  return (
+    return (
     <>
       <header className="sticky top-0 z-50 my-2 grid w-full max-w-[1400px] grid-cols-4 px-2 sm:p-2">
         {/*left*/}
