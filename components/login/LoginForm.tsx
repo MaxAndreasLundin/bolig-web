@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
+import { useRouter } from 'next/navigation';
 
 type LoginDataProps = {
   email: string;
@@ -19,6 +20,7 @@ interface LoginStyleProps {
 const LoginForm = ({ className }: LoginStyleProps) => {
   const [loginInput, setLoginInput] = useState(defaultLogin);
   const { email, password } = loginInput;
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginInput((prevState) => ({
@@ -49,7 +51,7 @@ const LoginForm = ({ className }: LoginStyleProps) => {
       alert(`Login successful: ${token}`);
 
       localStorage.setItem('token', token);
-      window.location.href = '/userDashboard';
+      router.push('/userDashboard');
     } else {
       alert('user not found');
     }
