@@ -14,7 +14,16 @@ const Navbar = () => {
     setClick(!click);
   };
 
-  return (
+  const userIconClick = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      window.location.href = '/userDashboard';
+    } else {
+      window.location.href = '/login';
+    }
+  }
+
+    return (
     <>
       <header className="sticky top-0 z-50 my-2 grid w-full max-w-[1400px] grid-cols-4 px-2 sm:p-2">
         {/*left*/}
@@ -61,7 +70,7 @@ const Navbar = () => {
             </div>
             <div className="rounded-full py-1 px-2 md:px-1 ">
               <Link href={'login'}>
-                <FaUser className="h-6 text-white_bolig hover:scale-105" />
+                <FaUser onClick={userIconClick} className="h-6 text-white_bolig hover:scale-105" />
               </Link>
             </div>
             <div
