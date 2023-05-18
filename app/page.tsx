@@ -1,25 +1,12 @@
 'use client';
-import { useState } from 'react';
 import SearchBar from '../components/searchBar/SearchBar';
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import CityCard from '../components/card/CityCard';
 import './globals.css';
 import { fetchData } from './utils/api';
 import { SearchDataProps } from './types/searchData';
+import NewestDeals from '../components/newestDeals/NewestDeals';
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 8;
-  const imagesToShow = 4;
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? 0 : prev - 1));
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => prev + 1);
-  };
-
   const selectCity = async (location: SearchDataProps) => {
     console.log('New Search',location)
 
@@ -59,36 +46,12 @@ export default function Home() {
       </div>
 
       {/* Newest Deals */}
-      <div className="bg- flex w-full max-w-[1400px] flex-col items-center gap-4 py-10 text-white_bolig">
-        <p className="py-4 pl-4 text-2xl font-bold text-primary">
+      <div className="flex w-full max-w-[1400px] flex-col items-center gap-4 py-10">
+        <p className="pt-4 pl-4 text-3xl font-bold text-primary">
           Newest Deals
         </p>
-        <div className="mb-10 flex w-[80%] items-center justify-center gap-4 overflow-hidden rounded-2xl border bg-[#EDECE9] p-3">
-          <button
-            onClick={handlePrevSlide}
-            className="border-white rounded-full border-2 bg-primary p-2 text-primary"
-          >
-            <AiOutlineArrowLeft className="text-white_bolig" />
-          </button>
-          {Array.from({ length: totalSlides }).map((_, index) => (
-            <div
-              key={index}
-              className={`h-52 w-52 rounded-lg bg-[#ffffff] text-primary transition-all duration-500 ${
-                index >= currentSlide && index < currentSlide + imagesToShow
-                  ? 'block'
-                  : 'hidden'
-              }`}
-            >
-              {index + 1}
-            </div>
-          ))}
-          <button
-            onClick={handleNextSlide}
-            disabled={currentSlide === totalSlides - imagesToShow}
-            className="border-white rounded-full border-2 bg-primary p-2 text-primary"
-          >
-            <AiOutlineArrowRight className="text-white_bolig" />
-          </button>
+        <div className='flex justify-center items-center m-4 w-full'>
+          <NewestDeals />
         </div>
 
         {/*Explore your favorit city*/}
