@@ -58,7 +58,7 @@ export default function Home() {
 
         <div className='w-full max-w-[1000px] py-20 px-10 lg:px-0'>
           <p className='flex justify-center items-center gap-2 text-lg text-primary tracking-wide py-1'>Say goodbye to the house-hunting hassle! <GoHome className='text-third text-2xl' /> </p> 
-          <p className='text-center text-lg text-primary tracking-wide'>Our website is your secret weapon to finding your dream home. With a user-friendly interface and a vast selection of homes, we'll make your search feel like a walk in the park. Get ready to unlock the door to your new adventure!</p>
+          <p className='text-center text-lg text-primary tracking-wide'>Our website is your secret weapon to finding your dream home. With a user-friendly interface and a vast selection of homes, we will make your search feel like a walk in the park. Get ready to unlock the door to your new adventure!</p>
         </div>
 
         {/*Explore your favorit city*/}
@@ -66,7 +66,7 @@ export default function Home() {
           <h3 className="pt-4 pb-14 text-3xl font-bold text-primary sm:pb-10">
             Explore Your favorit City
           </h3>
-          <div className="grid h-full w-full grid-cols-1 gap-2 rounded-xl border bg-[#F5F5F5] p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid h-full w-full grid-cols-1 gap-2 rounded-xl bg-[#EDECE9] p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <CityCard onCity={selectCity}/>
           </div>
         </div>

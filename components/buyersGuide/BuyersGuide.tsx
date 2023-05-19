@@ -4,17 +4,17 @@ const BuyersGuide = () => {
   return (
     <>
       <div>
-        <h2 className="pb-6 text-center text-3xl font-bold tracking-wide">
-          Buyer's Guide to Purcheasing Real Estate
+        <h2 className="pb-8 text-center text-3xl font-bold tracking-wide">
+          Buyers Guide to Purcheasing Real Estate
         </h2>
         <p className="text-xl">
-          Buying a home is a big decision, but we're here to help. Our
-          comprehensive buyer's guide covers everything you need to know, from
-          financing to closing. We'll help you navigate the real estate market
+          Buying a home is a big decision, but we are here to help. Our
+          comprehensive buyers guide covers everything you need to know, from
+          financing to closing. We will help you navigate the real estate market
           with confidence and ease.
         </p>
       </div>
-      <div className="flex flex-col justify-evenly gap-8 px-10 py-6 md:flex-row md:px-0">
+      <div className="flex flex-col justify-evenly gap-8 px-10 py-8 md:flex-row md:px-0">
         <div className="">
           <h3 className="pb-2 text-center text-xl font-semibold">Financing</h3>
           <p>
@@ -41,7 +41,7 @@ const BuyersGuide = () => {
         <div>
           <h3 className="pb-2 text-center text-xl font-semibold">Closing</h3>
           <p>
-            We'll take you through the closing process step-by-step and make
+            We will take you through the closing process step-by-step and make
             sure that everything is in order.
           </p>
         </div>
