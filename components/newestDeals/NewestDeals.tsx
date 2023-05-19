@@ -42,7 +42,7 @@ const NewestDeals = () => {
             <div className='w-full h-[250px] relative overflow-hidden rounded-t-xl'>
               <Image src={data.image} layout="fill" objectFit='cover' alt='test' />
               <div >
-                <p className='absolute z-50 bottom-0 py-1 px-4 rounded-tr-md font-semibold bg-primary text-lg text-third tracking-wider'>Bolig</p>
+                <p className='absolute z-10 bottom-0 py-1 px-4 rounded-tr-md font-semibold bg-primary text-lg text-third tracking-wider'>Bolig</p>
               </div>
             </div>
             <div className='p-2'>
