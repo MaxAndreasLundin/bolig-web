@@ -5,6 +5,7 @@ import './globals.css';
 import { fetchData } from './utils/api';
 import { SearchDataProps } from './types/searchData';
 import NewestDeals from '../components/newestDeals/NewestDeals';
+import BuyersGuide from '../components/buyersGuide/BuyersGuide';
 
 export default function Home() {
   const selectCity = async (location: SearchDataProps) => {
@@ -55,7 +56,7 @@ export default function Home() {
         </div>
 
         {/*Explore your favorit city*/}
-        <div className="flex h-full w-full flex-col items-center bg-white_bolig px-10 pb-40 xl:rounded-2xl">
+        <div className="flex h-full w-full flex-col items-center bg-white_bolig px-10 pb-10 xl:rounded-2xl">
           <h3 className="pt-14 pb-14 text-3xl font-bold text-primary sm:pb-20">
             Explore Your favorit City
           </h3>
@@ -63,6 +64,11 @@ export default function Home() {
             <CityCard onCity={selectCity}/>
           </div>
         </div>
+
+        <div className='flex flex-col px-10 max-w-[1000px] w-full'>
+          <BuyersGuide />
+        </div>
+
       </div>
     </div>
   );
