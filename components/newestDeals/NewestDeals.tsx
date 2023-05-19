@@ -41,6 +41,9 @@ const NewestDeals = () => {
           <div key={key} className='rounded-xl w-[300px] duration-500 hover:scale-105 hover:cursor-pointer bg-white_bolig shadow-lg'>
             <div className='w-full h-[250px] relative overflow-hidden rounded-t-xl'>
               <Image src={data.image} layout="fill" objectFit='cover' alt='test' />
+              <div >
+                <p className='absolute z-50 bottom-0 py-1 px-4 rounded-tr-md font-semibold bg-primary text-lg text-third tracking-wider'>Bolig</p>
+              </div>
             </div>
             <div className='p-2'>
               <p className='text-lg'>{data.title}</p>

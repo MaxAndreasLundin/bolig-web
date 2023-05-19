@@ -36,7 +36,7 @@ export const NewestDealsList = [
     title: 'Industrial-style apartment',
     location: 'Helsinki, Finland',
     description:
-      'Experience authentic urban living in our industrial-style apartment, where raw, exposed architectural elements meet modern comfort and design. You will love the spacious open-concept layout, high ceilings, and unique features',
+      'Experience authentic urban living in our industrial-style apartment, where raw, exposed architectural elements meet modern comfort and design. You will love the spacious open-concept.',
     image: '/pictures/newestDeals/industrial.jpg',
   },
   {
