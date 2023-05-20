@@ -15,8 +15,9 @@ const page = () => {
         </div>
         
         <div className='flex justify-between'>
-          <div>{NewsLetter.map((news) => (
-            <NewsLetterCard 
+          <div>{NewsLetter.map((news, index) => (
+            <NewsLetterCard
+              key={index} 
               id={news.id}
               title={news.title}
               info={news.info}
