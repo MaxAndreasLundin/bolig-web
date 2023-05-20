@@ -15,6 +15,7 @@ const page = () => {
             id={news.id}
             title={news.title}
             info={news.info}
+            image={news.image}
           />
         ))}</div>
       </div>
