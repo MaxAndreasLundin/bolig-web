@@ -1,4 +1,6 @@
 import React from 'react'
+import { NewsLetter } from '../../components/helpers/NewsLetter'
+import NewsLetterCard from '../../components/card/NewsLetterCard'
 
 const page = () => {
   return (
@@ -8,7 +10,13 @@ const page = () => {
           <h2 className='text-3xl font-bold tracking-wide'>Real Estate News</h2>
           <p>Latest news from the housing market. Here we gather everything from interior design tips to guides and economic questions.</p>
         </div>
-        <div>news</div>
+        <div>{NewsLetter.map((news) => (
+          <NewsLetterCard 
+            id={news.id}
+            title={news.title}
+            info={news.info}
+          />
+        ))}</div>
       </div>
     </div>
   )
