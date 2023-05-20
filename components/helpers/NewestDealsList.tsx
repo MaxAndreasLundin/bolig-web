@@ -5,7 +5,7 @@ export const NewestDealsList = [
     location: 'Stockolm, Sweden',
     description:
       'Experience urban living at its finest in this stylish, spacious loft. Featuring a minimalist aesthetic with industrial touches, this home is perfect for the trendy city dweller. Visit us today.',
-    image: '/pictures/newestDeals/modernLoft.jpg',
+    image: '/pictures/newestDeals/modernLoft.webp',
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const NewestDealsList = [
     location: 'Gothenburg, Sweden',
     description:
       'Escape to this charming cabin nestled in the woods. Perfect for a weekend getaway or year-round living, this home offers a rustic and serene lifestyle. Book an appointment now.',
-    image: '/pictures/newestDeals/imgOne.jpg',
+    image: '/pictures/newestDeals/imgOne.webp',
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const NewestDealsList = [
     location: 'Stockolm, Sweden',
     description:
       'Take in the city skyline from this luxurious penthouse. With top-of-the-line finishes and a spacious layout, this home is the epitome of upscale living. Schedule a showing today.',
-    image: '/pictures/newestDeals/penthouse.jpg',
+    image: '/pictures/newestDeals/penthouse.webp',
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const NewestDealsList = [
     location: 'London, England',
     description:
       'Live near the ocean in this stunning beach house. Fully renovated with an open floor plan, this home is perfect for entertaining and relaxing. Check it out now!',
-    image: '/pictures/newestDeals/beachHouse.jpg',
+    image: '/pictures/newestDeals/beachHouse.webp',
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const NewestDealsList = [
     location: 'Helsinki, Finland',
     description:
       'Experience authentic urban living in our industrial-style apartment, where raw, exposed architectural elements meet modern comfort and design. You will love the spacious open-concept.',
-    image: '/pictures/newestDeals/industrial.jpg',
+    image: '/pictures/newestDeals/industrial.webp',
   },
   {
     id: 6,
@@ -45,6 +45,6 @@ export const NewestDealsList = [
     location: 'Orebro, Sweden',
     description:
       'Discover warmth and comfort in our cozy apartment, a snug haven with inviting decor that creates a perfect sanctuary for relaxation.',
-    image: '/pictures/newestDeals/coffeeTable.jpg',
+    image: '/pictures/newestDeals/coffeeTable.webp',
   },
 ];
