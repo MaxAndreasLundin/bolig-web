@@ -31,7 +31,7 @@ const GetListOfAllResidence = () => {
         onClick={fetchResidence}
         className="rounded-xl bg-opacity-80 p-2 font-semibold text-white_bolig hover:scale-105"
       >
-        Whats for sale
+        Whats For Sale
       </button>
     </>
   );

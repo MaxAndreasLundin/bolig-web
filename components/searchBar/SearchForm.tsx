@@ -70,13 +70,13 @@ const SearchForm = ({ onCancel, onSearchForm }: SearchFormProps) => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex w-full flex-col rounded-2xl pt-6 text-primary"
+      className="flex w-full flex-col rounded-2xl pt-6 text-primary p-2"
     >
       <div className="md:mb-8">
         <TypeOfResidence onTypeOfResidence={handleTypeOfLiving} />
       </div>
 
-      <div className="mx-2 mb-6 flex flex-col border-b-2 border-primary pb-10 md:mb-8 md:justify-between xl:flex-row">
+      <div className="mx-2 mb-6 flex flex-col border-b-2 border-primary pb-10 md:mb-8 md:justify-between xl:flex-row gap-1">
         <div className="flex flex-col">
           <p className="mb-2 font-semibold">Higest Price</p>
           <select

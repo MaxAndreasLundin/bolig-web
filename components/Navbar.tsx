@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="invisible col-span-2 flex items-center justify-center py-2 md:visible">
           <ul className="flex gap-4 font-semibold text-primary">
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <a href="/" className="hover-effect">
                 Home
               </a>
             </li>
@@ -55,7 +55,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <a href="/contact" className="hover-effect">
                 Contact
               </a>
             </li>
@@ -101,7 +101,10 @@ const Navbar = () => {
           <li className="link-mobile mt-20">Sell Housing</li>
           <li className="link-mobile">Search Broker</li>
           <li className="link-mobile">News</li>
-          <li className="link-mobile">Contact</li>
+          <li className="link-mobile border-none">Contact</li>
+          <li className='bg-primary w-full text-center py-2 rounded-xl'>
+            <GetListOfAllResidence />
+          </li>
         </ul>
       </div>
     </>
