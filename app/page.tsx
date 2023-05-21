@@ -75,7 +75,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/*Explore your favorit city*/}
+        {/*Explore your favorite city*/}
         <div className="flex h-full w-full flex-col items-center bg-white_bolig px-10 pb-10 xl:rounded-2xl">
           <h3 className="pb-14 pt-4 text-3xl font-bold text-primary sm:pb-10">
             Explore Your favorit City
