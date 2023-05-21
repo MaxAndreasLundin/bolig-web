@@ -1,21 +1,26 @@
 import React from 'react';
+import Link from 'next/link';
+import { useSearch } from '../../context/SearchContext';
 
 const GetListOfAllResidence = () => {
+  const { setSearchResult } = useSearch();
 
-  const fetchResidence = async () => {
+  const FetchResidence = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      });
+      );
       const result = await response.json();
       console.log('1', result);
 
       if (result.length > 0) {
-        localStorage.setItem('searchResult', JSON.stringify(result));
-        window.location.href = '/residenceForSale';
+        setSearchResult(result);
       } else {
         alert('Your search could not be found...');
       }
@@ -27,12 +32,14 @@ const GetListOfAllResidence = () => {
 
   return (
     <>
-      <button
-        onClick={fetchResidence}
-        className="rounded-xl bg-opacity-80 p-2 font-semibold text-white_bolig hover:scale-105"
-      >
-        Whats For Sale
-      </button>
+      <Link href="/residenceForSale">
+        <button
+          onClick={FetchResidence}
+          className="rounded-xl bg-opacity-80 p-2 font-semibold text-white_bolig hover:scale-105"
+        >
+          Whats for sale
+        </button>
+      </Link>
     </>
   );
 };

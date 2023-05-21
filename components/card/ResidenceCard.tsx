@@ -3,7 +3,6 @@ import Image from 'next/image';
 import residentImg from '../../public/pictures/apartment.webp';
 import { ResidenceListProps } from '../helpers/ResidenceList';
 
-
 const ResidenceCard = ({
   title,
   location,

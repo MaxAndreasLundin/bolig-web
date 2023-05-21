@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { GoSearch } from 'react-icons/go';
 import { MdLocationOn } from 'react-icons/md';
 import SearchForm from './SearchForm';
-import { SearchDataProps } from '../../app/types/searchData';
+import { SearchDataProps } from '../../types/searchData';
 
 const SearchBar = () => {
   const [searchLocationInput, setSearchLocationInput] = useState('');

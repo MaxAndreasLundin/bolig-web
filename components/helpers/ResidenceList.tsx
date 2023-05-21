@@ -1,12 +1,12 @@
 export interface ResidenceListProps {
-  id: number,
-  title: string,
-  location: string,
-  description: string,
-  typeOfResidence: string,
-  price: number,
-  room: number,
-  area: number
+  id: number;
+  title: string;
+  location: string;
+  description: string;
+  typeOfResidence: string;
+  price: number;
+  room: number;
+  area: number;
 }
 
 /* export const ResidenceList: ResidenceListProps[] = [
