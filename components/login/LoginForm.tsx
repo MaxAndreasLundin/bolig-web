@@ -32,7 +32,6 @@ const LoginForm = ({ className }: LoginStyleProps) => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoginInput(defaultLogin);
-    console.log(loginInput);
 
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_NEST_BACKEND}/auth/signin`,
@@ -46,9 +45,6 @@ const LoginForm = ({ className }: LoginStyleProps) => {
     if (response.ok) {
       const result = await response.json();
       const token = result.access_token;
-      console.log('r', result);
-      console.log('', token);
-      alert(`Login successful: ${token}`);
 
       localStorage.setItem('token', token);
       router.push('/userDashboard');

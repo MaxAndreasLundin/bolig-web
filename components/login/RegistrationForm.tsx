@@ -26,9 +26,6 @@ const RegistrationForm = ({ className }: RegistrationStyleProps) => {
   const { firstName, lastName, email, password } = formData;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //Take the previus state, and return previus state in a object, by destructuring it
-    //And then we want to update the event.target.id - And send it to the event.target.value
-    //Change the current value of that property to the one we have just typed right here in the input field
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
@@ -41,25 +38,19 @@ const RegistrationForm = ({ className }: RegistrationStyleProps) => {
 
     setFormData(defaultFormData); //Clears the input field
 
-    // Send the form data to our API and get a response.
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_NEST_BACKEND}/auth/signup`,
       {
-        // Body of the request is the JSON data we created above.
         body: JSON.stringify(formData),
-        // Tell the server we're sending JSON.
         headers: {
           'Content-Type': 'application/json',
         },
-        // The method is POST because we are sending data.
         method: 'POST',
       },
     );
 
-    // Get the response data from server as JSON.
-    // If server returns the name submitted, that means the form works.
-    const result = await response.json();
-    alert(`Sign up complete: ${result.formData}`);
+    await response.json();
+    alert(`Sign up complete`);
   };
   return (
     <form
