@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import ResidenceCard from '../../components/card/ResidenceCard';
 import { ResidenceListProps } from '../../components/helpers/ResidenceList';
-import SearchBar from '../../components/searchBar/SearchBar';
 import { GiCoffeeCup } from 'react-icons/gi';
 import SearchFormResidence from '../../components/searchFormSmallCard/SearchFormResidence';
 import Link from 'next/link';
 import { useSearch } from '../../context/SearchContext';
+import CombinedSearchComponent from '../../components/searchBar/CombinedSearchComponent';
 
 const ResidenceForSale = () => {
   const { searchResult } = useSearch();
@@ -36,7 +36,7 @@ const ResidenceForSale = () => {
         ) : (
           <div className="flex w-full max-w-[1400px] flex-col items-start justify-center bg-white_bolig md:flex-row lg:rounded-lg">
             <div className="flex w-full items-center justify-center px-8 pt-6 md:hidden">
-              <SearchBar />
+              <CombinedSearchComponent />
             </div>
             <div className="hidden h-full w-[500px] items-start justify-start pt-14 md:flex">
               <SearchFormResidence />

@@ -106,7 +106,7 @@ const CombinedSearchComponent = () => {
       <div className="flex w-full flex-col items-center justify-center rounded-2xl border-primary bg-white_bolig shadow-2xl md:shadow-md">
         <form
           onSubmit={onSubmit}
-          className="flex w-full flex-col rounded-2xl p-2 pt-6 text-primary"
+          className="flex w-full flex-col rounded-2xl p-2 text-primary"
         >
           <div className="flex w-full items-center justify-center">
             <MdLocationOn className="ml-4 h-8 w-8 text-primary" />
