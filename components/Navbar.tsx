@@ -2,7 +2,7 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { FaUser } from 'react-icons/fa';
 import { GoHome } from 'react-icons/go';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Link from 'next/link';
 import GetListOfAllResidence from './searchBar/GetListOfAllResidence';
@@ -13,18 +13,16 @@ const Navbar = () => {
 
   const router = useRouter();
 
-  const handleClick = () => {
-    setClick(!click);
-  };
+  const handleClick = () => setClick(!click);
 
-  const userIconClick = () => {
+  const userIconClick = useCallback(() => {
     const token = localStorage.getItem('token');
     if (token) {
       router.push('/userDashboard');
     } else {
       router.push('/login');
     }
-  }
+  }, [router]);
 
     return (
     <>
@@ -72,9 +70,7 @@ const Navbar = () => {
               <GetListOfAllResidence />
             </div>
             <div className="rounded-full py-1 px-2 md:px-1 ">
-              <Link href={'login'}>
-                <FaUser onClick={userIconClick} className="h-6 text-white_bolig hover:scale-105" />
-              </Link>
+              <FaUser onClick={userIconClick} className="h-6 text-white_bolig hover:scale-105 cursor-pointer" />
             </div>
             <div
               className="block cursor-pointer md:hidden"
