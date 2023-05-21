@@ -43,7 +43,6 @@ const NewestDeals = () => {
           <MdOutlineArrowBackIos className="text-3xl" />
         </button>
       </div>
-
       <div className="col-span-2 flex min-h-[425px] w-full justify-center gap-4 p-4">
         {NewestDealsList.slice(scrollPos, scrollPos + itemsPerPage).map(
           (data, key) => (
@@ -59,7 +58,7 @@ const NewestDeals = () => {
                   style={{ objectFit: 'cover' }}
                   alt="test"
                 />
-                <div style={{ position: 'relative' }}>
+                <div>
                   <p className="absolute bottom-0 z-10 rounded-tr-md bg-primary px-4 py-1 text-lg font-semibold tracking-wider text-third">
                     Bolig
                   </p>

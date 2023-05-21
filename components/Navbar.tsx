@@ -39,24 +39,24 @@ const Navbar = () => {
         <div className="invisible col-span-2 flex items-center justify-center py-2 md:visible">
           <ul className="flex gap-4 font-semibold text-primary">
             <li className="hover:scale-105">
-              <a href="/" className="hover-effect">
+              <Link href="/" className="hover-effect">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <Link href="" className="hover-effect">
                 Sell housing
-              </a>
+              </Link>
             </li>
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <Link href="/news" className="hover-effect">
                 News
-              </a>
+              </Link>
             </li>
             <li className="hover:scale-105">
-              <a href="/contact" className="hover-effect">
+              <Link href="/contact" className="hover-effect">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -98,11 +98,11 @@ const Navbar = () => {
           className="flex cursor-pointer flex-col items-center p-4 text-2xl text-primary sm:text-xl"
           onClick={() => setClick(false)}
         >
-          <li className="link-mobile mt-20">Sell Housing</li>
-          <li className="link-mobile">Search Broker</li>
-          <li className="link-mobile">News</li>
-          <li className="link-mobile border-none">Contact</li>
-          <li className="w-full rounded-xl bg-primary py-2 text-center">
+          <li className="link-mobile mt-20"><Link href={"/"}>Home</Link></li>
+          <li className="link-mobile">Sell Housing</li>
+          <li className="link-mobile"><Link href={"/news"}>News</Link>News</li>
+          <li className="link-mobile border-none"><Link href={"/contact"}>Contact</Link></li>
+          <li className='bg-primary w-full text-center py-2 rounded-xl'>
             <GetListOfAllResidence />
           </li>
         </ul>
