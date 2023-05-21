@@ -1,28 +1,28 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+
+import React, { useEffect, useState } from 'react';
 import ResidenceCard from '../../components/card/ResidenceCard';
 import { ResidenceListProps } from '../../components/helpers/ResidenceList';
-import SearchBar from '../../components/searchBar/SearchBar';
 import { GiCoffeeCup } from 'react-icons/gi';
 import SearchFormResidence from '../../components/searchFormSmallCard/SearchFormResidence';
+import Link from 'next/link';
+import { useSearch } from '../../context/SearchContext';
+import CombinedSearchComponent from '../../components/searchBar/CombinedSearchComponent';
 
 const ResidenceForSale = () => {
-  const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
+  const { searchResult } = useSearch();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedResult = localStorage.getItem('searchResult');
-    if (storedResult) {
-      setSearchResult(JSON.parse(storedResult));
+    if (searchResult.length > 0) {
       setIsLoading(false);
     } else {
       setIsLoading(false);
     }
-  }, []);
+  }, [searchResult]);
 
   const handleCardClick = (residence: ResidenceListProps) => {
     localStorage.setItem('selectedResidence', JSON.stringify(residence));
-    window.location.href = '/residenceInfo';
   };
 
   return (
@@ -36,31 +36,31 @@ const ResidenceForSale = () => {
         ) : (
           <div className="flex w-full max-w-[1400px] flex-col items-start justify-center bg-white_bolig md:flex-row lg:rounded-lg">
             <div className="flex w-full items-center justify-center px-8 pt-6 md:hidden">
-              <SearchBar />
+              <CombinedSearchComponent />
             </div>
             <div className="hidden h-full w-[500px] items-start justify-start pt-14 md:flex">
               <SearchFormResidence />
             </div>
-
-            <div className="flex flex-col justify-start items-start my-10 w-full p-2">
-              <h1 className="pl-4 pb-4 text-4xl font-semibold">
+            <div className="my-10 flex w-full flex-col items-start justify-start p-2">
+              <h1 className="pb-4 pl-4 text-4xl font-semibold">
                 Residence for sale
               </h1>
-
               <div className="w-full">
                 {searchResult.map((item) => (
                   <div key={item.id}>
-                    <ResidenceCard
-                      id={item.id}
-                      title={item.title}
-                      location={item.location}
-                      description={item.description}
-                      typeOfResidence={item.typeOfResidence}
-                      price={item.price}
-                      room={item.room}
-                      area={item.area}
-                      onClick={() => handleCardClick(item)}
-                    />
+                    <Link href="/residenceInfo">
+                      <ResidenceCard
+                        id={item.id}
+                        title={item.title}
+                        location={item.location}
+                        description={item.description}
+                        typeOfResidence={item.typeOfResidence}
+                        price={item.price}
+                        room={item.room}
+                        area={item.area}
+                        onClick={() => handleCardClick(item)}
+                      />
+                    </Link>
                   </div>
                 ))}
               </div>

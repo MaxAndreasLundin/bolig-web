@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface User {
   id: number;
@@ -12,11 +12,14 @@ const AdminPanel: React.FC = () => {
 
   const fetchUsers = async () => {
     const token = localStorage.getItem('java_token');
-    const response = await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     const result = await response.json();
     setUsers(result);
   };
@@ -30,12 +33,15 @@ const AdminPanel: React.FC = () => {
       console.log('click');
       const token = localStorage.getItem('java_token');
 
-      await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      await fetch(
+        `${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/user/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          method: 'DELETE',
         },
-        method: 'DELETE',
-      });
+      );
       fetchUsers();
     };
     doWork();

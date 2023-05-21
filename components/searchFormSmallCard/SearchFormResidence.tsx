@@ -4,9 +4,11 @@ import { selectPrice } from '../searchBar/searchFormElement/SelectPrice';
 import { selectNumbOfRooms } from '../searchBar/searchFormElement/SelectNumbOfRooms';
 import { livingArea } from '../searchBar/searchFormElement/LivingArea';
 import TypeOfResidence from '../searchBar/searchFormElement/TypeOfResidence';
-import { fetchData } from '../../app/utils/api';
-import { SearchDataProps } from '../../app/types/searchData';
+import { fetchData } from '../../utils/api';
+import { SearchDataProps } from '../../types/searchData';
 import Image from 'next/image';
+import { useSearch } from '../../context/SearchContext';
+import { useRouter } from 'next/navigation';
 
 const SearchFormResidence = () => {
   const [searchLocationInput, setSearchLocationInput] = useState('');
@@ -34,6 +36,10 @@ const SearchFormResidence = () => {
   const handleHighestPrice = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPrice(Number(e.target.value));
   };
+
+  const { setSearchResult } = useSearch(); // at the beginning of your SearchFormResidence function
+
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,8 +76,8 @@ const SearchFormResidence = () => {
     );
 
     if (result && result.length > 0) {
-      localStorage.setItem('searchResult', JSON.stringify(result));
-      window.location.href = '/residenceForSale';
+      setSearchResult(result); // using the setSearchResult from context here
+      router.push('/residenceForSale');
       console.log('result', result);
     } else {
       alert('Your search could not be found...');

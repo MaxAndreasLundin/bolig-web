@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { ResidenceListProps } from '../../components/helpers/ResidenceList';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import { BsChevronCompactLeft, BsHouse, BsCalendar4Week } from 'react-icons/bs';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { BsCalendar4Week, BsChevronCompactLeft, BsHouse } from 'react-icons/bs';
 import CardSlider from '../../components/cardSlider/CardSlider';
 import { BiArea } from 'react-icons/bi';
 import { MdOutlineBedroomParent } from 'react-icons/md';
+import Link from 'next/link';
 
 const ResidenceInfo = () => {
   const [residence, setResidence] = useState<ResidenceListProps | null>(null);
@@ -20,13 +21,13 @@ const ResidenceInfo = () => {
 
   return (
     <div className="flex h-full w-[100vw] max-w-[1400px] flex-1 flex-col pt-4">
-      <div className="flex justify-between py-2 px-4">
-        <a href="/residenceForSale">
-          <button className="flex  items-center justify-center rounded-md border-2 border-primary py-2 px-4 font-semibold shadow-lg        hover:bg-white_bolig_hover">
+      <div className="flex justify-between px-4 py-2">
+        <Link href="/residenceForSale">
+          <button className="flex  items-center justify-center rounded-md border-2 border-primary px-4 py-2 font-semibold shadow-lg        hover:bg-white_bolig_hover">
             <BsChevronCompactLeft />
             Back to List
           </button>
-        </a>
+        </Link>
         <button onClick={() => setLikeBtn(!likeBtn)}>
           {likeBtn ? (
             <AiFillHeart className="h-6 w-6 text-third" />

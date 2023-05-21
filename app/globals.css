@@ -4,57 +4,57 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-  background-color: #F9F9F9;  
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
+    background-color: #F9F9F9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 .banner-img {
-  background-image: url(/pictures/banner4.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+    background-image: url(/pictures/banner4.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .login-img {
-  background-image: url(/pictures/login.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+    background-image: url(/pictures/login.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .hover-effect {
-  @apply relative cursor-pointer transition-all duration-300 transform hover:text-primary_hover before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:rounded-full before:transition-all before:bg-primary_hover hover:before:w-full
+    @apply relative cursor-pointer transition-all duration-300 transform hover:text-primary_hover before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:rounded-full before:transition-all before:bg-primary_hover hover:before:w-full
 }
 
 
 .link-web {
-  @apply p-4 inline-block hover:to-third_hover hover:rounded-md hover:scale-110;
+    @apply p-4 inline-block hover:to-third_hover hover:rounded-md hover:scale-110;
 }
 
 .link-mobile {
-  @apply flex items-center justify-center p-4 w-full border-b duration-300 transform hover:text-primary_hover hover:border-b-secondary_hover hover:rounded-md hover:scale-110;
+    @apply flex items-center justify-center p-4 w-full border-b duration-300 transform hover:text-primary_hover hover:border-b-secondary_hover hover:rounded-md hover:scale-110;
 }
 
 
 .input-field {
-  @apply border border-primary bg-white_bolig rounded-full text-primary text-sm h-10 pl-2;
+    @apply border border-primary bg-white_bolig rounded-full text-primary text-sm h-10 pl-2;
 }
