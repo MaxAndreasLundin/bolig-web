@@ -1,7 +1,15 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import AdminPanel from '../../../components/Chat/AdminPanel';
+
+const handleLogout = (onLogout: () => void) => {
+  localStorage.removeItem('java_token');
+  onLogout();
+};
+
+interface ChatBotProps {
+  onLogout: () => void;
+}
 
 interface ChatMessage {
   human: boolean;
@@ -10,31 +18,37 @@ interface ChatMessage {
 
 const getChatMessages = async () => {
   const token = localStorage.getItem('java_token');
-  return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
+  return await fetch(
+    `${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      method: 'GET',
     },
-    method: 'GET',
-  })
+  )
     .then((resp) => resp.json())
     .then((data) => data as ChatMessage[]);
 };
 
 const postChatMessage = async (message: string) => {
   const token = localStorage.getItem('java_token');
-  return await fetch(`${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`, {
-    body: message,
-    headers: {
-      'Content-Type': 'text/plain',
-      Authorization: `Bearer ${token}`,
+  return await fetch(
+    `${process.env.NEXT_PUBLIC_JAVA_BACKEND}/api/v1/messages`,
+    {
+      body: message,
+      headers: {
+        'Content-Type': 'text/plain',
+        Authorization: `Bearer ${token}`,
+      },
+      method: 'POST',
     },
-    method: 'POST',
-  })
+  )
     .then((resp) => resp.json())
     .then((data) => data as ChatMessage[]);
 };
 
-const ChatBot: React.FC = () => {
+const ChatBot: React.FC<ChatBotProps> = ({ onLogout }) => {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState('');
   const chatWindowRef = useRef<HTMLDivElement>(null);
@@ -84,7 +98,7 @@ const ChatBot: React.FC = () => {
   }
 
   return (
-    <div className="bg-gray-900 m-6 flex h-96 max-h-full flex-col rounded-lg p-8">
+    <div className="flex max-h-96 max-w-fit flex-col rounded-lg p-1 text-white_bolig">
       <div ref={chatWindowRef} className="flex-1 overflow-auto">
         {augmentedChatMessages.map((chatMessage, index) => (
           <div key={index} className="mb-2">
@@ -97,36 +111,25 @@ const ChatBot: React.FC = () => {
       <form onSubmit={handleSubmit} className="w-full">
         <input
           type="text"
-          className="input-field mb-2 w-full"
+          className="input-field mb-1 mt-1 w-full"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Write a message..."
         />
-        <button className="bg-blue-600 text-white rounded-full p-2">
-          Submit
-        </button>
+        <div className="flex justify-between">
+          <button className="mt-4 h-10 w-40 rounded-md border-2 border-third bg-secondary hover:scale-105 hover:cursor-pointer sm:w-20">
+            Submit
+          </button>
+          <button
+            onClick={() => handleLogout(onLogout)}
+            className="mt-4 h-10 w-40 justify-end rounded-md border-2 border-third bg-secondary hover:scale-105 hover:cursor-pointer sm:w-20"
+          >
+            Logout
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-const ChatBotPage: React.FC = () => {
-  const handleLogout = () => {
-    localStorage.removeItem('java_token');
-    window.location.href = '/';
-  };
-
-  return (
-    <div className="flex flex-col items-center justify-center">
-      <AdminPanel />
-      <ChatBot />
-      <div>
-        <button onClick={handleLogout} className="h-10 w-16 rounded-xl border">
-          Logout
-        </button>
-      </div>
-    </div>
-  );
-};
-
-export default ChatBotPage;
+export default ChatBot;

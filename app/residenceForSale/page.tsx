@@ -1,28 +1,28 @@
-'use client';
+'use client'
+
 import React, { useState, useEffect } from 'react';
 import ResidenceCard from '../../components/card/ResidenceCard';
 import { ResidenceListProps } from '../../components/helpers/ResidenceList';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { GiCoffeeCup } from 'react-icons/gi';
 import SearchFormResidence from '../../components/searchFormSmallCard/SearchFormResidence';
+import Link from 'next/link';
+import { useSearch } from '../../context/SearchContext';
 
 const ResidenceForSale = () => {
-  const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
+  const { searchResult } = useSearch();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedResult = localStorage.getItem('searchResult');
-    if (storedResult) {
-      setSearchResult(JSON.parse(storedResult));
+    if (searchResult.length > 0) {
       setIsLoading(false);
     } else {
       setIsLoading(false);
     }
-  }, []);
+  }, [searchResult]);
 
   const handleCardClick = (residence: ResidenceListProps) => {
     localStorage.setItem('selectedResidence', JSON.stringify(residence));
-    window.location.href = '/residenceInfo';
   };
 
   return (
@@ -50,17 +50,19 @@ const ResidenceForSale = () => {
               <div className="w-full">
                 {searchResult.map((item) => (
                   <div key={item.id}>
-                    <ResidenceCard
-                      id={item.id}
-                      title={item.title}
-                      location={item.location}
-                      description={item.description}
-                      typeOfResidence={item.typeOfResidence}
-                      price={item.price}
-                      room={item.room}
-                      area={item.area}
-                      onClick={() => handleCardClick(item)}
-                    />
+                    <Link href="/residenceInfo">
+                      <ResidenceCard
+                        id={item.id}
+                        title={item.title}
+                        location={item.location}
+                        description={item.description}
+                        typeOfResidence={item.typeOfResidence}
+                        price={item.price}
+                        room={item.room}
+                        area={item.area}
+                        onClick={() => handleCardClick(item)}
+                      />
+                    </Link>
                   </div>
                 ))}
               </div>

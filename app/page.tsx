@@ -1,4 +1,8 @@
 'use client';
+
+
+import { useSearch } from '../context/SearchContext';
+import { useState } from 'react';
 import SearchBar from '../components/searchBar/SearchBar';
 import CityCard from '../components/card/CityCard';
 import './globals.css';
@@ -9,20 +13,33 @@ import BuyersGuide from '../components/buyersGuide/BuyersGuide';
 import { GoHome } from 'react-icons/go';
 
 export default function Home() {
+  const { setSearchResult } = useSearch();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = 8;
+  const imagesToShow = 4;
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? 0 : prev - 1));
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => prev + 1);
+  };
+
   const selectCity = async (location: SearchDataProps) => {
-    console.log('New Search',location)
+    console.log('New Search', location);
 
     const result = await fetchData(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`, 'POST', location);
 
     if (result && result.length > 0) {
-      localStorage.setItem('searchResult', JSON.stringify(result));
-      window.location.href = '/residenceForSale';
       console.log('result', result);
+      setSearchResult(result);
     } else {
       alert('Your search could not be found...');
     }
+  };
 
-  }
+
 
   return (
     <div className="flex h-[100vh] w-[100vw] flex-1 flex-col items-center text-primary">
