@@ -14,7 +14,16 @@ const Navbar = () => {
     setClick(!click);
   };
 
-  return (
+  const userIconClick = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      window.location.href = '/userDashboard';
+    } else {
+      window.location.href = '/login';
+    }
+  }
+
+    return (
     <>
       <header className="sticky top-0 z-50 my-2 grid w-full max-w-[1400px] grid-cols-4 px-2 sm:p-2">
         {/*left*/}
@@ -31,7 +40,7 @@ const Navbar = () => {
         <div className="invisible col-span-2 flex items-center justify-center py-2 md:visible">
           <ul className="flex gap-4 font-semibold text-primary">
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <a href="/" className="hover-effect">
                 Home
               </a>
             </li>
@@ -46,7 +55,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <a href="/contact" className="hover-effect">
                 Contact
               </a>
             </li>
@@ -61,7 +70,7 @@ const Navbar = () => {
             </div>
             <div className="rounded-full py-1 px-2 md:px-1 ">
               <Link href={'login'}>
-                <FaUser className="h-6 text-white_bolig hover:scale-105" />
+                <FaUser onClick={userIconClick} className="h-6 text-white_bolig hover:scale-105" />
               </Link>
             </div>
             <div
@@ -92,7 +101,10 @@ const Navbar = () => {
           <li className="link-mobile mt-20">Sell Housing</li>
           <li className="link-mobile">Search Broker</li>
           <li className="link-mobile">News</li>
-          <li className="link-mobile">Contact</li>
+          <li className="link-mobile border-none">Contact</li>
+          <li className='bg-primary w-full text-center py-2 rounded-xl'>
+            <GetListOfAllResidence />
+          </li>
         </ul>
       </div>
     </>

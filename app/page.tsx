@@ -1,13 +1,16 @@
 'use client';
 
+
 import { useSearch } from '../context/SearchContext';
 import { useState } from 'react';
 import SearchBar from '../components/searchBar/SearchBar';
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import CityCard from '../components/card/CityCard';
 import './globals.css';
 import { fetchData } from './utils/api';
 import { SearchDataProps } from './types/searchData';
+import NewestDeals from '../components/newestDeals/NewestDeals';
+import BuyersGuide from '../components/buyersGuide/BuyersGuide';
+import { GoHome } from 'react-icons/go';
 
 export default function Home() {
   const { setSearchResult } = useSearch();
@@ -62,47 +65,33 @@ export default function Home() {
       </div>
 
       {/* Newest Deals */}
-      <div className="bg- flex w-full max-w-[1400px] flex-col items-center gap-4 py-10 text-white_bolig">
-        <p className="py-4 pl-4 text-2xl font-bold text-primary">
+      <div className="flex w-full max-w-[1400px] flex-col items-center gap-4 py-10">
+        <p className="pt-4 pl-4 text-3xl font-bold text-primary">
           Newest Deals
         </p>
-        <div className="mb-10 flex w-[80%] items-center justify-center gap-4 overflow-hidden rounded-2xl border bg-[#EDECE9] p-3">
-          <button
-            onClick={handlePrevSlide}
-            className="border-white rounded-full border-2 bg-primary p-2 text-primary"
-          >
-            <AiOutlineArrowLeft className="text-white_bolig" />
-          </button>
-          {Array.from({ length: totalSlides }).map((_, index) => (
-            <div
-              key={index}
-              className={`h-52 w-52 rounded-lg bg-[#ffffff] text-primary transition-all duration-500 ${
-                index >= currentSlide && index < currentSlide + imagesToShow
-                  ? 'block'
-                  : 'hidden'
-              }`}
-            >
-              {index + 1}
-            </div>
-          ))}
-          <button
-            onClick={handleNextSlide}
-            disabled={currentSlide === totalSlides - imagesToShow}
-            className="border-white rounded-full border-2 bg-primary p-2 text-primary"
-          >
-            <AiOutlineArrowRight className="text-white_bolig" />
-          </button>
+        <div className='flex justify-center items-center m-4 w-full'>
+          <NewestDeals />
+        </div>
+
+        <div className='w-full max-w-[1000px] py-20 px-10 lg:px-0'>
+          <p className='flex justify-center items-center gap-2 text-lg text-primary tracking-wide py-1'>Say goodbye to the house-hunting hassle! <GoHome className='text-third text-2xl' /> </p> 
+          <p className='text-center text-lg text-primary tracking-wide'>Our website is your secret weapon to finding your dream home. With a user-friendly interface and a vast selection of homes, we will make your search feel like a walk in the park. Get ready to unlock the door to your new adventure!</p>
         </div>
 
         {/*Explore your favorit city*/}
-        <div className="flex h-full w-full flex-col items-center bg-white_bolig px-10 pb-40 xl:rounded-2xl">
-          <h3 className="pt-14 pb-14 text-3xl font-bold text-primary sm:pb-20">
-            Explore Your favourite City
+        <div className="flex h-full w-full flex-col items-center bg-white_bolig px-10 pb-10 xl:rounded-2xl">
+          <h3 className="pt-4 pb-14 text-3xl font-bold text-primary sm:pb-10">
+            Explore Your favorit City
           </h3>
-          <div className="grid h-full w-full grid-cols-1 gap-2 rounded-xl border bg-[#F5F5F5] p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid h-full w-full grid-cols-1 gap-2 rounded-xl bg-[#EDECE9] p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <CityCard onCity={selectCity}/>
           </div>
         </div>
+
+        <div className='flex flex-col px-10 max-w-[1000px] w-full'>
+          <BuyersGuide />
+        </div>
+
       </div>
     </div>
   );
