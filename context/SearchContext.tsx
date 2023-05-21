@@ -14,9 +14,7 @@ const SearchContext = createContext<SearchContextProps>({
 
 export const useSearch = () => useContext(SearchContext);
 
-export const SearchProvider: React.FC = ({
-  children,
-}: React.PropsWithChildren<{}>) => {
+export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
 
   return (
