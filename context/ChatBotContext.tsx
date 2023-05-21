@@ -12,7 +12,7 @@ interface ChatContextType {
 export const ChatContext = createContext<ChatContextType>({
   isLoggedIn: false,
   setIsLoggedIn: () => {},
-  isMinimized: false,
+  isMinimized: true,
   setIsMinimized: () => {},
 });
 
@@ -20,7 +20,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(true);
 
   return (
     <ChatContext.Provider

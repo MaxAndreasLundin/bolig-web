@@ -17,6 +17,7 @@ interface LayoutProps {
 }
 
 export default function RootLayout({ children }: LayoutProps) {
+  // @ts-ignore
   return (
     <ChatProvider>
       <SearchProvider>
