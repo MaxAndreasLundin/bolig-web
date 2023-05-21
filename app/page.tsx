@@ -1,7 +1,6 @@
 'use client';
 
 import { useSearch } from '../context/SearchContext';
-import SearchBar from '../components/searchBar/SearchBar';
 import CityCard from '../components/card/CityCard';
 import './globals.css';
 import { fetchData } from '../utils/api';
@@ -9,6 +8,7 @@ import { SearchDataProps } from '../types/searchData';
 import NewestDeals from '../components/newestDeals/NewestDeals';
 import BuyersGuide from '../components/buyersGuide/BuyersGuide';
 import { GoHome } from 'react-icons/go';
+import CombinedSearchComponent from '../components/searchBar/CombinedSearchComponent';
 
 export default function Home() {
   const { setSearchResult } = useSearch();
@@ -44,7 +44,7 @@ export default function Home() {
               needs. Discover Exceptional Real Estate Opportunities Across the
               Nation.
             </p>
-            <SearchBar />
+            <CombinedSearchComponent />
           </div>
 
           {/* <GetListOfAllResidence />  */}
