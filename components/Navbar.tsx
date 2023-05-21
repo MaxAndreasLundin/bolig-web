@@ -2,17 +2,27 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { FaUser } from 'react-icons/fa';
 import { GoHome } from 'react-icons/go';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Link from 'next/link';
 import GetListOfAllResidence from './searchBar/GetListOfAllResidence';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const [click, setClick] = useState<boolean>(false);
 
-  const handleClick = () => {
-    setClick(!click);
-  };
+  const router = useRouter();
+
+  const handleClick = () => setClick(!click);
+
+  const userIconClick = useCallback(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      router.push('/userDashboard');
+    } else {
+      router.push('/login');
+    }
+  }, [router]);
 
   return (
     <>
@@ -20,9 +30,7 @@ const Navbar = () => {
         {/*left*/}
         <div className="relative flex items-center">
           <Link href={'/'} className="flex items-center justify-center gap-1">
-            <h1 className="text-secondary pl-2 text-3xl font-bold">
-              Bolig
-            </h1>
+            <h1 className="pl-2 text-3xl font-bold text-secondary">Bolig</h1>
             <GoHome className="text-3xl" />
           </Link>
         </div>
@@ -31,38 +39,39 @@ const Navbar = () => {
         <div className="invisible col-span-2 flex items-center justify-center py-2 md:visible">
           <ul className="flex gap-4 font-semibold text-primary">
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <Link href="/" className="hover-effect">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <Link href="" className="hover-effect">
                 Sell housing
-              </a>
+              </Link>
             </li>
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <Link href="/news" className="hover-effect">
                 News
-              </a>
+              </Link>
             </li>
             <li className="hover:scale-105">
-              <a href="" className="hover-effect">
+              <Link href="/contact" className="hover-effect">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
         {/*right*/}
         <div className="flex items-center justify-end gap-2 pr-2">
-          <div className="text-stone-800 hover:bg-sky-100 flex items-center gap-1 rounded-full border-2 bg-secondary py-1 px-3">
+          <div className="text-stone-800 hover:bg-sky-100 flex items-center gap-1 rounded-full border-2 bg-secondary px-3 py-1">
             <div className="hidden md:flex">
               <GetListOfAllResidence />
             </div>
-            <div className="rounded-full py-1 px-2 md:px-1 ">
-              <Link href={'login'}>
-                <FaUser className="h-6 text-white_bolig hover:scale-105" />
-              </Link>
+            <div className="rounded-full px-2 py-1 md:px-1 ">
+              <FaUser
+                onClick={userIconClick}
+                className="h-6 cursor-pointer text-white_bolig hover:scale-105"
+              />
             </div>
             <div
               className="block cursor-pointer md:hidden"
@@ -89,10 +98,13 @@ const Navbar = () => {
           className="flex cursor-pointer flex-col items-center p-4 text-2xl text-primary sm:text-xl"
           onClick={() => setClick(false)}
         >
-          <li className="link-mobile mt-20">Sell Housing</li>
-          <li className="link-mobile">Search Broker</li>
-          <li className="link-mobile">News</li>
-          <li className="link-mobile">Contact</li>
+          <li className="link-mobile mt-20"><Link href={"/"}>Home</Link></li>
+          <li className="link-mobile">Sell Housing</li>
+          <li className="link-mobile"><Link href={"/news"}>News</Link>News</li>
+          <li className="link-mobile border-none"><Link href={"/contact"}>Contact</Link></li>
+          <li className='bg-primary w-full text-center py-2 rounded-xl'>
+            <GetListOfAllResidence />
+          </li>
         </ul>
       </div>
     </>
