@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { createContext, useContext, useState } from 'react';
 import { ResidenceListProps } from '../components/helpers/ResidenceList';
 
@@ -14,7 +14,9 @@ const SearchContext = createContext<SearchContextProps>({
 
 export const useSearch = () => useContext(SearchContext);
 
-export const SearchProvider: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
+export const SearchProvider: React.FC = ({
+  children,
+}: React.PropsWithChildren<{}>) => {
   const [searchResult, setSearchResult] = useState<ResidenceListProps[]>([]);
 
   return (
@@ -23,4 +25,3 @@ export const SearchProvider: React.FC = ({ children }: React.PropsWithChildren<{
     </SearchContext.Provider>
   );
 };
-

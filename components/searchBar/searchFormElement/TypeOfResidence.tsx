@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import { GoHome } from 'react-icons/go';
-import { MdOutlineLocationCity, MdDashboard } from 'react-icons/md';
+import { MdDashboard, MdOutlineLocationCity } from 'react-icons/md';
 import { GiFamilyHouse } from 'react-icons/gi';
 
 interface TypeOfLivingProps {

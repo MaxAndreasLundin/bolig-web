@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ResidenceCard from '../../components/card/ResidenceCard';
 import { ResidenceListProps } from '../../components/helpers/ResidenceList';
 import SearchBar from '../../components/searchBar/SearchBar';
@@ -41,12 +41,10 @@ const ResidenceForSale = () => {
             <div className="hidden h-full w-[500px] items-start justify-start pt-14 md:flex">
               <SearchFormResidence />
             </div>
-
-            <div className="flex flex-col justify-start items-start my-10 w-full p-2">
-              <h1 className="pl-4 pb-4 text-4xl font-semibold">
+            <div className="my-10 flex w-full flex-col items-start justify-start p-2">
+              <h1 className="pb-4 pl-4 text-4xl font-semibold">
                 Residence for sale
               </h1>
-
               <div className="w-full">
                 {searchResult.map((item) => (
                   <div key={item.id}>

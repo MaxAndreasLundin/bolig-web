@@ -31,7 +31,7 @@ const CityCard = ({ onCity }: CityProps) => {
               query: { location: city.name },
             }}
           >
-            <div className="absolute inset-0 flex h-full flex-col justify-end rounded p-4 font-semibold tracking-wider cursor-pointer">
+            <div className="absolute inset-0 flex h-full cursor-pointer flex-col justify-end rounded p-4 font-semibold tracking-wider">
               <p className="text-white_bolig">{city.name}</p>
             </div>
           </Link>

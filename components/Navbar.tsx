@@ -24,15 +24,13 @@ const Navbar = () => {
     }
   }, [router]);
 
-    return (
+  return (
     <>
       <header className="sticky top-0 z-50 my-2 grid w-full max-w-[1400px] grid-cols-4 px-2 sm:p-2">
         {/*left*/}
         <div className="relative flex items-center">
           <Link href={'/'} className="flex items-center justify-center gap-1">
-            <h1 className="text-secondary pl-2 text-3xl font-bold">
-              Bolig
-            </h1>
+            <h1 className="pl-2 text-3xl font-bold text-secondary">Bolig</h1>
             <GoHome className="text-3xl" />
           </Link>
         </div>
@@ -65,12 +63,15 @@ const Navbar = () => {
 
         {/*right*/}
         <div className="flex items-center justify-end gap-2 pr-2">
-          <div className="text-stone-800 hover:bg-sky-100 flex items-center gap-1 rounded-full border-2 bg-secondary py-1 px-3">
+          <div className="text-stone-800 hover:bg-sky-100 flex items-center gap-1 rounded-full border-2 bg-secondary px-3 py-1">
             <div className="hidden md:flex">
               <GetListOfAllResidence />
             </div>
-            <div className="rounded-full py-1 px-2 md:px-1 ">
-              <FaUser onClick={userIconClick} className="h-6 text-white_bolig hover:scale-105 cursor-pointer" />
+            <div className="rounded-full px-2 py-1 md:px-1 ">
+              <FaUser
+                onClick={userIconClick}
+                className="h-6 cursor-pointer text-white_bolig hover:scale-105"
+              />
             </div>
             <div
               className="block cursor-pointer md:hidden"
@@ -101,7 +102,7 @@ const Navbar = () => {
           <li className="link-mobile">Search Broker</li>
           <li className="link-mobile">News</li>
           <li className="link-mobile border-none">Contact</li>
-          <li className='bg-primary w-full text-center py-2 rounded-xl'>
+          <li className="w-full rounded-xl bg-primary py-2 text-center">
             <GetListOfAllResidence />
           </li>
         </ul>

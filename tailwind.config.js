@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
       primary: '#3c3e3b',
@@ -11,9 +11,8 @@ module.exports = {
       secondary_hover: '#3c3f47',
       third_hover: '#A57D52',
       white_bolig_hover: '#E0E0E0',
-
     },
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require('@tailwindcss/forms')],
 };

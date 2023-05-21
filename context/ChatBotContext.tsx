@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, ReactNode, useState } from 'react';
 
 interface ChatContextType {
   isLoggedIn: boolean;
@@ -16,7 +16,9 @@ export const ChatContext = createContext<ChatContextType>({
   setIsMinimized: () => {},
 });
 
-export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const ChatProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
 
@@ -28,4 +30,3 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     </ChatContext.Provider>
   );
 };
-

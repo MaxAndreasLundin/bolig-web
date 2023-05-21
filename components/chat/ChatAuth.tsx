@@ -59,10 +59,19 @@ const ChatAuth: React.FC<FormChatAuthProps> = ({ isLoginForm, onLogin }) => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="max-w-fit text-white_bolig rounded-xl p-10">
+    <form
+      onSubmit={onSubmit}
+      className="max-w-fit rounded-xl p-10 text-white_bolig"
+    >
       <div className="mb-4 flex justify-center gap-4">
-        <h2 className="text-2xl font-bold">{isLoginForm ? 'Login' : 'Register'}</h2>
-        {isLoginForm ? <FaUser className="text-3xl" /> : <FaUserEdit className="text-3xl" />}
+        <h2 className="text-2xl font-bold">
+          {isLoginForm ? 'Login' : 'Register'}
+        </h2>
+        {isLoginForm ? (
+          <FaUser className="text-3xl" />
+        ) : (
+          <FaUserEdit className="text-3xl" />
+        )}
       </div>
       {!isLoginForm && (
         <div className="mb-4 flex flex-col">
@@ -72,7 +81,7 @@ const ChatAuth: React.FC<FormChatAuthProps> = ({ isLoginForm, onLogin }) => {
             id="name"
             value={input.name}
             onChange={handleChange}
-            className="text-secondary mt-2 rounded-xl"
+            className="mt-2 rounded-xl text-secondary"
           />
         </div>
       )}
@@ -83,7 +92,7 @@ const ChatAuth: React.FC<FormChatAuthProps> = ({ isLoginForm, onLogin }) => {
           id="email"
           value={input.email}
           onChange={handleChange}
-          className="text-secondary mt-2 rounded-xl"
+          className="mt-2 rounded-xl text-secondary"
         />
       </div>
       <div className="mb-2 flex flex-col">
@@ -93,7 +102,7 @@ const ChatAuth: React.FC<FormChatAuthProps> = ({ isLoginForm, onLogin }) => {
           id="password"
           value={input.password}
           onChange={handleChange}
-          className="text-secondary mt-2 rounded-xl"
+          className="mt-2 rounded-xl text-secondary"
         />
       </div>
       <div className="flex items-center justify-center">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
-import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
+import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';
 
 type LoginDataProps = {

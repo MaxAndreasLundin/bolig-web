@@ -39,7 +39,7 @@ const SearchFormResidence = () => {
 
   const { setSearchResult } = useSearch(); // at the beginning of your SearchFormResidence function
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,13 +77,12 @@ const SearchFormResidence = () => {
 
     if (result && result.length > 0) {
       setSearchResult(result); // using the setSearchResult from context here
-      router.push('/residenceForSale')
+      router.push('/residenceForSale');
       console.log('result', result);
     } else {
       alert('Your search could not be found...');
     }
   };
-
 
   return (
     <form

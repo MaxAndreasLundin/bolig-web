@@ -21,15 +21,15 @@ export default function RootLayout({ children }: LayoutProps) {
     <ChatProvider>
       <SearchProvider>
         <html lang="en">
-        <head>
-          <title>Bolig</title>
-        </head>
-        <body className={raleway.className}>
-        <Navbar />
-        {children}
-        <Footer />
-        <ChatBotWindow />
-        </body>
+          <head>
+            <title>Bolig</title>
+          </head>
+          <body className={raleway.className}>
+            <Navbar />
+            {children}
+            <Footer />
+            <ChatBotWindow />
+          </body>
         </html>
       </SearchProvider>
     </ChatProvider>

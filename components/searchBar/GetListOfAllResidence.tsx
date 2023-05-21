@@ -7,12 +7,15 @@ const GetListOfAllResidence = () => {
 
   const FetchResidence = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_NEST_BACKEND}/estates/category`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      });
+      );
       const result = await response.json();
       console.log('1', result);
 
