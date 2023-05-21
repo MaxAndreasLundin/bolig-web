@@ -1,30 +1,17 @@
 'use client';
 
-
 import { useSearch } from '../context/SearchContext';
-import { useState } from 'react';
 import SearchBar from '../components/searchBar/SearchBar';
 import CityCard from '../components/card/CityCard';
 import './globals.css';
-import { fetchData } from './utils/api';
-import { SearchDataProps } from './types/searchData';
+import { fetchData } from '../utils/api';
+import { SearchDataProps } from '../types/searchData';
 import NewestDeals from '../components/newestDeals/NewestDeals';
 import BuyersGuide from '../components/buyersGuide/BuyersGuide';
 import { GoHome } from 'react-icons/go';
 
 export default function Home() {
   const { setSearchResult } = useSearch();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 8;
-  const imagesToShow = 4;
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? 0 : prev - 1));
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => prev + 1);
-  };
 
   const selectCity = async (location: SearchDataProps) => {
     console.log('New Search', location);

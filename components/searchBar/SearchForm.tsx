@@ -4,7 +4,7 @@ import { GoSearch } from 'react-icons/go';
 import { selectPrice } from './searchFormElement/SelectPrice';
 import { selectNumbOfRooms } from './searchFormElement/SelectNumbOfRooms';
 import { livingArea } from './searchFormElement/LivingArea';
-import { SearchDataProps } from '../../app/types/searchData';
+import { SearchDataProps } from '../../types/searchData';
 
 interface SearchFormProps {
   onSearchForm: (newSearch: SearchDataProps) => void;

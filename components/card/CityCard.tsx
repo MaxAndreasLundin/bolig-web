@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ListOfCities } from '../helpers/ListOfCities';
-import { SearchDataProps } from '../../app/types/searchData';
+import { SearchDataProps } from '../../types/searchData';
 
 interface CityProps {
   onCity: (location: SearchDataProps) => void;

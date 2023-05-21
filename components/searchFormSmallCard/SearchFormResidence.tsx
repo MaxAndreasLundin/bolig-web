@@ -4,8 +4,8 @@ import { selectPrice } from '../searchBar/searchFormElement/SelectPrice';
 import { selectNumbOfRooms } from '../searchBar/searchFormElement/SelectNumbOfRooms';
 import { livingArea } from '../searchBar/searchFormElement/LivingArea';
 import TypeOfResidence from '../searchBar/searchFormElement/TypeOfResidence';
-import { fetchData } from '../../app/utils/api';
-import { SearchDataProps } from '../../app/types/searchData';
+import { fetchData } from '../../utils/api';
+import { SearchDataProps } from '../../types/searchData';
 import Image from 'next/image';
 
 const SearchFormResidence = () => {
