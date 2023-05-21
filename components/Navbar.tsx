@@ -6,9 +6,12 @@ import React, { useState } from 'react';
 
 import Link from 'next/link';
 import GetListOfAllResidence from './searchBar/GetListOfAllResidence';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const [click, setClick] = useState<boolean>(false);
+
+  const router = useRouter();
 
   const handleClick = () => {
     setClick(!click);
@@ -17,9 +20,9 @@ const Navbar = () => {
   const userIconClick = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      window.location.href = '/userDashboard';
+      router.push('/userDashboard');
     } else {
-      window.location.href = '/login';
+      router.push('/login');
     }
   }
 
