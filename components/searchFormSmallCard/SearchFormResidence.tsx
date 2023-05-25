@@ -132,7 +132,7 @@ const SearchFormResidence = () => {
         </select>
 
         <div className="flex flex-col">
-          <p className="mb-2 pb-2 pt-4 font-semibold">Living Area</p>
+          <p className="mb-2 pb-2 pt-4 font-semibold">Living Area, m<sup>2</sup></p>
           <select
             onChange={handleLivingArea}
             className="mb-2 cursor-pointer rounded-md border-2 border-primary"
