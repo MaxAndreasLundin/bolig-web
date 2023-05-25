@@ -48,8 +48,6 @@ export default function Home() {
             </p>
             <CombinedSearchComponent />
           </div>
-
-          {/* <GetListOfAllResidence />  */}
         </div>
       </div>
 
