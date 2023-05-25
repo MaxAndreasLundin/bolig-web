@@ -34,13 +34,13 @@ const NewestDeals = () => {
   }, []);
 
   return (
-    <div className="grid w-full max-w-[1200px] grid-cols-[50px_auto_auto_50px] bg-[#EDECE9] px-6 py-2 shadow-sm md:grid-cols-[50px_auto_auto_50px] lg:rounded-xl">
-      <div className="flex items-center justify-center">
+    <div className="grid w-full max-w-[1200px] grid-cols-[auto_auto] bg-[#EDECE9] lg:px-6 py-2 shadow-sm md:grid-cols-[50px_auto_auto_50px] lg:rounded-xl place-items-center mx-2">
+      <div className="row-start-2 md:row-start-1 flex items-center justify-center">
         <button
           onClick={handlePrevClick}
           className="rounded-full bg-third p-2 text-white_bolig hover:scale-105 hover:bg-third_hover"
         >
-          <MdOutlineArrowBackIos className="text-3xl" />
+          <MdOutlineArrowBackIos className="text-2xl md:text-3xl" />
         </button>
       </div>
       <div className="col-span-2 flex min-h-[425px] w-full justify-center gap-4 p-4">
@@ -73,12 +73,12 @@ const NewestDeals = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="row-start-2 md:row-start-1 md:col-start-4 flex items-center justify-center">
         <button
           onClick={handleNextClick}
           className="rounded-full bg-third p-2 text-white_bolig hover:scale-105 hover:bg-third_hover"
         >
-          <MdOutlineArrowForwardIos className="text-3xl" />
+          <MdOutlineArrowForwardIos className="text-2xl md:text-3xl" />
         </button>
       </div>
     </div>
