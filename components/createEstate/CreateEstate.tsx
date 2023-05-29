@@ -164,7 +164,7 @@ const CreateEstate = () => {
         />
 
         <label htmlFor="area" className="mb-2">
-          Area
+          Area m<sup>2</sup>
         </label>
         <input
           type="number"
