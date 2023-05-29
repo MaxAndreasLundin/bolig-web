@@ -76,7 +76,7 @@ export default function Home() {
         {/*Explore your favorite city*/}
         <div className="flex h-full w-full flex-col items-center bg-white_bolig px-10 pb-10 xl:rounded-2xl">
           <h3 className="pb-14 pt-4 text-3xl font-bold text-primary sm:pb-10">
-            Explore Your favorit City
+            Explore Your favorite City
           </h3>
           <div className="grid h-full w-full grid-cols-1 gap-2 rounded-xl bg-[#EDECE9] p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <CityCard onCity={selectCity} />
