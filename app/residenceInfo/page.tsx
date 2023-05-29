@@ -62,7 +62,7 @@ const ResidenceInfo = () => {
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <BiArea />
-                  <p>{residence.area} Sqft</p>
+                  <p>{residence.area} m<sup>2</sup></p>
                 </div>
               </div>
 
