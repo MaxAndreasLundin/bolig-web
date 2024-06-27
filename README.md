@@ -1,3 +1,6 @@
+Frontend project for our Bolig real estate web page. This was part of the graduation project.
+It's connected to two backends. One in TS using NestJs and one in Java using Spring Boot.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped
 with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
