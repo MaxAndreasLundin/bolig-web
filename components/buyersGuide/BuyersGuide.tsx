@@ -5,7 +5,7 @@ const BuyersGuide = () => {
     <>
       <div>
         <h2 className="pb-8 text-center text-3xl font-bold tracking-wide">
-          Buyers Guide to Purcheasing Real Estate
+          Buyers Guide to Purchasing Real Estate
         </h2>
         <p className="text-xl">
           Buying a home is a big decision, but we are here to help. Our
@@ -18,7 +18,7 @@ const BuyersGuide = () => {
         <div className="">
           <h3 className="pb-2 text-center text-xl font-semibold">Financing</h3>
           <p>
-            Explore your financing options and get preapproved before you start
+            Explore your financing options and get approved before you start
             house hunting.
           </p>
         </div>

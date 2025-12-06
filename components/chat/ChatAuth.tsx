@@ -39,7 +39,6 @@ const ChatAuth: React.FC<FormChatAuthProps> = ({ isLoginForm, onLogin }) => {
       if (response.ok) {
         const result = await response.json();
         const token = result.token;
-        alert(`Login successful: ${token}`);
 
         localStorage.setItem('java_token', token);
         onLogin();
